@@ -7,4 +7,7 @@ import java.util.Map;
 
 public class Ambiente {
     private Map<Object, Point> robots = new HashMap<>();
+
+    public Ambiente() {
+    }
 }
