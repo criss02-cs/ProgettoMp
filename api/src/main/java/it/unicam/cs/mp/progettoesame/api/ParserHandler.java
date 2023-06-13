@@ -1,5 +1,6 @@
 package it.unicam.cs.mp.progettoesame.api;
 
+import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserHandler;
@@ -63,8 +64,8 @@ public class ParserHandler implements FollowMeParserHandler {
         double x = args[0];
         double y = args[1];
         double speed = args[2];
-        if(checker.isBetween(x, 1.0, -1.0)
-                && checker.isBetween(x, 1.0, -1.0)){
+        if(checker.isBetween(x, -1.0, 1.0)
+                && checker.isBetween(x, -1.0, 1.0)){
             moveRobots(x, y, speed);
         }
     }
@@ -74,6 +75,7 @@ public class ParserHandler implements FollowMeParserHandler {
             entry.getValue().setX(entry.getValue().getX() + x);
             entry.getValue().setY(entry.getValue().getY() + y);
             entry.getKey().setMoving(true);
+            entry.getKey().setDirection(new Direction(x, y));
         }
     }
 

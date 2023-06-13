@@ -14,7 +14,7 @@ public class Direction extends Point {
     }
 
     private static double validateParameters(double param) {
-        if(!NumericRangeChecker.DEFAULT_CHECKER.isBetween(param, 1.0,-1.0)) {
+        if(!NumericRangeChecker.DEFAULT_CHECKER.isBetween(param, -1.0,1.0)) {
             throw new IllegalArgumentException("Il valore deve essere compreso tra -1 e 1");
         }
         return param;
