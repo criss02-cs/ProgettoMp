@@ -1,8 +1,15 @@
 package it.unicam.cs.mp.progettoesame.api.models;
 
+/**
+ * Classe che va a rappresentare una coordinata nello spazio
+ */
 public class Point {
     private double x;
     private double y;
+
+    public Point() {
+        this(0,0);
+    }
 
     public Point(double x, double y) {
         this.x = x;

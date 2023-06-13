@@ -3,6 +3,7 @@ package it.unicam.cs.mp.progettoesame.api;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserHandler;
+import it.unicam.cs.mp.progettoesame.utilities.NumericRangeChecker;
 import it.unicam.cs.mp.progettoesame.utilities.RandomGenerator;
 
 import java.util.Map;
@@ -10,18 +11,21 @@ import java.util.Map;
 public class ParserHandler implements FollowMeParserHandler {
     private boolean isParsing;
     private Ambiente environment;
-
     private RandomGenerator<Double> random;
+    private NumericRangeChecker<Double> checker;
 
     public ParserHandler() {
         this.isParsing = false;
         this.environment = new Ambiente();
         this.random = new RandomGenerator<>();
+        this.checker = NumericRangeChecker.DEFAULT_CHECKER;
     }
 
     public ParserHandler(Ambiente environment) {
         this.isParsing = false;
         this.environment = environment;
+        this.checker = NumericRangeChecker.DEFAULT_CHECKER;
+        this.random = new RandomGenerator<>();
     }
 
     public Ambiente getEnvironment() {
@@ -59,7 +63,8 @@ public class ParserHandler implements FollowMeParserHandler {
         double x = args[0];
         double y = args[1];
         double speed = args[2];
-        if(isBetween(x, 1, -1) && isBetween(y, 1, -1)){
+        if(checker.isBetween(x, 1.0, -1.0)
+                && checker.isBetween(x, 1.0, -1.0)){
             moveRobots(x, y, speed);
         }
     }
@@ -70,10 +75,6 @@ public class ParserHandler implements FollowMeParserHandler {
             entry.getValue().setY(entry.getValue().getY() + y);
             entry.getKey().setMoving(true);
         }
-    }
-
-    private boolean isBetween(double value, double maxValue, double minValue){
-        return value >= minValue && value <= maxValue;
     }
 
     @Override
