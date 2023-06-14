@@ -9,12 +9,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class Ambiente implements IEnvironment {
-    private Map<Robot, Point> robots;
+public class Environment implements IEnvironment {
+    private List<Robot> robots;
     private List<ShapeData> shapes;
 
-    public Ambiente() {
-        robots = new HashMap<>();
+    public Environment() {
+        robots = new LinkedList<>();
         shapes = new LinkedList<>();
     }
 
@@ -26,11 +26,11 @@ public class Ambiente implements IEnvironment {
         this.shapes = data;
     }
 
-    public Map<Robot, Point> getRobots() {
+    public List<Robot> getRobots() {
         return robots;
     }
 
-    public void setRobots(Map<Robot, Point> robots) {
+    public void setRobots(List<Robot> robots) {
         this.robots = robots;
     }
 }

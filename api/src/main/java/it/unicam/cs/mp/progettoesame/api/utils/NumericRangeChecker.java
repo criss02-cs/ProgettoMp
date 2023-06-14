@@ -1,4 +1,4 @@
-package it.unicam.cs.mp.progettoesame.utilities;
+package it.unicam.cs.mp.progettoesame.api.utils;
 
 /**
  * Interfaccia funzionale per controllare se

@@ -1,6 +1,6 @@
 package it.unicam.cs.mp.progettoesame.api.models;
 
-import it.unicam.cs.mp.progettoesame.utilities.NumericRangeChecker;
+import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
 
 public class Direction extends Point {
 

@@ -9,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-public class AmbienteTest {
+public class EnvironmentTest {
     private FollowMeParserHandler handler = new ParserHandler();
     @Test void testLoadAmbiente() throws FollowMeParserException {
         FollowMeParser parser = new FollowMeParser(handler);
         String lines = "stop CIRCLE 10 5 2";
         List<ShapeData> data = parser.parseEnvironment(lines);
-        Ambiente a = new Ambiente();
+        Environment a = new Environment();
         a.loadEnvironment(data);
         assertEquals(data, a.getShapes());
     }

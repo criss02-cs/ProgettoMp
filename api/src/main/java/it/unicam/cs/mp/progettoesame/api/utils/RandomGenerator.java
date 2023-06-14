@@ -1,4 +1,4 @@
-package it.unicam.cs.mp.progettoesame.utilities;
+package it.unicam.cs.mp.progettoesame.api.utils;
 
 import java.util.Comparator;
 import java.util.Random;

@@ -1,5 +1,6 @@
-package it.unicam.cs.mp.progettoesame.utilities;
+package it.unicam.cs.mp.progettoesame.api;
 
+import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

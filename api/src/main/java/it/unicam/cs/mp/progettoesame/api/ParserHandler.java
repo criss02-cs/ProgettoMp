@@ -1,39 +1,40 @@
 package it.unicam.cs.mp.progettoesame.api;
 
 import it.unicam.cs.mp.progettoesame.api.models.Direction;
-import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
+import it.unicam.cs.mp.progettoesame.api.utils.CoordinatesSpeedCalculator;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserHandler;
-import it.unicam.cs.mp.progettoesame.utilities.NumericRangeChecker;
-import it.unicam.cs.mp.progettoesame.utilities.RandomGenerator;
+import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
+import it.unicam.cs.mp.progettoesame.api.utils.RandomGenerator;
 
-import java.util.Map;
 
 public class ParserHandler implements FollowMeParserHandler {
     private boolean isParsing;
-    private Ambiente environment;
+    private Environment environment;
     private RandomGenerator<Double> random;
     private NumericRangeChecker<Double> checker;
+    private CoordinatesSpeedCalculator<Double> coordinatesSpeedCalculator = (value, speed, direction)
+            -> (speed * direction) + value;
 
     public ParserHandler() {
         this.isParsing = false;
-        this.environment = new Ambiente();
+        this.environment = new Environment();
         this.random = new RandomGenerator<>();
         this.checker = NumericRangeChecker.DEFAULT_CHECKER;
     }
 
-    public ParserHandler(Ambiente environment) {
+    public ParserHandler(Environment environment) {
         this.isParsing = false;
         this.environment = environment;
         this.checker = NumericRangeChecker.DEFAULT_CHECKER;
         this.random = new RandomGenerator<>();
     }
 
-    public Ambiente getEnvironment() {
+    public Environment getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(Ambiente environment) {
+    public void setEnvironment(Environment environment) {
         this.environment = environment;
     }
 
@@ -65,17 +66,19 @@ public class ParserHandler implements FollowMeParserHandler {
         double y = args[1];
         double speed = args[2];
         if(checker.isBetween(x, -1.0, 1.0)
-                && checker.isBetween(x, -1.0, 1.0)){
+                && checker.isBetween(y, -1.0, 1.0)){
             moveRobots(x, y, speed);
         }
     }
 
     private void moveRobots(double x, double y, double speed){
-        for(Map.Entry<Robot, Point> entry : this.environment.getRobots().entrySet()) {
-            entry.getValue().setX(entry.getValue().getX() + x);
-            entry.getValue().setY(entry.getValue().getY() + y);
-            entry.getKey().setMoving(true);
-            entry.getKey().setDirection(new Direction(x, y));
+        for(Robot robot : this.environment.getRobots()) {
+            robot.getPosition().setX(coordinatesSpeedCalculator
+                    .calculateCoordinates(robot.getPosition().getX(), speed, x));
+            robot.getPosition().setY(coordinatesSpeedCalculator
+                    .calculateCoordinates(robot.getPosition().getY(), speed, y));
+            robot.setMoving(true);
+            robot.setDirection(new Direction(x, y));
         }
     }
 
@@ -103,15 +106,14 @@ public class ParserHandler implements FollowMeParserHandler {
 
     @Override
     public void stopCommand() {
-        for(Map.Entry<Robot, Point> entry : this.environment.getRobots().entrySet()) {
-            entry.getValue().setX(entry.getValue().getX());
-            entry.getValue().setY(entry.getValue().getY());
-            entry.getKey().setMoving(false);
+        for(Robot robot : this.environment.getRobots()) {
+            robot.setDirection(null);
+            robot.setMoving(false);
         }
     }
 
     @Override
-    public void waitCommand(int s) {
+    public void continueCommand(int s) {
 
     }
 
