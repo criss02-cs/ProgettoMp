@@ -20,4 +20,20 @@ public class Direction extends Point {
         return param;
     }
 
+    @Override
+    public void setX(double x) {
+        if(!NumericRangeChecker.DEFAULT_CHECKER.isBetween(x, -1.0,1.0)) {
+            throw new IllegalArgumentException("Il valore deve essere compreso tra -1 e 1");
+        }
+        super.setX(x);
+    }
+
+    @Override
+    public void setY(double y) {
+        if(!NumericRangeChecker.DEFAULT_CHECKER.isBetween(y, -1.0,1.0)) {
+            throw new IllegalArgumentException("Il valore deve essere compreso tra -1 e 1");
+        }
+        super.setY(y);
+    }
+
 }

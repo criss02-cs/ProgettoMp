@@ -38,4 +38,5 @@ public class Robot {
     public void setPosition(Point position) {
         this.position = position;
     }
+
 }

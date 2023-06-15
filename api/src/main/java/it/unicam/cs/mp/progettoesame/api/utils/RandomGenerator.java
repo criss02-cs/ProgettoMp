@@ -1,7 +1,7 @@
 package it.unicam.cs.mp.progettoesame.api.utils;
 
-import java.util.Comparator;
 import java.util.Random;
+import java.util.function.Function;
 
 /**
  * Classe di utilità che permette di generare un numero casuale
@@ -65,7 +65,7 @@ public class RandomGenerator<T extends Number> {
      * @return ritorna lo stesso valore però con il tipo originale
      */
     private T convertToType(double randomValue, T min) {
-        if (min instanceof Integer) {
+        /*if (min instanceof Integer) {
             return (T) Integer.valueOf((int) randomValue);
         } else if (min instanceof Long) {
             return (T) Long.valueOf((long) randomValue);
@@ -79,6 +79,7 @@ public class RandomGenerator<T extends Number> {
             return (T) Byte.valueOf((byte) randomValue);
         } else {
             throw new IllegalArgumentException("Tipo di dato non supportato");
-        }
+        }*/
+        return null;
     }
 }

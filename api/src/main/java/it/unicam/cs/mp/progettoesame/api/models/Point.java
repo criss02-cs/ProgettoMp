@@ -8,7 +8,7 @@ public class Point {
     private double y;
 
     public Point() {
-        this(0,0);
+        this(0, 0);
     }
 
     public Point(double x, double y) {
@@ -34,9 +34,14 @@ public class Point {
 
     @Override
     public boolean equals(Object obj) {
-        if(this == obj) return true;
-        if(obj == null || getClass() != obj.getClass()) return false;
-        Point point = (Point)obj;
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Point point = (Point) obj;
         return x == point.x && y == point.y;
+    }
+
+    @Override
+    public String toString() {
+        return "{ x: " + this.x + "; y: " + this.y + "}";
     }
 }
