@@ -6,31 +6,22 @@ import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.CoordinatesSpeedCalculator;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserHandler;
 import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
-import it.unicam.cs.mp.progettoesame.api.utils.RandomGenerator;
 
 import java.util.Random;
 
 
 public class ParserHandler implements FollowMeParserHandler {
-    private boolean isParsing;
     private IEnvironment environment;
-    private RandomGenerator<Double> random;
     private NumericRangeChecker<Double> checker;
     private CoordinatesSpeedCalculator<Double> coordinatesSpeedCalculator = (value, speed, direction)
             -> (speed * direction) + value;
 
     public ParserHandler() {
-        this.isParsing = false;
         this.environment = new Environment();
-        this.random = new RandomGenerator<>();
-        this.checker = NumericRangeChecker.DEFAULT_CHECKER;
     }
 
-    public ParserHandler(Environment environment) {
-        this.isParsing = false;
+    public ParserHandler(IEnvironment environment) {
         this.environment = environment;
-        this.checker = NumericRangeChecker.DEFAULT_CHECKER;
-        this.random = new RandomGenerator<>();
     }
 
     public IEnvironment getEnvironment() {
@@ -41,26 +32,14 @@ public class ParserHandler implements FollowMeParserHandler {
         this.environment = environment;
     }
 
-    /**
-     * Flag per mostrare se si sta effettuando il parsing di un programma
-     * @return true se il parsing è in corso, false se non lo è
-     */
-    public boolean isParsing() {
-        return isParsing;
-    }
-
-    public void setParsing(boolean parsing) {
-        isParsing = parsing;
-    }
-
     @Override
     public void parsingStarted() {
-        isParsing = true;
+        this.checker = NumericRangeChecker.DEFAULT_CHECKER;
     }
 
     @Override
     public void parsingDone() {
-        isParsing = false;
+        this.checker = null;
     }
 
     @Override
@@ -80,14 +59,10 @@ public class ParserHandler implements FollowMeParserHandler {
             double x = new Random().nextDouble(args[1] - args[0] + 1) + args[0];
             double y = new Random().nextDouble(args[3] - args[2] + 1) + args[2];
             Point destination = new Point(x, y);
-            System.out.println("Destination " + destination);
+            System.out.println("Destination: " + destination);
             Direction dir = this.calculateDirection(robot.getPosition(), destination);
             while(Math.abs(x - robot.getPosition().getX()) > 1 && Math.abs(y - robot.getPosition().getY()) > 1)
-            {
-                System.out.println("X" + Math.abs(x - robot.getPosition().getX()) + " Y" + Math.abs(y - robot.getPosition().getY()));
                 this.moveRobot(robot, args[4], dir, true);
-            }
-            System.out.println("X" + Math.abs(x - robot.getPosition().getX()) + " Y" + Math.abs(y - robot.getPosition().getY()));
             robot.setMoving(false);
             //robot.setPosition(destination);
         }
@@ -195,13 +170,13 @@ public class ParserHandler implements FollowMeParserHandler {
      * @param isMoving flag per vedere se il robot si muove oppure
      */
     private void moveRobot(Robot robot, double speed, Direction coordinates, boolean isMoving) {
-        System.out.println("Robot move " + robot.getPosition());
         robot.getPosition().setX(coordinatesSpeedCalculator
                 .calculateCoordinates(robot.getPosition().getX(), speed, coordinates.getX()));
         robot.getPosition().setY(coordinatesSpeedCalculator
                 .calculateCoordinates(robot.getPosition().getY(), speed, coordinates.getY()));
         robot.setMoving(isMoving);
         robot.setDirection(coordinates);
+        robot.setSpeed(speed);
     }
 
 }

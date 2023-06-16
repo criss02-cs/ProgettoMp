@@ -4,6 +4,7 @@ public class Robot {
     private boolean isMoving;
     private Direction direction;
     private Point position;
+    private double speed;
 
     public Robot() {
         this.direction = new Direction();
@@ -39,4 +40,11 @@ public class Robot {
         this.position = position;
     }
 
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
 }
