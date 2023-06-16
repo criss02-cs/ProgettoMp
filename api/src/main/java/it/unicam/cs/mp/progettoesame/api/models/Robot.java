@@ -1,35 +1,24 @@
 package it.unicam.cs.mp.progettoesame.api.models;
 
+import it.unicam.cs.mp.progettoesame.api.utils.CoordinatesSpeedCalculator;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Robot {
-    private boolean isMoving;
     private Direction direction;
     private Point position;
     private double speed;
-
-    public Robot() {
-        this.direction = new Direction();
-        this.position = new Point();
-    }
-
+    private final List<String> labels;
+    private final CoordinatesSpeedCalculator<Double> coordinatesSpeedCalculator = (value, speed, direction)
+            -> (speed * direction) + value;
     public Robot(Point position) {
-        this();
         this.position = position;
+        this.direction = new Direction();
+        this.labels = new ArrayList<>();
     }
-
-    public boolean isMoving() {
-        return isMoving;
-    }
-
-    public void setMoving(boolean moving) {
-        isMoving = moving;
-    }
-
-    public Direction getDirection() {
-        return direction;
-    }
-
-    public void setDirection(Direction direction) {
-        this.direction = direction;
+    public Robot() {
+        this(new Point());
     }
 
     public Point getPosition() {
@@ -40,11 +29,23 @@ public class Robot {
         this.position = position;
     }
 
-    public double getSpeed() {
-        return speed;
+    public List<String> getLabels() {
+        return labels;
+    }
+    public void addNewLabel(String label) {
+        this.labels.add(label);
     }
 
-    public void setSpeed(double speed) {
+    public void move(double speed, Direction dir) {
+        this.direction = dir;
         this.speed = speed;
+        this.position.setX(this.coordinatesSpeedCalculator
+                .calculateCoordinates(this.position.getX(), speed, dir.getX()));
+        this.position.setY(this.coordinatesSpeedCalculator
+                .calculateCoordinates(this.position.getY(), speed, dir.getY()));
+    }
+
+    public void continueMove() {
+        this.move(this.speed, this.direction);
     }
 }

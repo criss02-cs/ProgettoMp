@@ -30,7 +30,7 @@ public class Environment implements IEnvironment {
         return robots;
     }
 
-    public void setRobots(List<Robot> robots) {
+    public void loadRobots(List<Robot> robots) {
         this.robots = robots;
     }
 }

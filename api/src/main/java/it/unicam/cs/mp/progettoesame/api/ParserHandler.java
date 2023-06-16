@@ -3,29 +3,23 @@ package it.unicam.cs.mp.progettoesame.api;
 import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
-import it.unicam.cs.mp.progettoesame.api.utils.CoordinatesSpeedCalculator;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserHandler;
 import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
 
+import java.util.List;
 import java.util.Random;
 
 
 public class ParserHandler implements FollowMeParserHandler {
     private IEnvironment environment;
     private NumericRangeChecker<Double> checker;
-    private CoordinatesSpeedCalculator<Double> coordinatesSpeedCalculator = (value, speed, direction)
-            -> (speed * direction) + value;
-
-    public ParserHandler() {
-        this.environment = new Environment();
-    }
 
     public ParserHandler(IEnvironment environment) {
         this.environment = environment;
     }
 
-    public IEnvironment getEnvironment() {
-        return environment;
+    public ParserHandler() {
+        this(new Environment());
     }
 
     public void setEnvironment(IEnvironment environment) {
@@ -44,26 +38,28 @@ public class ParserHandler implements FollowMeParserHandler {
 
     @Override
     public void moveCommand(double[] args) {
-        double x = args[0];
-        double y = args[1];
-        double speed = args[2];
-        if(checker.isBetween(x, -1.0, 1.0)
-                && checker.isBetween(y, -1.0, 1.0)){
-            moveRobots(x, y, speed);
+        if (isValidDirection(args[0], args[1])) {
+            this.environment.getRobots()
+                    .forEach(robot -> robot.move(args[2], new Direction(args[0], args[1])));
         }
+    }
+
+    private boolean isValidDirection(double x, double y) {
+        return checker.isBetween(x, -1.0, 1.0)
+                && checker.isBetween(y, -1.0, 1.0);
     }
 
     @Override
     public void moveRandomCommand(double[] args) {
-        for(Robot robot : this.environment.getRobots()){
+        for (Robot robot : this.environment.getRobots()) {
             double x = new Random().nextDouble(args[1] - args[0] + 1) + args[0];
             double y = new Random().nextDouble(args[3] - args[2] + 1) + args[2];
             Point destination = new Point(x, y);
             System.out.println("Destination: " + destination);
-            Direction dir = this.calculateDirection(robot.getPosition(), destination);
-            while(Math.abs(x - robot.getPosition().getX()) > 1 && Math.abs(y - robot.getPosition().getY()) > 1)
-                this.moveRobot(robot, args[4], dir, true);
-            robot.setMoving(false);
+            Direction dir = Direction.calculateDirection(robot.getPosition(), destination);
+            while (Math.abs(x - robot.getPosition().getX()) > 1 && Math.abs(y - robot.getPosition().getY()) > 1)
+                robot.move(args[4], dir);
+            robot.move(0, dir);
             //robot.setPosition(destination);
         }
     }
@@ -80,20 +76,26 @@ public class ParserHandler implements FollowMeParserHandler {
 
     @Override
     public void followCommand(String label, double[] args) {
-
+        /*List<Robot> robotsWithLabel = this.environment.getRobots().stream().filter(x -> x.getLabels().contains(label)).toList();
+        double dist = args[1];
+        if (robotsWithLabel.size() > 0) {
+            double averageX = robotsWithLabel.stream().mapToDouble(x -> x.getPosition().getX()).sum()
+                    / robotsWithLabel.stream().mapToDouble(x -> x.getPosition().getX()).count();
+            double averageY = robotsWithLabel.stream().mapToDouble(x -> x.getPosition().getY()).sum()
+                    / robotsWithLabel.stream().mapToDouble(x -> x.getPosition().getY()).count();
+        } else {
+            moveRandomCommand(new double[]{-dist, dist, -dist, dist, args[2]});
+        }*/
     }
 
     @Override
     public void stopCommand() {
-        for(Robot robot : this.environment.getRobots()) {
-            robot.setDirection(null);
-            robot.setMoving(false);
-        }
+        this.environment.getRobots().forEach(robot -> robot.move(0, new Direction(0,0)));
     }
 
     @Override
     public void continueCommand(int s) {
-
+        this.environment.getRobots().forEach(Robot::continueMove);
     }
 
     @Override
@@ -114,69 +116,6 @@ public class ParserHandler implements FollowMeParserHandler {
     @Override
     public void doneCommand() {
 
-    }
-
-    /**
-     * Metodo che calcola la differenza fra la x o la y di una coordinata
-     * @param source coordinata iniziale
-     * @param destination coordinata da raggiungere
-     * @return la differenza fra <code>destination</code> e <code>source</code>
-     */
-    private double findCoordinatesDifference(double source, double destination) {
-        return Math.abs(destination - source);
-    }
-
-    /**
-     * Calcola la distanza effettiva tra i 2 punti
-     * @param difX la distanza delle x
-     * @param difY la distanza delle y
-     * @return la distanza che intercorre tra i 2 punti
-     */
-    private double calculateDistance(double difX, double difY) {
-        return Math.sqrt(Math.pow(difX, 2) + Math.pow(difY, 2));
-    }
-
-    /**
-     * Partendo da <code>source</code> calcola la direzione che subirà il robot
-     * per arrivare a <code>destination</code>
-     * @param source il punto di partenza
-     * @param destination il punto di arrivo
-     * @return la direzione che il robot dovrà seguire
-     */
-    private Direction calculateDirection(Point source, Point destination) {
-        double difX = findCoordinatesDifference(source.getX(), destination.getX());
-        double difY = findCoordinatesDifference(source.getY(), destination.getY());
-        double distance = calculateDistance(difX, difY);
-        return new Direction(difX / distance, difY / distance);
-    }
-
-    /**
-     * Metodo di utility per scorrere tutta la lista dei robot e muoverli
-     * @param x la direzione x verso cui si deve muovere
-     * @param y la direzione y verso cui si deve muovere
-     * @param speed la velocità con cui si deve muovere
-     */
-    private void moveRobots(double x, double y, double speed) {
-        for (Robot robot : this.environment.getRobots()) {
-            this.moveRobot(robot, speed, new Direction(x, y), true);
-        }
-    }
-
-    /**
-     * Metodo che muove effettivamente il robot
-     * @param robot il robot che si deve muovere
-     * @param speed la velocità con cui si deve muovere
-     * @param coordinates la direzione in cui si deve muovere
-     * @param isMoving flag per vedere se il robot si muove oppure
-     */
-    private void moveRobot(Robot robot, double speed, Direction coordinates, boolean isMoving) {
-        robot.getPosition().setX(coordinatesSpeedCalculator
-                .calculateCoordinates(robot.getPosition().getX(), speed, coordinates.getX()));
-        robot.getPosition().setY(coordinatesSpeedCalculator
-                .calculateCoordinates(robot.getPosition().getY(), speed, coordinates.getY()));
-        robot.setMoving(isMoving);
-        robot.setDirection(coordinates);
-        robot.setSpeed(speed);
     }
 
 }
