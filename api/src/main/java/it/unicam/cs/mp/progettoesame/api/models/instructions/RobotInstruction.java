@@ -1,5 +1,6 @@
-package it.unicam.cs.mp.progettoesame.api.models;
+package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
+import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 
 public interface RobotInstruction {
