@@ -16,6 +16,7 @@ public abstract class Shape implements IShape {
     public Shape(Point coordinates) {
         this(coordinates, "");
     }
+
     public Shape(String label) {
         this(new Point(), label);
     }
@@ -27,5 +28,9 @@ public abstract class Shape implements IShape {
     @Override
     public Point getCoordinates() {
         return this.coordinates;
+    }
+
+    public String getLabel() {
+        return this.label;
     }
 }
