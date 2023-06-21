@@ -18,6 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.stage.FileChooser;
@@ -73,6 +74,17 @@ public class RobotSimulationController {
 
             shapesGroup.getChildren().add(circle);
         }*/
+        clipChildren(paneShapes);
+    }
+
+    private void clipChildren(Region region) {
+        final Rectangle clipPane = new Rectangle();
+        region.setClip(clipPane);
+
+        region.layoutBoundsProperty().addListener((ov, oldValue, newValue) -> {
+            clipPane.setWidth(newValue.getWidth());
+            clipPane.setHeight(newValue.getHeight());
+        });
     }
 
     public void onMouseShapesClicked(MouseEvent mouseEvent) {
@@ -169,6 +181,8 @@ public class RobotSimulationController {
             circle.setFill(Color.RED);
             circle.setStroke(Color.BLACK);
             circle.setStrokeWidth(2);
+            circle.setTranslateX(0);
+            circle.setTranslateY(0);
             this.robotCircleMap.put(robot, circle);
             this.shapesGroup.getChildren().add(circle);
         });
@@ -179,22 +193,37 @@ public class RobotSimulationController {
             x.move(50, new Direction(1.0, -1.0));
         });
         robotCircleMap.forEach((robot, circle) -> {
+            System.out.println("New Robot");
             double deltaX = DistanceCalculator.findCoordinatesDifference(circle.getCenterX(), robot.getPosition().getX());
             double deltaY = DistanceCalculator.findCoordinatesDifference(circle.getCenterY(), robot.getPosition().getY());
             TranslateTransition transition = new TranslateTransition(Duration.seconds(1), circle);
             transition.setByX(deltaX); // Sposta il cerchio lungo l'asse X
             transition.setByY(deltaY); // Sposta il cerchio lungo l'asse Y
             transition.setOnFinished(event -> {
-                System.out.println(robot.getPosition());
-                System.out.println("X: " + (circle.getCenterX() + deltaX) + ", Y: " + (circle.getCenterY() + deltaY));
-                System.out.println("X: " + (transition.getByX()) + ", Y: " + (transition.getByY()));
-                /*.setCenterX(circle.getCenterX() + deltaX);
-                circle.setCenterY(circle.getCenterY() + deltaY);*/
-
+                System.out.println("\t-----------------------------");
+                System.out.println("\tRobot position: "+robot.getPosition());
+                System.out.println("\tCircle position: X: " + (circle.getCenterX()) + ", Y: " + (circle.getCenterY()));
+                System.out.println("\tDelta position: X: " + (transition.getByX()) + ", Y: " + (transition.getByY()));
+                System.out.println("\tTranslate position: X: " + (circle.getTranslateX()) + ", Y: " + (circle.getTranslateY()));
+                System.out.println("\t-----------------------------");
+                circle.setCenterX(robot.getPosition().getX());
+                circle.setCenterY(robot.getPosition().getY());
+                /*circle.setTranslateX(0);
+                circle.setTranslateY(0);*/
+                System.out.println("\tCircle position: X: " + (circle.getCenterX()) + ", Y: " + (circle.getCenterY()));
             });
             // Avvia l'animazione
             transition.play();
         });
 
+    }
+
+    public void onReadProgramClicked(MouseEvent mouseEvent) {
+        robotCircleMap.forEach((robot, circle) -> {
+            System.out.println("\t-----------------------------");
+            System.out.println("\tRobot position: "+robot.getPosition());
+            System.out.println("\tCircle position: X: " + (circle.getCenterX()) + ", Y: " + (circle.getCenterY()));
+            System.out.println("\t-----------------------------");
+        });
     }
 }
