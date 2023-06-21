@@ -1,18 +1,21 @@
 package it.unicam.cs.mp.progettoesame.api;
 
+import it.unicam.cs.mp.progettoesame.api.models.IShape;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
+import it.unicam.cs.mp.progettoesame.api.utils.ShapeParser;
+import it.unicam.cs.mp.progettoesame.utilities.FollowMeParser;
+import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserException;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserHandler;
+import it.unicam.cs.mp.progettoesame.utilities.ShapeData;
+
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        ParserHandler handler = new ParserHandler();
-        IEnvironment environment = new Environment();
-        handler.setEnvironment(environment);
-        Robot robot1 = new Robot();
-        robot1.setPosition(new Point(5, 5));
-        environment.getRobots().add(robot1);
-        handler.moveRandomCommand(new double[]{10, 20, 10, 20, 5});
-        System.out.println("Position: " + robot1.getPosition());
+    public static void main(String[] args) throws FollowMeParserException {
+        FollowMeParser parser = new FollowMeParser(null);
+        List<ShapeData> shapeData = parser.parseEnvironment("pippo CIRCLE 5 5 5");
+        ShapeParser shapeParser = new ShapeParser();
+        List<IShape> shapes = shapeData.stream().map(shapeParser::parseFromShapeData).toList();
     }
 }

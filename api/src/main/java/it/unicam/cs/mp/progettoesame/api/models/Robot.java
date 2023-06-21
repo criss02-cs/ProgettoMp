@@ -1,5 +1,6 @@
 package it.unicam.cs.mp.progettoesame.api.models;
 
+import it.unicam.cs.mp.progettoesame.api.Program;
 import it.unicam.cs.mp.progettoesame.api.utils.CoordinatesSpeedCalculator;
 
 import java.util.ArrayList;
@@ -9,14 +10,14 @@ public class Robot {
     private Direction direction;
     private Point position;
     private double speed;
-    private final List<String> labels;
     private String labelToSignal;
+    private Program program;
+    private boolean isProgramTerminated;
     private final CoordinatesSpeedCalculator<Double> coordinatesSpeedCalculator = (value, speed, direction)
             -> (speed * direction) + value;
     public Robot(Point position) {
         this.position = position;
         this.direction = new Direction();
-        this.labels = new ArrayList<>();
         this.labelToSignal = "";
     }
     public Robot() {
@@ -27,15 +28,8 @@ public class Robot {
         return position;
     }
 
-    public void setPosition(Point position) {
-        this.position = position;
-    }
-
-    public List<String> getLabels() {
-        return labels;
-    }
-    public void addNewLabel(String label) {
-        this.labels.add(label);
+    public boolean isProgramTerminated() {
+        return isProgramTerminated;
     }
 
     public void move(double speed, Direction dir) {
@@ -61,5 +55,12 @@ public class Robot {
         if(this.labelToSignal.equalsIgnoreCase(label)) {
             this.labelToSignal = "";
         }
+    }
+    public void loadProgramToExecute(Program program) {
+        this.program = program;
+    }
+
+    public void executeNextInstruction(){
+        this.isProgramTerminated = this.program.executeInstruction(this);
     }
 }

@@ -157,7 +157,7 @@ public class ParserHandler implements FollowMeParserHandler {
     public void doneCommand() {
         int row = this.stack.pop();
         RobotInstruction iterativeInstruction = this.dictionary.get(row);
-        RobotInstruction instruction = new DoneInstruction(row, iterativeInstruction);
+        RobotInstruction instruction = new DoneInstruction(row+1, iterativeInstruction);
         this.program.addInstruction(instruction);
         this.instructionCounter++;
     }
