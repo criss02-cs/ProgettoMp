@@ -17,4 +17,10 @@ public interface IShape {
      * @return le dimensioni della figura
      */
     Tuple<Double, Double> getDimensions();
+
+    /**
+     * Metodo che restituisce la label della figura
+     * @return la label della figura
+     */
+    String getLabel();
 }

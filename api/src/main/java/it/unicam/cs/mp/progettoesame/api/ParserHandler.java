@@ -1,49 +1,84 @@
 package it.unicam.cs.mp.progettoesame.api;
 
 import it.unicam.cs.mp.progettoesame.api.models.Direction;
+import it.unicam.cs.mp.progettoesame.api.models.IShape;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
+import it.unicam.cs.mp.progettoesame.api.models.instructions.*;
+import it.unicam.cs.mp.progettoesame.api.utils.DirectionCalculator;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserHandler;
 import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
 
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 
 public class ParserHandler implements FollowMeParserHandler {
-    private IEnvironment environment;
+    /**
+     * Interfaccia funzionale per controllare che un numero sia in un range specifico
+     */
     private NumericRangeChecker<Double> checker;
+    /**
+     * Programma che i robot devono eseguire
+     */
+    private Program program;
+    /**
+     * Lista dei robot presenti
+     */
+    private List<Robot> robots;
+    /**
+     * Lista delle figure presenti
+     */
+    private List<IShape> shapes;
+    /**
+     * Pila di interi che conterrà l'indice di riga di ogni istruzione
+     * iterativa
+     */
+    private Stack<Integer> stack;
+    /**
+     * Mappa per salvare l'istruzione iterativa e il suo indice di riga
+     */
+    private Map<Integer, RobotInstruction> dictionary;
+    /**
+     * Contatore per tenere conto dell'indice di riga
+     */
+    private int instructionCounter;
 
-    public ParserHandler(IEnvironment environment) {
-        this.environment = environment;
-    }
-
-    public ParserHandler() {
-        this(new Environment());
-    }
-
-    public void setEnvironment(IEnvironment environment) {
-        this.environment = environment;
+    public ParserHandler(Program program, List<Robot> robots, List<IShape> shapes) {
+        this.program = program;
+        this.robots = robots;
+        this.shapes = shapes;
     }
 
     @Override
     public void parsingStarted() {
         this.checker = NumericRangeChecker.DEFAULT_CHECKER;
+        this.stack = new Stack<>();
+        this.dictionary = new HashMap<>();
+        this.instructionCounter = 0;
     }
 
     @Override
     public void parsingDone() {
         this.checker = null;
+        this.stack.clear();
+        this.dictionary.clear();
+        this.instructionCounter = 0;
     }
 
     @Override
     public void moveCommand(double[] args) {
         if (isValidDirection(args[0], args[1])) {
-            this.environment.getRobots()
-                    .forEach(robot -> robot.move(args[2], new Direction(args[0], args[1])));
+            this.program.addInstruction(new MoveInstruction(new Direction(args[0], args[1]), args[2]));
+            this.instructionCounter++;
         }
     }
 
+    /**
+     * Flag che controlla se la direzione passata è valida
+     * @param x coordinata x della direzione
+     * @param y coordinata y della direzione
+     * @return true se è valida, false altrimenti
+     */
     private boolean isValidDirection(double x, double y) {
         return checker.isBetween(x, -1.0, 1.0)
                 && checker.isBetween(y, -1.0, 1.0);
@@ -51,71 +86,80 @@ public class ParserHandler implements FollowMeParserHandler {
 
     @Override
     public void moveRandomCommand(double[] args) {
-        for (Robot robot : this.environment.getRobots()) {
-            double x = new Random().nextDouble(args[1] - args[0] + 1) + args[0];
-            double y = new Random().nextDouble(args[3] - args[2] + 1) + args[2];
-            Point destination = new Point(x, y);
-            System.out.println("Destination: " + destination);
-            Direction dir = Direction.calculateDirection(robot.getPosition(), destination);
-            while (Math.abs(x - robot.getPosition().getX()) > 1 && Math.abs(y - robot.getPosition().getY()) > 1)
-                robot.move(args[4], dir);
-            robot.move(0, dir);
-            //robot.setPosition(destination);
-        }
+        Point point1 = new Point(args[0], args[2]);
+        Point point2 = new Point(args[1], args[3]);
+        this.program.addInstruction(new MoveRandomInstruction(point1, point2, args[4]));
+        this.instructionCounter++;
     }
 
     @Override
     public void signalCommand(String label) {
-
+        this.program.addInstruction(new SignalInstruction(label));
+        this.instructionCounter++;
     }
 
     @Override
     public void unsignalCommand(String label) {
-
+        this.program.addInstruction(new UnsignalInstruction(label));
+        this.instructionCounter++;
     }
 
     @Override
     public void followCommand(String label, double[] args) {
-        /*List<Robot> robotsWithLabel = this.environment.getRobots().stream().filter(x -> x.getLabels().contains(label)).toList();
-        double dist = args[1];
-        if (robotsWithLabel.size() > 0) {
-            double averageX = robotsWithLabel.stream().mapToDouble(x -> x.getPosition().getX()).sum()
-                    / robotsWithLabel.stream().mapToDouble(x -> x.getPosition().getX()).count();
-            double averageY = robotsWithLabel.stream().mapToDouble(x -> x.getPosition().getY()).sum()
-                    / robotsWithLabel.stream().mapToDouble(x -> x.getPosition().getY()).count();
-        } else {
-            moveRandomCommand(new double[]{-dist, dist, -dist, dist, args[2]});
-        }*/
+        this.program.addInstruction(new FollowInstruction(label, args[0], args[2], this.robots));
+        this.instructionCounter++;
     }
 
     @Override
     public void stopCommand() {
-        this.environment.getRobots().forEach(robot -> robot.move(0, new Direction(0,0)));
+        this.program.addInstruction(new StopInstruction());
+        this.instructionCounter++;
     }
 
     @Override
     public void continueCommand(int s) {
-        this.environment.getRobots().forEach(Robot::continueMove);
+        this.program.addInstruction(new ContinueInstruction(s, this.instructionCounter));
+        this.instructionCounter++;
     }
 
     @Override
     public void repeatCommandStart(int n) {
-
+        RobotInstruction instruction = new RepeatInstruction(n);
+        this.addIterativeCommand(instruction);
     }
 
     @Override
     public void untilCommandStart(String label) {
-
+        RobotInstruction instruction = new UntilInstruction(label, shapes);
+        this.addIterativeCommand(instruction);
     }
 
     @Override
     public void doForeverStart() {
+        RobotInstruction instruction = new DoForeverInstruction();
+        this.addIterativeCommand(instruction);
+    }
 
+    /**
+     * Metodo che si occupa di aggiungere i comandi iterativi in una dictionary
+     * e il loro indice in uno stack (pila) così da riuscire a gestire eventuali iterazioni
+     * innestate tra di loro tramite il comando DONE
+     * @param instruction istruzione da aggiungere
+     */
+    private void addIterativeCommand(RobotInstruction instruction) {
+        this.dictionary.put(this.instructionCounter, instruction);
+        this.stack.add(this.instructionCounter);
+        this.program.addInstruction(instruction);
+        this.instructionCounter++;
     }
 
     @Override
     public void doneCommand() {
-
+        int row = this.stack.pop();
+        RobotInstruction iterativeInstruction = this.dictionary.get(row);
+        RobotInstruction instruction = new DoneInstruction(row, iterativeInstruction);
+        this.program.addInstruction(instruction);
+        this.instructionCounter++;
     }
 
 }

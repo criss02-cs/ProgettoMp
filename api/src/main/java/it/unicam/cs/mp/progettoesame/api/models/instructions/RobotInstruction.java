@@ -4,7 +4,16 @@ import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 
 public interface RobotInstruction {
+    /**
+     * Metodo per eseguire il comando
+     * @param robot il robot su cui andrà eseguito il comando
+     */
     void execute(Robot robot);
 
-    Tuple<Boolean, Integer> canGoToNextInstruction();
+    /**
+     * Flag intero per vedere se posso proseguire al prossimo
+     * comando
+     * @return -1 se posso proseguire, altrimenti la riga a cui devo tornare
+     */
+    int canGoToNextInstruction();
 }

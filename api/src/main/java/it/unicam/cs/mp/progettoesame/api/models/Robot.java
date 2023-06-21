@@ -10,12 +10,14 @@ public class Robot {
     private Point position;
     private double speed;
     private final List<String> labels;
+    private String labelToSignal;
     private final CoordinatesSpeedCalculator<Double> coordinatesSpeedCalculator = (value, speed, direction)
             -> (speed * direction) + value;
     public Robot(Point position) {
         this.position = position;
         this.direction = new Direction();
         this.labels = new ArrayList<>();
+        this.labelToSignal = "";
     }
     public Robot() {
         this(new Point());
@@ -47,5 +49,17 @@ public class Robot {
 
     public void continueMove() {
         this.move(this.speed, this.direction);
+    }
+
+    public String getSignaledLabel() { return this.labelToSignal;}
+
+    public void signalLabel(String label) {
+        this.labelToSignal = label;
+    }
+
+    public void unsignalLabel(String label) {
+        if(this.labelToSignal.equalsIgnoreCase(label)) {
+            this.labelToSignal = "";
+        }
     }
 }

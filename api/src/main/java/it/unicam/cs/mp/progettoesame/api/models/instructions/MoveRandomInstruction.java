@@ -3,6 +3,7 @@ package it.unicam.cs.mp.progettoesame.api.models.instructions;
 import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
+import it.unicam.cs.mp.progettoesame.api.utils.DirectionCalculator;
 import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 
 import java.util.Random;
@@ -21,7 +22,7 @@ public class MoveRandomInstruction implements RobotInstruction {
     @Override
     public void execute(Robot robot) {
         Point randomPoint = this.getRandomCoordinates();
-        Direction dir = Direction.calculateDirection(robot.getPosition(), randomPoint);
+        Direction dir = DirectionCalculator.calculate(robot.getPosition(), randomPoint);
         while (checkTollerance(randomPoint, robot.getPosition()))
             robot.move(speed, dir);
         robot.move(0, dir);
@@ -39,7 +40,7 @@ public class MoveRandomInstruction implements RobotInstruction {
     }
 
     @Override
-    public Tuple<Boolean, Integer> canGoToNextInstruction() {
-        return Tuple.of(true, -1);
+    public int canGoToNextInstruction() {
+        return -1;
     }
 }

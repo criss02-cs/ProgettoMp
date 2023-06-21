@@ -29,7 +29,7 @@ public abstract class Shape implements IShape {
     public Point getCoordinates() {
         return this.coordinates;
     }
-
+    @Override
     public String getLabel() {
         return this.label;
     }

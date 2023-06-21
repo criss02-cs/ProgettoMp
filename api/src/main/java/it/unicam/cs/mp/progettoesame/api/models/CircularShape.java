@@ -35,6 +35,6 @@ public class CircularShape extends Shape {
 
     @Override
     public Tuple<Double, Double> getDimensions() {
-        return Tuple.of(radius, radius);
+        return Tuple.of(radius, -1.0);
     }
 }
