@@ -10,6 +10,7 @@ import it.unicam.cs.mp.progettoesame.api.utils.ShapeParser;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParser;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserException;
 import it.unicam.cs.mp.progettoesame.utilities.ShapeData;
+import javafx.animation.PathTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
@@ -18,8 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.*;
 import javafx.stage.FileChooser;
 
 import javafx.scene.input.MouseEvent;
@@ -28,8 +28,10 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 
 public class RobotSimulationController {
@@ -41,7 +43,7 @@ public class RobotSimulationController {
     private TextArea programTextArea;
     private FollowMeParser parser;
     private Controller controller;
-    private List<Circle> robots;
+    private Map<Robot, Circle> robotCircleMap = new HashMap<>();
 
     public void initialize() {
         this.controller = new Controller();
@@ -160,7 +162,6 @@ public class RobotSimulationController {
     }
 
     private void drawRobots() {
-        this.robots = new LinkedList<>();
         this.controller.getRobots().forEach(robot -> {
             Circle circle = new Circle(50);
             circle.setCenterX(robot.getPosition().getX());
@@ -168,30 +169,31 @@ public class RobotSimulationController {
             circle.setFill(Color.RED);
             circle.setStroke(Color.BLACK);
             circle.setStrokeWidth(2);
-            this.robots.add(circle);
+            this.robotCircleMap.put(robot, circle);
             this.shapesGroup.getChildren().add(circle);
         });
     }
 
     public void onMoveDirectionClicked(MouseEvent mouseEvent) {
         this.controller.getRobots().forEach(x -> {
-            Circle c = this.robots.stream().filter(r -> r.getCenterX() == x.getPosition().getX()
-                    && r.getCenterY() == x.getPosition().getY())
-                    .findFirst().orElse(null);
             x.move(50, new Direction(1.0, -1.0));
-            if(c != null) {
-                double deltaX = DistanceCalculator.findCoordinatesDifference(c.getCenterX(), x.getPosition().getX());
-                double deltaY = DistanceCalculator.findCoordinatesDifference(c.getCenterY(), x.getPosition().getY());
-                TranslateTransition transition = new TranslateTransition(Duration.seconds(1), c);
-                transition.setByX(deltaX); // Sposta il cerchio lungo l'asse X
-                transition.setByY(deltaY); // Sposta il cerchio lungo l'asse Y
-                transition.setOnFinished(event -> {
-                    c.setCenterX(c.getCenterX() + deltaX);
-                    c.setCenterY(c.getCenterY() + deltaY);
-                });
-                // Avvia l'animazione
-                transition.play();
-            }
+        });
+        robotCircleMap.forEach((robot, circle) -> {
+            double deltaX = DistanceCalculator.findCoordinatesDifference(circle.getCenterX(), robot.getPosition().getX());
+            double deltaY = DistanceCalculator.findCoordinatesDifference(circle.getCenterY(), robot.getPosition().getY());
+            TranslateTransition transition = new TranslateTransition(Duration.seconds(1), circle);
+            transition.setByX(deltaX); // Sposta il cerchio lungo l'asse X
+            transition.setByY(deltaY); // Sposta il cerchio lungo l'asse Y
+            transition.setOnFinished(event -> {
+                System.out.println(robot.getPosition());
+                System.out.println("X: " + (circle.getCenterX() + deltaX) + ", Y: " + (circle.getCenterY() + deltaY));
+                System.out.println("X: " + (transition.getByX()) + ", Y: " + (transition.getByY()));
+                /*.setCenterX(circle.getCenterX() + deltaX);
+                circle.setCenterY(circle.getCenterY() + deltaY);*/
+
+            });
+            // Avvia l'animazione
+            transition.play();
         });
 
     }
