@@ -16,3 +16,8 @@ application {
     // Define the main class for the application.
     mainClass = 'it.unicam.cs.mp.progettoesame.Main'
 }
+
+dependencies {
+    implementation project(path: ':utilities')
+    implementation project(path: ':api')
+}

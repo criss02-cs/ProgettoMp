@@ -21,11 +21,11 @@ public class ShapeParser {
     }
 
     public IShape parseFromShapeData(ShapeData shapeData) {
-        String shapeLabel = shapeData.label();
-        if (!factoryMap.containsKey(shapeLabel)) {
-            throw new IllegalArgumentException("Invalid shape label: " + shapeLabel);
+        String shapeType = shapeData.shape();
+        if (!factoryMap.containsKey(shapeType)) {
+            throw new IllegalArgumentException("Invalid shape: " + shapeType);
         }
-        IShapeFactory factory = factoryMap.get(shapeLabel);
+        IShapeFactory factory = factoryMap.get(shapeType);
         return factory.createShape(shapeData);
     }
 }
