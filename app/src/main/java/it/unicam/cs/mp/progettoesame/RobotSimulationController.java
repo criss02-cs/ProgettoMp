@@ -10,8 +10,7 @@ import it.unicam.cs.mp.progettoesame.api.utils.ShapeParser;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParser;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserException;
 import it.unicam.cs.mp.progettoesame.utilities.ShapeData;
-import javafx.animation.PathTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -193,27 +192,18 @@ public class RobotSimulationController {
             x.move(50, new Direction(1.0, -1.0));
         });
         robotCircleMap.forEach((robot, circle) -> {
-            System.out.println("New Robot");
-            double deltaX = DistanceCalculator.findCoordinatesDifference(circle.getCenterX(), robot.getPosition().getX());
-            double deltaY = DistanceCalculator.findCoordinatesDifference(circle.getCenterY(), robot.getPosition().getY());
-            TranslateTransition transition = new TranslateTransition(Duration.seconds(1), circle);
-            transition.setByX(deltaX); // Sposta il cerchio lungo l'asse X
-            transition.setByY(deltaY); // Sposta il cerchio lungo l'asse Y
-            transition.setOnFinished(event -> {
-                System.out.println("\t-----------------------------");
-                System.out.println("\tRobot position: "+robot.getPosition());
-                System.out.println("\tCircle position: X: " + (circle.getCenterX()) + ", Y: " + (circle.getCenterY()));
-                System.out.println("\tDelta position: X: " + (transition.getByX()) + ", Y: " + (transition.getByY()));
-                System.out.println("\tTranslate position: X: " + (circle.getTranslateX()) + ", Y: " + (circle.getTranslateY()));
-                System.out.println("\t-----------------------------");
-                circle.setCenterX(robot.getPosition().getX());
-                circle.setCenterY(robot.getPosition().getY());
-                /*circle.setTranslateX(0);
-                circle.setTranslateY(0);*/
-                System.out.println("\tCircle position: X: " + (circle.getCenterX()) + ", Y: " + (circle.getCenterY()));
+            double targetX = robot.getPosition().getX();
+            double targetY = robot.getPosition().getY();
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),
+                    new KeyValue(circle.centerXProperty(), targetX),
+                    new KeyValue(circle.centerYProperty(), paneShapes.getHeight() - targetY)));
+            timeline.setOnFinished(event -> {
+                System.out.println("Robot position: " + robot.getPosition());
+                System.out.println("Circle position: { X: " + circle.getCenterX() + ", Y: " + circle.getCenterY() + "}");
+                /*circle.setCenterX(robot.getPosition().getX());
+                circle.setCenterY(robot.getPosition().getY());*/
             });
-            // Avvia l'animazione
-            transition.play();
+            timeline.play();
         });
 
     }
