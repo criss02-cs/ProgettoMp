@@ -4,26 +4,23 @@ import it.unicam.cs.mp.progettoesame.api.models.Robot;
 
 public class DoneInstruction implements RobotInstruction {
     private final int backNumberRow;
-    private final RobotInstruction iterationInstruction;
 
-    public DoneInstruction(int irn, RobotInstruction instruction) {
+    public DoneInstruction(int irn) {
         this.backNumberRow = irn;
-        this.iterationInstruction = instruction;
     }
     @Override
     public void execute(Robot robot) {
         // TODO muovi il robot se si sta muovendo
-        this.iterationInstruction.execute(robot);
+        System.out.println("DONE command executed by Robot: " + robot);
     }
 
     @Override
     public int canGoToNextInstruction() {
-        int canGoForward = this.iterationInstruction.canGoToNextInstruction();
-        return canGoForward == -1 ? -1 : this.backNumberRow;
+        return this.backNumberRow;
     }
 
     @Override
-    public RobotInstruction clone() {
-        return new DoneInstruction(this.backNumberRow, this.iterationInstruction.clone());
+    public RobotInstruction cloneObject() {
+        return new DoneInstruction(this.backNumberRow);
     }
 }

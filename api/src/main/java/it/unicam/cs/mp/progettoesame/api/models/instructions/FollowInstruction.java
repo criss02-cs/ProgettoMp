@@ -60,7 +60,7 @@ public class FollowInstruction implements RobotInstruction {
     }
 
     @Override
-    public RobotInstruction clone() {
+    public RobotInstruction cloneObject() {
         return new FollowInstruction(this.labelToFollow, this.distance, this.speed, this.robots);
     }
 }

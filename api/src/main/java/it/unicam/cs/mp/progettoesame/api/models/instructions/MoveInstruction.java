@@ -23,7 +23,7 @@ public class MoveInstruction implements RobotInstruction {
     }
 
     @Override
-    public RobotInstruction clone() {
+    public RobotInstruction cloneObject() {
         return new MoveInstruction(new Direction(this.direction.getX(), this.direction.getY()), this.speed);
     }
 

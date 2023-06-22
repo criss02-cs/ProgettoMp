@@ -20,7 +20,7 @@ public class UnsignalInstruction implements RobotInstruction {
     }
 
     @Override
-    public RobotInstruction clone() {
+    public RobotInstruction cloneObject() {
         return new UnsignalInstruction(this.labelToUnsignal);
     }
 

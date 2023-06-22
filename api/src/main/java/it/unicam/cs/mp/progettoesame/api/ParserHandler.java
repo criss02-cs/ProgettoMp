@@ -37,7 +37,7 @@ public class ParserHandler implements FollowMeParserHandler {
     /**
      * Mappa per salvare l'istruzione iterativa e il suo indice di riga
      */
-    private Map<Integer, RobotInstruction> dictionary;
+    private Map<Integer, IterativeInstruction> dictionary;
     /**
      * Contatore per tenere conto dell'indice di riga
      */
@@ -125,19 +125,19 @@ public class ParserHandler implements FollowMeParserHandler {
 
     @Override
     public void repeatCommandStart(int n) {
-        RobotInstruction instruction = new RepeatInstruction(n);
+        IterativeInstruction instruction = new RepeatInstruction(n, this.instructionCounter + 1);
         this.addIterativeCommand(instruction);
     }
 
     @Override
     public void untilCommandStart(String label) {
-        RobotInstruction instruction = new UntilInstruction(label, shapes);
+        IterativeInstruction instruction = new UntilInstruction(label, shapes, this.instructionCounter + 1);
         this.addIterativeCommand(instruction);
     }
 
     @Override
     public void doForeverStart() {
-        RobotInstruction instruction = new DoForeverInstruction();
+        IterativeInstruction instruction = new DoForeverInstruction(this.instructionCounter + 1);
         this.addIterativeCommand(instruction);
     }
 
@@ -147,7 +147,7 @@ public class ParserHandler implements FollowMeParserHandler {
      * innestate tra di loro tramite il comando DONE
      * @param instruction istruzione da aggiungere
      */
-    private void addIterativeCommand(RobotInstruction instruction) {
+    private void addIterativeCommand(IterativeInstruction instruction) {
         this.dictionary.put(this.instructionCounter, instruction);
         this.stack.add(this.instructionCounter);
         this.program.addInstruction(instruction);
@@ -157,8 +157,9 @@ public class ParserHandler implements FollowMeParserHandler {
     @Override
     public void doneCommand() {
         int row = this.stack.pop();
-        RobotInstruction iterativeInstruction = this.dictionary.get(row);
-        RobotInstruction instruction = new DoneInstruction(row+1, iterativeInstruction);
+        IterativeInstruction iterativeInstruction = this.dictionary.get(row);
+        iterativeInstruction.setEndOfIteration(this.instructionCounter + 1);
+        RobotInstruction instruction = new DoneInstruction(row);
         this.program.addInstruction(instruction);
         this.instructionCounter++;
     }

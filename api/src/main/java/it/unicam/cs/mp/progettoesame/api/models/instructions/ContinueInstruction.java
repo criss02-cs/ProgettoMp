@@ -24,7 +24,7 @@ public class ContinueInstruction implements RobotInstruction {
         return this.secondsExecuted < this.secondsToExecute ? this.rowNumber : -1;
     }
     @Override
-    public RobotInstruction clone() {
+    public RobotInstruction cloneObject() {
         return new ContinueInstruction(this.secondsToExecute, this.rowNumber);
     }
 }

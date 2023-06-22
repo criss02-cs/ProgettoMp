@@ -45,7 +45,7 @@ public class MoveRandomInstruction implements RobotInstruction {
     }
 
     @Override
-    public RobotInstruction clone() {
+    public RobotInstruction cloneObject() {
         return new MoveRandomInstruction(new Point(this.position1.getX(), this.position1.getY()),
                 new Point(this.position2.getX(), this.position2.getY()), this.speed);
     }

@@ -41,22 +41,20 @@ public class Program {
      * @return true se ci sono altre istruzioni da eseguire, false se sono arrivato alla fine
      */
     public boolean executeInstruction(Robot robot) {
-        if(this.programCounter == robotInstructions.size()) {
-            return false;
-        }
+        if(this.programCounter == robotInstructions.size()) { return false; }
         RobotInstruction instruction = this.robotInstructions.get(this.programCounter);
         instruction.execute(robot);
-        if(instruction.canGoToNextInstruction() == -1) {
+        int nextInstruction = instruction.canGoToNextInstruction();
+        if(nextInstruction == -1)
             this.programCounter++;
-        } else {
-            this.programCounter = instruction.canGoToNextInstruction();
-        }
+        else
+            this.programCounter =nextInstruction;
         return true;
     }
 
     public static Program copyOf(Program p) {
         Program copy = new Program();
-        copy.robotInstructions = List.copyOf(p.robotInstructions.stream().map(RobotInstruction::clone).toList());
+        copy.robotInstructions = List.copyOf(p.robotInstructions.stream().map(RobotInstruction::cloneObject).toList());
         return copy;
     }
 }

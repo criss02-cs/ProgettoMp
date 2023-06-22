@@ -20,7 +20,7 @@ public class SignalInstruction implements RobotInstruction {
     }
 
     @Override
-    public RobotInstruction clone() {
+    public RobotInstruction cloneObject() {
         return new SignalInstruction(this.labelToSignal);
     }
 }

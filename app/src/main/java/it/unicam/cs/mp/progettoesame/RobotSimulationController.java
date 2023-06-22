@@ -199,4 +199,20 @@ public class RobotSimulationController {
             }
         }
     }
+
+    public void onExecuteMultipleInstruction(MouseEvent mouseEvent) throws InterruptedException {
+        Thread thread = new Thread(() -> {
+            try {
+                for(int i = 0; i < 10; i++) {
+                    this.controller.nextInstruction();
+                    this.updateCircles();
+                    Thread.sleep(1000); // Pausa di un secondo (1000 millisecondi)
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
+        thread.start();
+    }
 }

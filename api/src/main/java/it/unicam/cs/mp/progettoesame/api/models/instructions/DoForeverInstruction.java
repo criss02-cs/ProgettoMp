@@ -2,7 +2,11 @@ package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 
-public class DoForeverInstruction implements RobotInstruction {
+public class DoForeverInstruction extends IterativeInstruction {
+    public DoForeverInstruction(int firstRowIteration) {
+        super(firstRowIteration);
+    }
+
     @Override
     public void execute(Robot robot) {
         robot.continueMove();
@@ -10,12 +14,14 @@ public class DoForeverInstruction implements RobotInstruction {
 
     @Override
     public int canGoToNextInstruction() {
-        return 0;
+        return firstRowIteration;
     }
 
     @Override
-    public RobotInstruction clone() {
-        return new DoForeverInstruction();
+    public RobotInstruction cloneObject() {
+        DoForeverInstruction dfi = new DoForeverInstruction(this.firstRowIteration);
+        dfi.endOfIteration = this.endOfIteration;
+        return dfi;
     }
 
 

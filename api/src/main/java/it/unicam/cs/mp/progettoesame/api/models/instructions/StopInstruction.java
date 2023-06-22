@@ -16,7 +16,7 @@ public class StopInstruction implements RobotInstruction{
     }
 
     @Override
-    public RobotInstruction clone() {
+    public RobotInstruction cloneObject() {
         return new StopInstruction();
     }
 

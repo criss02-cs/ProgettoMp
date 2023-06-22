@@ -21,5 +21,6 @@
          </children>
       </Pane>
       <Button layoutX="560.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#onExecuteClicked" prefHeight="43.0" prefWidth="111.0" text="Execute instruction" />
+      <Button layoutX="562.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#onExecuteMultipleInstruction" prefHeight="43.0" prefWidth="227.0" text="Execute n instruction" />
    </children>
 </Pane>

@@ -8,12 +8,13 @@ import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
 
 import java.util.List;
 
-public class UntilInstruction implements RobotInstruction {
+public class UntilInstruction extends IterativeInstruction {
     private final String labelToFind;
     private final List<IShape> shapes;
     private boolean hasToExit;
 
-    public UntilInstruction(String labelToFind, List<IShape> shapes) {
+    public UntilInstruction(String labelToFind, List<IShape> shapes, int firstRowIteration) {
+        super(firstRowIteration);
         this.labelToFind = labelToFind;
         this.shapes = shapes;
         this.hasToExit = false;
@@ -48,13 +49,13 @@ public class UntilInstruction implements RobotInstruction {
 
     @Override
     public int canGoToNextInstruction() {
-        return this.hasToExit ? -1 : 0;
+        return this.hasToExit ? this.endOfIteration : this.firstRowIteration;
     }
 
     @Override
-    public RobotInstruction clone() {
-        return new UntilInstruction(this.labelToFind, this.shapes);
+    public RobotInstruction cloneObject() {
+        UntilInstruction ui = new UntilInstruction(this.labelToFind, this.shapes, this.firstRowIteration);
+        ui.endOfIteration = this.endOfIteration;
+        return ui;
     }
-
-
 }
