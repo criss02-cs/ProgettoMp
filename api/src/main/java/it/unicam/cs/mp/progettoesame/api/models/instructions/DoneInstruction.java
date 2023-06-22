@@ -21,4 +21,9 @@ public class DoneInstruction implements RobotInstruction {
         int canGoForward = this.iterationInstruction.canGoToNextInstruction();
         return canGoForward == -1 ? -1 : this.backNumberRow;
     }
+
+    @Override
+    public RobotInstruction clone() {
+        return new DoneInstruction(this.backNumberRow, this.iterationInstruction.clone());
+    }
 }

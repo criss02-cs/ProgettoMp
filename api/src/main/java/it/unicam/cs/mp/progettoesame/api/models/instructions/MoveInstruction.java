@@ -21,4 +21,10 @@ public class MoveInstruction implements RobotInstruction {
     public int canGoToNextInstruction() {
         return -1;
     }
+
+    @Override
+    public RobotInstruction clone() {
+        return new MoveInstruction(new Direction(this.direction.getX(), this.direction.getY()), this.speed);
+    }
+
 }

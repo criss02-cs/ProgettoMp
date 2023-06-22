@@ -21,4 +21,9 @@ public class RepeatInstruction implements RobotInstruction {
     public int canGoToNextInstruction() {
         return this.doneInterations < this.iterations ? 0 : -1;
     }
+
+    @Override
+    public RobotInstruction clone() {
+        return new RepeatInstruction(this.iterations);
+    }
 }

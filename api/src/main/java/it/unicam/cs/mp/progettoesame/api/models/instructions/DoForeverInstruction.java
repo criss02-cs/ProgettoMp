@@ -12,4 +12,11 @@ public class DoForeverInstruction implements RobotInstruction {
     public int canGoToNextInstruction() {
         return 0;
     }
+
+    @Override
+    public RobotInstruction clone() {
+        return new DoForeverInstruction();
+    }
+
+
 }

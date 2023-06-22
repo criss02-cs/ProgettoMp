@@ -1,14 +1,16 @@
 package it.unicam.cs.mp.progettoesame;
 
 import it.unicam.cs.mp.progettoesame.api.Controller;
+import it.unicam.cs.mp.progettoesame.api.ParserHandler;
+import it.unicam.cs.mp.progettoesame.api.Program;
 import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.IShape;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
-import it.unicam.cs.mp.progettoesame.api.utils.DistanceCalculator;
 import it.unicam.cs.mp.progettoesame.api.utils.ShapeParser;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParser;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserException;
+import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserHandler;
 import it.unicam.cs.mp.progettoesame.utilities.ShapeData;
 import javafx.animation.*;
 import javafx.fxml.FXML;
@@ -43,43 +45,18 @@ public class RobotSimulationController {
     private TextArea programTextArea;
     private FollowMeParser parser;
     private Controller controller;
-    private Map<Robot, Circle> robotCircleMap = new HashMap<>();
+    private final Map<Robot, Circle> robotCircleMap = new HashMap<>();
 
     public void initialize() {
-        this.controller = new Controller();
-        /*for (int i = 0; i < 50; i++) {
-            Circle circle = new Circle(10);
-            circle.setFill(Color.RED);
-
-            // Calcola la posizione iniziale del cerchio
-            double initialX = Math.random() * (535 - 2 * 10) + 10;
-            double initialY = Math.random() * (493 - 2 * 10) + 10;
-            circle.setCenterX(initialX);
-            circle.setCenterY(initialY);
-
-            // Calcola la destinazione del cerchio
-            double targetX = Math.random() * (535 - 2 * 10) + 10;
-            double targetY = Math.random() * (493 - 2 * 10) + 10;
-
-            // Crea l'animazione di traslazione
-            TranslateTransition transition = new TranslateTransition(Duration.seconds(2), circle);
-            transition.setToX(targetX - initialX);
-            transition.setToY(targetY - initialY);
-            transition.setCycleCount(TranslateTransition.INDEFINITE);
-            transition.setAutoReverse(true);
-
-            // Avvia l'animazione
-            transition.play();
-
-            shapesGroup.getChildren().add(circle);
-        }*/
+        this.controller = new Controller(new LinkedList<>(), new LinkedList<>());
+        final FollowMeParserHandler parserHandler = new ParserHandler(this.controller.getRobots(), this.controller.getShapes());
+        this.parser = new FollowMeParser(parserHandler);
         clipChildren(paneShapes);
     }
 
     private void clipChildren(Region region) {
         final Rectangle clipPane = new Rectangle();
         region.setClip(clipPane);
-
         region.layoutBoundsProperty().addListener((ov, oldValue, newValue) -> {
             clipPane.setWidth(newValue.getWidth());
             clipPane.setHeight(newValue.getHeight());
@@ -87,7 +64,6 @@ public class RobotSimulationController {
     }
 
     public void onMouseShapesClicked(MouseEvent mouseEvent) {
-        parser = new FollowMeParser(null);
         File selectedFile = this.openFileDialogForShapes(mouseEvent);
         if(selectedFile != null) {
             try {
@@ -105,6 +81,7 @@ public class RobotSimulationController {
         Alert a = new Alert(Alert.AlertType.ERROR);
         a.setTitle("Errore");
         a.setContentText(text);
+        a.show();
     }
 
     private void drawShapes(){
@@ -156,16 +133,20 @@ public class RobotSimulationController {
                 "*.rrobots", "Robots");
     }
 
+    private File openFileDialogForProgram(MouseEvent mouseEvent) {
+        return this.openFileDialog(mouseEvent, "Seleziona il file da cui importare il programma",
+                "*.rprogram", "Robots Program");
+    }
+
     public void onMouseRobotClicked(MouseEvent mouseEvent) {
         File selectedFile = this.openFileDialogForRobots(mouseEvent);
-        List<Robot> robots = new LinkedList<>();
+        this.controller.getRobots().clear();
         try {
             List<String> lines = Files.readAllLines(selectedFile.toPath());
             for(String line : lines) {
                 String[] elements = line.trim().toUpperCase().split(" ");
-                robots.add(new Robot(new Point(Double.parseDouble(elements[1]), Double.parseDouble(elements[2]))));
+                this.controller.getRobots().add(new Robot(new Point(Double.parseDouble(elements[1]), Double.parseDouble(elements[2]))));
             }
-            this.controller.loadRobots(robots);
             this.drawRobots();
         } catch (IOException e) {
             this.showErrorAlert(e.getMessage());
@@ -174,46 +155,48 @@ public class RobotSimulationController {
 
     private void drawRobots() {
         this.controller.getRobots().forEach(robot -> {
-            Circle circle = new Circle(50);
-            circle.setCenterX(robot.getPosition().getX());
-            circle.setCenterY(robot.getPosition().getY());
-            circle.setFill(Color.RED);
-            circle.setStroke(Color.BLACK);
-            circle.setStrokeWidth(2);
-            circle.setTranslateX(0);
-            circle.setTranslateY(0);
+            Circle circle = this.createCircleFromRobot(robot);
             this.robotCircleMap.put(robot, circle);
             this.shapesGroup.getChildren().add(circle);
         });
     }
 
-    public void onMoveDirectionClicked(MouseEvent mouseEvent) {
-        this.controller.getRobots().forEach(x -> {
-            x.move(50, new Direction(1.0, -1.0));
-        });
+    private Circle createCircleFromRobot(Robot r) {
+        Circle circle = new Circle(r.getPosition().getX(), r.getPosition().getY(),50);
+        circle.setFill(Color.RED);
+        circle.setStroke(Color.BLACK);
+        circle.setStrokeWidth(2);
+        circle.setTranslateX(0);
+        circle.setTranslateY(0);
+        return circle;
+    }
+
+    public void onExecuteClicked(MouseEvent mouseEvent) {
+        this.controller.nextInstruction();
+        this.updateCircles();
+    }
+
+    private void updateCircles() {
         robotCircleMap.forEach((robot, circle) -> {
             double targetX = robot.getPosition().getX();
             double targetY = robot.getPosition().getY();
             Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),
                     new KeyValue(circle.centerXProperty(), targetX),
-                    new KeyValue(circle.centerYProperty(), paneShapes.getHeight() - targetY)));
-            timeline.setOnFinished(event -> {
-                System.out.println("Robot position: " + robot.getPosition());
-                System.out.println("Circle position: { X: " + circle.getCenterX() + ", Y: " + circle.getCenterY() + "}");
-                /*circle.setCenterX(robot.getPosition().getX());
-                circle.setCenterY(robot.getPosition().getY());*/
-            });
+                    new KeyValue(circle.centerYProperty(), targetY)));
             timeline.play();
         });
-
     }
 
     public void onReadProgramClicked(MouseEvent mouseEvent) {
-        robotCircleMap.forEach((robot, circle) -> {
-            System.out.println("\t-----------------------------");
-            System.out.println("\tRobot position: "+robot.getPosition());
-            System.out.println("\tCircle position: X: " + (circle.getCenterX()) + ", Y: " + (circle.getCenterY()));
-            System.out.println("\t-----------------------------");
-        });
+        File selectedFile = this.openFileDialogForProgram(mouseEvent);
+        if(selectedFile != null) {
+            try {
+                parser.parseRobotProgram(selectedFile);
+                List<String> lines = Files.readAllLines(selectedFile.toPath());
+                lines.forEach(x -> this.programTextArea.appendText(x + "\n"));
+            } catch (IOException | FollowMeParserException e) {
+                this.showErrorAlert(e.getMessage());
+            }
+        }
     }
 }

@@ -18,4 +18,9 @@ public class SignalInstruction implements RobotInstruction {
     public int canGoToNextInstruction() {
         return -1;
     }
+
+    @Override
+    public RobotInstruction clone() {
+        return new SignalInstruction(this.labelToSignal);
+    }
 }

@@ -50,4 +50,11 @@ public class UntilInstruction implements RobotInstruction {
     public int canGoToNextInstruction() {
         return this.hasToExit ? -1 : 0;
     }
+
+    @Override
+    public RobotInstruction clone() {
+        return new UntilInstruction(this.labelToFind, this.shapes);
+    }
+
+
 }

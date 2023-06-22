@@ -14,8 +14,6 @@ public class Controller {
         this.shapes = shapes;
     }
 
-    public Controller() {}
-
     public void loadRobots(List<Robot> robots) { this.robots = robots; }
     public void loadShapes(List<IShape> shapes) { this.shapes = shapes; }
 

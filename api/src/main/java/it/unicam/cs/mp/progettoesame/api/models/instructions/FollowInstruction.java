@@ -58,4 +58,9 @@ public class FollowInstruction implements RobotInstruction {
     public int canGoToNextInstruction() {
         return -1;
     }
+
+    @Override
+    public RobotInstruction clone() {
+        return new FollowInstruction(this.labelToFollow, this.distance, this.speed, this.robots);
+    }
 }

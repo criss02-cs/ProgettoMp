@@ -14,7 +14,7 @@ public class Program {
     /**
      * Lista delle istruzioni che ogni robot deve eseguire
      */
-    private final List<RobotInstruction> robotInstructions;
+    private List<RobotInstruction> robotInstructions;
     /**
      * Indice della riga in cui sto eseguendo l'istruzione
      */
@@ -52,5 +52,11 @@ public class Program {
             this.programCounter = instruction.canGoToNextInstruction();
         }
         return true;
+    }
+
+    public static Program copyOf(Program p) {
+        Program copy = new Program();
+        copy.robotInstructions = List.copyOf(p.robotInstructions.stream().map(RobotInstruction::clone).toList());
+        return copy;
     }
 }

@@ -18,4 +18,10 @@ public class UnsignalInstruction implements RobotInstruction {
     public int canGoToNextInstruction() {
         return -1;
     }
+
+    @Override
+    public RobotInstruction clone() {
+        return new UnsignalInstruction(this.labelToUnsignal);
+    }
+
 }

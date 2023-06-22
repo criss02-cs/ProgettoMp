@@ -43,8 +43,8 @@ public class ParserHandler implements FollowMeParserHandler {
      */
     private int instructionCounter;
 
-    public ParserHandler(Program program, List<Robot> robots, List<IShape> shapes) {
-        this.program = program;
+    public ParserHandler(List<Robot> robots, List<IShape> shapes) {
+        this.program = new Program();
         this.robots = robots;
         this.shapes = shapes;
     }
@@ -63,6 +63,7 @@ public class ParserHandler implements FollowMeParserHandler {
         this.stack.clear();
         this.dictionary.clear();
         this.instructionCounter = 0;
+        this.robots.forEach(r -> r.loadProgramToExecute(Program.copyOf(this.program)));
     }
 
     @Override

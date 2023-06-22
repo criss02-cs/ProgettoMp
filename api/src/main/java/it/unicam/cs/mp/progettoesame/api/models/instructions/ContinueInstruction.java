@@ -1,7 +1,6 @@
 package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
-import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 
 public class ContinueInstruction implements RobotInstruction {
     private final int secondsToExecute;
@@ -17,10 +16,15 @@ public class ContinueInstruction implements RobotInstruction {
     public void execute(Robot robot) {
         robot.continueMove();
         this.secondsExecuted++;
+        System.out.println("Seconds executed: " + this.secondsExecuted);
     }
 
     @Override
     public int canGoToNextInstruction() {
         return this.secondsExecuted < this.secondsToExecute ? this.rowNumber : -1;
+    }
+    @Override
+    public RobotInstruction clone() {
+        return new ContinueInstruction(this.secondsToExecute, this.rowNumber);
     }
 }

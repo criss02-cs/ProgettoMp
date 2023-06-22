@@ -16,4 +16,11 @@ public interface RobotInstruction {
      * @return -1 se posso proseguire, altrimenti la riga a cui devo tornare
      */
     int canGoToNextInstruction();
+
+    /**
+     * Metodo che si occupa di creare una nuova istanza
+     * dell'oggetto con gli stessi valori
+     * @return la nuova istanza dell'oggetto
+     */
+    RobotInstruction clone();
 }
