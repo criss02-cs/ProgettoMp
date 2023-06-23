@@ -22,6 +22,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 
 import javafx.scene.input.MouseEvent;
@@ -46,6 +48,7 @@ public class RobotSimulationController {
     private FollowMeParser parser;
     private Controller controller;
     private final Map<Robot, Circle> robotCircleMap = new HashMap<>();
+    private final Map<Circle, Text> circleTextMap = new HashMap<>();
 
     public void initialize() {
         this.controller = new Controller(new LinkedList<>(), new LinkedList<>());
@@ -156,9 +159,21 @@ public class RobotSimulationController {
     private void drawRobots() {
         this.controller.getRobots().forEach(robot -> {
             Circle circle = this.createCircleFromRobot(robot);
+            robot.signalLabel("Ciao robot");
+            Text text = this.createTextFromCircle(circle, robot.getSignaledLabel());
             this.robotCircleMap.put(robot, circle);
-            this.shapesGroup.getChildren().add(circle);
+            this.circleTextMap.put(circle, text);
+            this.shapesGroup.getChildren().addAll(circle, text);
         });
+    }
+
+    private Text createTextFromCircle(Circle circle, String label) {
+        Text text = new Text(label);
+        text.setFont(Font.font("Arial", 16));
+        text.setFill(Color.BLACK);
+        text.setLayoutX(circle.getCenterX() - text.getLayoutBounds().getWidth() / 2);
+        text.setLayoutY(circle.getCenterY() + text.getLayoutBounds().getHeight() / 4);
+        return text;
     }
 
     private Circle createCircleFromRobot(Robot r) {
@@ -180,9 +195,12 @@ public class RobotSimulationController {
         robotCircleMap.forEach((robot, circle) -> {
             double targetX = robot.getPosition().getX();
             double targetY = robot.getPosition().getY();
+            Text text = this.circleTextMap.get(circle);
             Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),
                     new KeyValue(circle.centerXProperty(), targetX),
-                    new KeyValue(circle.centerYProperty(), targetY)));
+                    new KeyValue(circle.centerYProperty(), targetY),
+                    new KeyValue(text.layoutXProperty(), targetX - text.getLayoutBounds().getWidth() / 2),
+                    new KeyValue(text.layoutYProperty(), targetY + text.getLayoutBounds().getHeight() / 4)));
             timeline.play();
         });
     }
