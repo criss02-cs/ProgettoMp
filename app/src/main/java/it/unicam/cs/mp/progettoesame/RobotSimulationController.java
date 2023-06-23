@@ -3,6 +3,7 @@ package it.unicam.cs.mp.progettoesame;
 import it.unicam.cs.mp.progettoesame.api.Controller;
 import it.unicam.cs.mp.progettoesame.api.ParserHandler;
 import it.unicam.cs.mp.progettoesame.api.Program;
+import it.unicam.cs.mp.progettoesame.api.exceptions.RobotsNotLoadedException;
 import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.IShape;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
@@ -70,9 +71,7 @@ public class RobotSimulationController {
         File selectedFile = this.openFileDialogForShapes(mouseEvent);
         if(selectedFile != null) {
             try {
-                List<ShapeData> shapeData = parser.parseEnvironment(selectedFile);
-                List<IShape> shapes = shapeData.stream().map(new ShapeParser()::parseFromShapeData).toList();
-                this.controller.loadShapes(shapes);
+                this.controller.readShapeList(selectedFile);
                 this.drawShapes();
             } catch (IOException | FollowMeParserException e) {
                 this.showErrorAlert(e.getMessage());
@@ -159,7 +158,6 @@ public class RobotSimulationController {
     private void drawRobots() {
         this.controller.getRobots().forEach(robot -> {
             Circle circle = this.createCircleFromRobot(robot);
-            robot.signalLabel("Ciao robot");
             Text text = this.createTextFromCircle(circle, robot.getSignaledLabel());
             this.robotCircleMap.put(robot, circle);
             this.circleTextMap.put(circle, text);
@@ -209,10 +207,9 @@ public class RobotSimulationController {
         File selectedFile = this.openFileDialogForProgram(mouseEvent);
         if(selectedFile != null) {
             try {
-                parser.parseRobotProgram(selectedFile);
-                List<String> lines = Files.readAllLines(selectedFile.toPath());
+                List<String> lines = this.controller.readInstructionList(selectedFile);
                 lines.forEach(x -> this.programTextArea.appendText(x + "\n"));
-            } catch (IOException | FollowMeParserException e) {
+            } catch (IOException | FollowMeParserException | RobotsNotLoadedException e) {
                 this.showErrorAlert(e.getMessage());
             }
         }
