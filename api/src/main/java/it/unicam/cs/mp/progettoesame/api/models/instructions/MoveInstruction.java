@@ -15,6 +15,7 @@ public class MoveInstruction implements RobotInstruction {
     @Override
     public void execute(Robot robot) {
         robot.move(this.speed, this.direction);
+        System.out.println("MOVE execution in direction " + this.direction + " at speed " + this.speed + " by Robot: " + robot);
     }
 
     @Override

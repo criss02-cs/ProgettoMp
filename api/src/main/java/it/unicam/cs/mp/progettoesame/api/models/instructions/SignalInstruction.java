@@ -12,6 +12,7 @@ public class SignalInstruction implements RobotInstruction {
     @Override
     public void execute(Robot robot) {
         robot.signalLabel(this.labelToSignal);
+        System.out.println("SIGNAL execution label " + this.labelToSignal + " by Robot: " + robot);
     }
 
     @Override

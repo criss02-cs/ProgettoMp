@@ -26,6 +26,7 @@ public class MoveRandomInstruction implements RobotInstruction {
         while (checkTollerance(randomPoint, robot.getPosition()))
             robot.move(speed, dir);
         robot.move(0, dir);
+        System.out.println("MOVE RANDOM execution in position " + randomPoint + " at speed " + this.speed + " by Robot: " + robot);
     }
 
     private boolean checkTollerance(Point point1, Point point2) {

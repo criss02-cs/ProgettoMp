@@ -57,7 +57,7 @@ public class Controller {
     public void readShapeList(File shapeListFile) throws IOException, FollowMeParserException {
         List<ShapeData> shapeDataList = this.parser.parseEnvironment(shapeListFile);
         List<IShape> shapeList = shapeDataList.stream().map(new ShapeParser()::parseFromShapeData).toList();
-        this.shapes = shapeList;
+        this.shapes.addAll(shapeList);
     }
 
     /**

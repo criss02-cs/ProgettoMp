@@ -1,4 +1,5 @@
-REPEAT 5
+UNTIL cristiano
 MOVE 1 -1 25
 DONE
-MOVE -1 1 25
+SIGNAL arrivato
+UNSIGNAL arrivato

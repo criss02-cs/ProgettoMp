@@ -31,6 +31,7 @@ public class FollowInstruction implements RobotInstruction {
         } else {
             moveToRandom(robot);
         }
+        System.out.println("FOLLOW execution by Robot: " + robot);
     }
 
     private List<Robot> getFilteredRobot(Robot robot) {

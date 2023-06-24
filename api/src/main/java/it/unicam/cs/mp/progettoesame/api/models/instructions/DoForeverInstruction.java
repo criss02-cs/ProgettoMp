@@ -9,6 +9,7 @@ public class DoForeverInstruction extends IterativeInstruction {
 
     @Override
     public void execute(Robot robot) {
+        System.out.println("DO FOREVER execution by Robot: " + robot);
         robot.continueMove();
     }
 

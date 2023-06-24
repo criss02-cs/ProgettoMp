@@ -16,7 +16,7 @@ public class ContinueInstruction implements RobotInstruction {
     public void execute(Robot robot) {
         robot.continueMove();
         this.secondsExecuted++;
-        System.out.println("Seconds executed: " + this.secondsExecuted);
+        System.out.println("Continue execution seconds n°" + this.secondsExecuted + " of " + this.secondsToExecute + " by Robot: " + robot);
     }
 
     @Override

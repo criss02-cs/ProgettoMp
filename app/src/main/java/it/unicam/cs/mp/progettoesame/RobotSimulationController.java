@@ -2,22 +2,20 @@ package it.unicam.cs.mp.progettoesame;
 
 import it.unicam.cs.mp.progettoesame.api.Controller;
 import it.unicam.cs.mp.progettoesame.api.ParserHandler;
-import it.unicam.cs.mp.progettoesame.api.Program;
 import it.unicam.cs.mp.progettoesame.api.exceptions.RobotsNotLoadedException;
-import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.IShape;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
-import it.unicam.cs.mp.progettoesame.api.utils.ShapeParser;
+import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParser;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserException;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserHandler;
-import it.unicam.cs.mp.progettoesame.utilities.ShapeData;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
@@ -25,6 +23,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.FileChooser;
 
 import javafx.scene.input.MouseEvent;
@@ -46,15 +45,13 @@ public class RobotSimulationController {
     private Pane paneShapes;
     @FXML
     private TextArea programTextArea;
-    private FollowMeParser parser;
     private Controller controller;
     private final Map<Robot, Circle> robotCircleMap = new HashMap<>();
     private final Map<Circle, Text> circleTextMap = new HashMap<>();
+    private final Map<Shape, Text> shapesTextMap = new HashMap<>();
 
     public void initialize() {
         this.controller = new Controller(new LinkedList<>(), new LinkedList<>());
-        final FollowMeParserHandler parserHandler = new ParserHandler(this.controller.getRobots(), this.controller.getShapes());
-        this.parser = new FollowMeParser(parserHandler);
         clipChildren(paneShapes);
     }
 
@@ -68,43 +65,52 @@ public class RobotSimulationController {
     }
 
     public void onMouseShapesClicked(MouseEvent mouseEvent) {
-        File selectedFile = this.openFileDialogForShapes(mouseEvent);
-        if(selectedFile != null) {
-            try {
+        try {
+            File selectedFile = this.openFileDialogForShapes(mouseEvent);
+            if(selectedFile != null) {
                 this.controller.readShapeList(selectedFile);
                 this.drawShapes();
-            } catch (IOException | FollowMeParserException e) {
-                this.showErrorAlert(e.getMessage());
             }
+        } catch (IOException | FollowMeParserException e) {
+            this.showErrorAlert(e.getMessage());
         }
     }
 
     private void showErrorAlert(String text) {
-        Alert a = new Alert(Alert.AlertType.ERROR);
+        Alert a = new Alert(AlertType.ERROR);
         a.setTitle("Errore");
         a.setContentText(text);
         a.show();
     }
 
     private void drawShapes(){
-        this.shapesGroup.getChildren().clear();
-        this.controller.getShapes().forEach(shape -> {
-            if(shape.getDimensions().getItem2() == -1) {
-                drawCircularShape(shape);
-            } else {
-                drawRectangularShape(shape);
-            }
-        });
+        this.controller.getShapes().forEach(this::drawShapes);
+    }
+
+    private void drawShapes(IShape shape) {
+        if(shape.getDimensions().getItem2() == -1) {
+            drawCircularShape(shape);
+        } else {
+            drawRectangularShape(shape);
+        }
     }
 
     private void drawRectangularShape(IShape shape) {
-        double x = shape.getCoordinates().getX() - (shape.getDimensions().getItem1() / 2);
-        double y = shape.getCoordinates().getY() - (shape.getDimensions().getItem2() / 2);
-        Rectangle rectangle = new Rectangle(x, y, shape.getDimensions().getItem1(), shape.getDimensions().getItem2());
+        Tuple<Double, Double> coordinates = this.getCoordinatesOfRectangle(shape);
+        Rectangle rectangle = new Rectangle(coordinates.getItem1(), coordinates.getItem2(),
+                shape.getDimensions().getItem1(), shape.getDimensions().getItem2());
         rectangle.setFill(Color.TRANSPARENT);
         rectangle.setStroke(Color.BLACK);
         rectangle.setStrokeWidth(2);
-        this.shapesGroup.getChildren().add(rectangle);
+        Text text = this.createTextFromRectangle(rectangle, shape.getLabel());
+        this.shapesTextMap.put(rectangle, text);
+        this.shapesGroup.getChildren().addAll(rectangle, text);
+    }
+
+    private Tuple<Double, Double> getCoordinatesOfRectangle(IShape shape) {
+        double x = shape.getCoordinates().getX() - (shape.getDimensions().getItem1() / 2);
+        double y = shape.getCoordinates().getY() - (shape.getDimensions().getItem2() / 2);
+        return Tuple.of(x, y);
     }
 
     private void drawCircularShape(IShape shape) {
@@ -114,7 +120,9 @@ public class RobotSimulationController {
         circle.setFill(Color.TRANSPARENT);
         circle.setStroke(Color.BLACK);
         circle.setStrokeWidth(2);
-        this.shapesGroup.getChildren().add(circle);
+        Text text = this.createTextFromCircle(circle, shape.getLabel());
+        this.shapesTextMap.put(circle, text);
+        this.shapesGroup.getChildren().addAll(circle, text);
     }
 
     private File openFileDialogForShapes(MouseEvent mouseEvent) {
@@ -126,8 +134,7 @@ public class RobotSimulationController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(title);
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter(description, extension));
-        File selectedFile = fileChooser.showOpenDialog(((Node) mouseEvent.getSource()).getScene().getWindow());
-        return selectedFile;
+        return fileChooser.showOpenDialog(((Node) mouseEvent.getSource()).getScene().getWindow());
     }
 
     private File openFileDialogForRobots(MouseEvent mouseEvent) {
@@ -174,6 +181,15 @@ public class RobotSimulationController {
         return text;
     }
 
+    private Text createTextFromRectangle(Rectangle rectangle, String label) {
+        Text text = new Text(label);
+        text.setFont(Font.font("Arial", 16));
+        text.setFill(Color.BLACK);
+        text.setLayoutX(rectangle.getX());
+        text.setLayoutY(rectangle.getY() + rectangle.getLayoutBounds().getHeight() / 2);
+        return text;
+    }
+
     private Circle createCircleFromRobot(Robot r) {
         Circle circle = new Circle(r.getPosition().getX(), r.getPosition().getY(),50);
         circle.setFill(Color.RED);
@@ -194,6 +210,7 @@ public class RobotSimulationController {
             double targetX = robot.getPosition().getX();
             double targetY = robot.getPosition().getY();
             Text text = this.circleTextMap.get(circle);
+            text.setText(robot.getSignaledLabel().isEmpty() ? "" : robot.getSignaledLabel());
             Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),
                     new KeyValue(circle.centerXProperty(), targetX),
                     new KeyValue(circle.centerYProperty(), targetY),
@@ -204,14 +221,14 @@ public class RobotSimulationController {
     }
 
     public void onReadProgramClicked(MouseEvent mouseEvent) {
-        File selectedFile = this.openFileDialogForProgram(mouseEvent);
-        if(selectedFile != null) {
-            try {
+        try {
+            File selectedFile = this.openFileDialogForProgram(mouseEvent);
+            if(selectedFile != null) {
                 List<String> lines = this.controller.readInstructionList(selectedFile);
                 lines.forEach(x -> this.programTextArea.appendText(x + "\n"));
-            } catch (IOException | FollowMeParserException | RobotsNotLoadedException e) {
-                this.showErrorAlert(e.getMessage());
             }
+        } catch (IOException | FollowMeParserException | RobotsNotLoadedException e) {
+            this.showErrorAlert(e.getMessage());
         }
     }
 
