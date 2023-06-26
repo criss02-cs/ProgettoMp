@@ -1,15 +1,12 @@
 package it.unicam.cs.mp.progettoesame;
 
 import it.unicam.cs.mp.progettoesame.api.Controller;
-import it.unicam.cs.mp.progettoesame.api.ParserHandler;
 import it.unicam.cs.mp.progettoesame.api.exceptions.RobotsNotLoadedException;
 import it.unicam.cs.mp.progettoesame.api.models.IShape;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
-import it.unicam.cs.mp.progettoesame.utilities.FollowMeParser;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserException;
-import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserHandler;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
@@ -23,7 +20,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.FileChooser;
 
 import javafx.scene.input.MouseEvent;
@@ -37,12 +33,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-
 public class RobotSimulationController {
     @FXML
-    private Group shapesGroup;
+    private Group group;
     @FXML
-    private Pane paneShapes;
+    private Pane pane;
     @FXML
     private TextArea programTextArea;
     private Controller controller;
@@ -52,7 +47,7 @@ public class RobotSimulationController {
 
     public void initialize() {
         this.controller = new Controller(new LinkedList<>(), new LinkedList<>());
-        clipChildren(paneShapes);
+        clipChildren(pane);
     }
 
     private void clipChildren(Region region) {
@@ -64,31 +59,78 @@ public class RobotSimulationController {
         });
     }
 
-    public void onMouseShapesClicked(MouseEvent mouseEvent) {
-        try {
-            File selectedFile = this.openFileDialogForShapes(mouseEvent);
-            if(selectedFile != null) {
-                this.controller.readShapeList(selectedFile);
-                this.drawShapes();
-            }
-        } catch (IOException | FollowMeParserException e) {
-            this.showErrorAlert(e.getMessage());
+    private void updateCircles() {
+        robotCircleMap.forEach((robot, circle) -> {
+            double targetX = robot.getPosition().getX();
+            double targetY = robot.getPosition().getY();
+            Text text = this.circleTextMap.get(circle);
+            checkChangeText(text, robot);
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),
+                    this.getAnimations(circle, text, robot, new Point(targetX, targetY)).toArray(KeyValue[]::new)));
+            timeline.play();
+        });
+    }
+
+    private void checkChangeText(Text text, Robot robot) {
+        if (!robot.getSignaledLabel().equalsIgnoreCase(text.getText())) {
+            text.setText(robot.getSignaledLabel());
+            text.setLayoutX(this.getXPositionOfText(robot.getPosition().getX(), text));
+            text.setLayoutY(this.getYPositionOfText(robot.getPosition().getY(), text));
         }
     }
 
+    private List<KeyValue> getAnimations(Circle c, Text t, Robot r, Point target) {
+        List<KeyValue> keyValues = new LinkedList<>();
+        keyValues.add(new KeyValue(c.centerXProperty(), target.getX()));
+        keyValues.add(new KeyValue(c.centerYProperty(), target.getY()));
+        if ((r.getPosition().getX() != this.getXPositionOfText(target.getX(), t))
+                || (r.getPosition().getY() != this.getYPositionOfText(target.getY(), t))) {
+            keyValues.add(new KeyValue(t.layoutXProperty(), this.getXPositionOfText(target.getX(), t)));
+            keyValues.add(new KeyValue(t.layoutYProperty(), this.getYPositionOfText(target.getY(), t)));
+        }
+        return keyValues;
+    }
+
+    private Tuple<Double, Double> getCoordinatesOfRectangle(IShape shape) {
+        double x = shape.getCoordinates().getX() - (shape.getDimensions().getItem1() / 2);
+        double y = shape.getCoordinates().getY() - (shape.getDimensions().getItem2() / 2);
+        return Tuple.of(x, y);
+    }
+
+    private void reset() {
+        this.robotCircleMap.clear();
+        this.circleTextMap.clear();
+        this.shapesTextMap.clear();
+        this.controller = new Controller(new LinkedList<>(), new LinkedList<>());
+        this.group.getChildren().clear();
+    }
+
+    //region TEXT POSITION
+    private double getXPositionOfText(double x, Text text) {
+        return x - text.getLayoutBounds().getWidth() / 2;
+    }
+
+    private double getYPositionOfText(double y, Text text) {
+        return y + text.getLayoutBounds().getHeight() / 4;
+    }
+    //endregion
+
+    //region ALERTS
     private void showErrorAlert(String text) {
         Alert a = new Alert(AlertType.ERROR);
         a.setTitle("Errore");
         a.setContentText(text);
         a.show();
     }
+    //endregion
 
-    private void drawShapes(){
+    //region DRAW ELEMENTS
+    private void drawShapes() {
         this.controller.getShapes().forEach(this::drawShapes);
     }
 
     private void drawShapes(IShape shape) {
-        if(shape.getDimensions().getItem2() == -1) {
+        if (shape.getDimensions().getItem2() == -1) {
             drawCircularShape(shape);
         } else {
             drawRectangularShape(shape);
@@ -104,13 +146,7 @@ public class RobotSimulationController {
         rectangle.setStrokeWidth(2);
         Text text = this.createTextFromRectangle(rectangle, shape.getLabel());
         this.shapesTextMap.put(rectangle, text);
-        this.shapesGroup.getChildren().addAll(rectangle, text);
-    }
-
-    private Tuple<Double, Double> getCoordinatesOfRectangle(IShape shape) {
-        double x = shape.getCoordinates().getX() - (shape.getDimensions().getItem1() / 2);
-        double y = shape.getCoordinates().getY() - (shape.getDimensions().getItem2() / 2);
-        return Tuple.of(x, y);
+        this.group.getChildren().addAll(rectangle, text);
     }
 
     private void drawCircularShape(IShape shape) {
@@ -122,44 +158,7 @@ public class RobotSimulationController {
         circle.setStrokeWidth(2);
         Text text = this.createTextFromCircle(circle, shape.getLabel());
         this.shapesTextMap.put(circle, text);
-        this.shapesGroup.getChildren().addAll(circle, text);
-    }
-
-    private File openFileDialogForShapes(MouseEvent mouseEvent) {
-        return this.openFileDialog(mouseEvent, "Seleziona il file da cui importare le figure",
-                "*.rshape", "Robots Shapes");
-    }
-
-    private File openFileDialog(MouseEvent mouseEvent, String title, String extension, String description) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle(title);
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter(description, extension));
-        return fileChooser.showOpenDialog(((Node) mouseEvent.getSource()).getScene().getWindow());
-    }
-
-    private File openFileDialogForRobots(MouseEvent mouseEvent) {
-        return this.openFileDialog(mouseEvent, "Seleziona il file da cui importare i robot",
-                "*.rrobots", "Robots");
-    }
-
-    private File openFileDialogForProgram(MouseEvent mouseEvent) {
-        return this.openFileDialog(mouseEvent, "Seleziona il file da cui importare il programma",
-                "*.rprogram", "Robots Program");
-    }
-
-    public void onMouseRobotClicked(MouseEvent mouseEvent) {
-        File selectedFile = this.openFileDialogForRobots(mouseEvent);
-        this.controller.getRobots().clear();
-        try {
-            List<String> lines = Files.readAllLines(selectedFile.toPath());
-            for(String line : lines) {
-                String[] elements = line.trim().toUpperCase().split(" ");
-                this.controller.getRobots().add(new Robot(new Point(Double.parseDouble(elements[1]), Double.parseDouble(elements[2]))));
-            }
-            this.drawRobots();
-        } catch (IOException e) {
-            this.showErrorAlert(e.getMessage());
-        }
+        this.group.getChildren().addAll(circle, text);
     }
 
     private void drawRobots() {
@@ -168,10 +167,12 @@ public class RobotSimulationController {
             Text text = this.createTextFromCircle(circle, robot.getSignaledLabel());
             this.robotCircleMap.put(robot, circle);
             this.circleTextMap.put(circle, text);
-            this.shapesGroup.getChildren().addAll(circle, text);
+            this.group.getChildren().addAll(circle, text);
         });
     }
+    //endregion
 
+    //region CREATE ELEMENTS
     private Text createTextFromCircle(Circle circle, String label) {
         Text text = new Text(label);
         text.setFont(Font.font("Arial", 16));
@@ -191,7 +192,7 @@ public class RobotSimulationController {
     }
 
     private Circle createCircleFromRobot(Robot r) {
-        Circle circle = new Circle(r.getPosition().getX(), r.getPosition().getY(),50);
+        Circle circle = new Circle(r.getPosition().getX(), r.getPosition().getY(), 50);
         circle.setFill(Color.RED);
         circle.setStroke(Color.BLACK);
         circle.setStrokeWidth(2);
@@ -199,31 +200,70 @@ public class RobotSimulationController {
         circle.setTranslateY(0);
         return circle;
     }
+    //endregion
+
+    //region FileDialogs
+    private File openFileDialog(MouseEvent mouseEvent, String title, String extension, String description) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle(title);
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter(description, extension));
+        return fileChooser.showOpenDialog(((Node) mouseEvent.getSource()).getScene().getWindow());
+    }
+
+    private File openFileDialogForRobots(MouseEvent mouseEvent) {
+        return this.openFileDialog(mouseEvent, "Seleziona il file da cui importare i robot",
+                "*.rrobots", "Robots");
+    }
+
+    private File openFileDialogForShapes(MouseEvent mouseEvent) {
+        return this.openFileDialog(mouseEvent, "Seleziona il file da cui importare le figure",
+                "*.rshape", "Robots Shapes");
+    }
+
+    private File openFileDialogForProgram(MouseEvent mouseEvent) {
+        return this.openFileDialog(mouseEvent, "Seleziona il file da cui importare il programma",
+                "*.rprogram", "Robots Program");
+    }
+
+    //endregion
+
+    //region EVENTS
+    public void onMouseShapesClicked(MouseEvent mouseEvent) {
+        try {
+            File selectedFile = this.openFileDialogForShapes(mouseEvent);
+            if (selectedFile != null) {
+                this.controller.readShapeList(selectedFile);
+                this.drawShapes();
+            }
+        } catch (IOException | FollowMeParserException e) {
+            this.showErrorAlert(e.getMessage());
+        }
+    }
+
+    public void onMouseRobotClicked(MouseEvent mouseEvent) {
+        File selectedFile = this.openFileDialogForRobots(mouseEvent);
+        this.controller.getRobots().clear();
+        try {
+            List<String> lines = Files.readAllLines(selectedFile.toPath());
+            for (String line : lines) {
+                String[] elements = line.trim().toUpperCase().split(" ");
+                this.controller.getRobots().add(new Robot(new Point(Double.parseDouble(elements[1]), Double.parseDouble(elements[2]))));
+            }
+            this.drawRobots();
+        } catch (IOException e) {
+            this.showErrorAlert(e.getMessage());
+        }
+    }
 
     public void onExecuteClicked(MouseEvent mouseEvent) {
         this.controller.nextInstruction();
         this.updateCircles();
     }
 
-    private void updateCircles() {
-        robotCircleMap.forEach((robot, circle) -> {
-            double targetX = robot.getPosition().getX();
-            double targetY = robot.getPosition().getY();
-            Text text = this.circleTextMap.get(circle);
-            text.setText(robot.getSignaledLabel().isEmpty() ? "" : robot.getSignaledLabel());
-            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),
-                    new KeyValue(circle.centerXProperty(), targetX),
-                    new KeyValue(circle.centerYProperty(), targetY),
-                    new KeyValue(text.layoutXProperty(), targetX - text.getLayoutBounds().getWidth() / 2),
-                    new KeyValue(text.layoutYProperty(), targetY + text.getLayoutBounds().getHeight() / 4)));
-            timeline.play();
-        });
-    }
-
     public void onReadProgramClicked(MouseEvent mouseEvent) {
         try {
             File selectedFile = this.openFileDialogForProgram(mouseEvent);
-            if(selectedFile != null) {
+            if (selectedFile != null) {
                 List<String> lines = this.controller.readInstructionList(selectedFile);
                 lines.forEach(x -> this.programTextArea.appendText(x + "\n"));
             }
@@ -235,7 +275,7 @@ public class RobotSimulationController {
     public void onExecuteMultipleInstruction(MouseEvent mouseEvent) throws InterruptedException {
         Thread thread = new Thread(() -> {
             try {
-                for(int i = 0; i < 10; i++) {
+                for (int i = 0; i < 10; i++) {
                     this.controller.nextInstruction();
                     this.updateCircles();
                     Thread.sleep(1000); // Pausa di un secondo (1000 millisecondi)
@@ -247,4 +287,5 @@ public class RobotSimulationController {
 
         thread.start();
     }
+    //endregion
 }

@@ -13,6 +13,7 @@ public class Robot {
         this.position = position;
         this.direction = new Direction();
         this.labelToSignal = "";
+        this.speed = 0;
     }
     public Robot() {
         this(new Point());

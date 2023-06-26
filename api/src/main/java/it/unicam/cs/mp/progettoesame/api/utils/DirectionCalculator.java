@@ -15,8 +15,8 @@ public interface DirectionCalculator {
      * @return la direzione che il robot dovrà seguire
      */
     static Direction calculate(Point source, Point destination) {
-        double difX = DistanceCalculator.findCoordinatesDifference(source.getX(), destination.getX());
-        double difY = DistanceCalculator.findCoordinatesDifference(source.getY(), destination.getY());
+        double difX = DistanceCalculator.findCoordinatesDifference(source.getX(), destination.getX(), false);
+        double difY = DistanceCalculator.findCoordinatesDifference(source.getY(), destination.getY(), true);
         double distance = DistanceCalculator.calculate(source, destination);
         return new Direction(difX / distance, difY / distance);
     }
