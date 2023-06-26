@@ -5,9 +5,11 @@ import it.unicam.cs.mp.progettoesame.api.exceptions.RobotsNotLoadedException;
 import it.unicam.cs.mp.progettoesame.api.models.IShape;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
+import it.unicam.cs.mp.progettoesame.api.utils.CoordinatesTranslator;
 import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserException;
 import javafx.animation.*;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -41,13 +43,21 @@ public class RobotSimulationController {
     @FXML
     private TextArea programTextArea;
     private Controller controller;
-    private final Map<Robot, Circle> robotCircleMap = new HashMap<>();
-    private final Map<Circle, Text> circleTextMap = new HashMap<>();
-    private final Map<Shape, Text> shapesTextMap = new HashMap<>();
+    private final Map<Robot, Circle> robotCircleMap;
+    private final Map<Circle, Text> circleTextMap;
+    private final Map<Shape, Text> shapesTextMap;
+    private CoordinatesTranslator coordinatesTranslator;
+
+    public RobotSimulationController() {
+        this.robotCircleMap = new HashMap<>();
+        circleTextMap = new HashMap<>();
+        shapesTextMap = new HashMap<>();
+    }
 
     public void initialize() {
         this.controller = new Controller(new LinkedList<>(), new LinkedList<>());
         clipChildren(pane);
+        Platform.runLater(() -> this.coordinatesTranslator = new CoordinatesTranslator(this.pane.getHeight(), this.pane.getWidth()));
     }
 
     private void clipChildren(Region region) {
@@ -61,21 +71,20 @@ public class RobotSimulationController {
 
     private void updateCircles() {
         robotCircleMap.forEach((robot, circle) -> {
-            double targetX = robot.getPosition().getX();
-            double targetY = robot.getPosition().getY();
+            Point target = this.coordinatesTranslator.translateToScreenCoordinates(robot.getPosition());
             Text text = this.circleTextMap.get(circle);
-            checkChangeText(text, robot);
+            checkChangeText(text, robot, target);
             Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),
-                    this.getAnimations(circle, text, robot, new Point(targetX, targetY)).toArray(KeyValue[]::new)));
+                    this.getAnimations(circle, text, robot, target).toArray(KeyValue[]::new)));
             timeline.play();
         });
     }
 
-    private void checkChangeText(Text text, Robot robot) {
+    private void checkChangeText(Text text, Robot robot, Point target) {
         if (!robot.getSignaledLabel().equalsIgnoreCase(text.getText())) {
             text.setText(robot.getSignaledLabel());
-            text.setLayoutX(this.getXPositionOfText(robot.getPosition().getX(), text));
-            text.setLayoutY(this.getYPositionOfText(robot.getPosition().getY(), text));
+            text.setLayoutX(this.getXPositionOfText(target.getX(), text));
+            text.setLayoutY(this.getYPositionOfText(target.getY(), text));
         }
     }
 
@@ -83,8 +92,9 @@ public class RobotSimulationController {
         List<KeyValue> keyValues = new LinkedList<>();
         keyValues.add(new KeyValue(c.centerXProperty(), target.getX()));
         keyValues.add(new KeyValue(c.centerYProperty(), target.getY()));
-        if ((r.getPosition().getX() != this.getXPositionOfText(target.getX(), t))
-                || (r.getPosition().getY() != this.getYPositionOfText(target.getY(), t))) {
+        Point robotTraslation = this.coordinatesTranslator.translateToScreenCoordinates(r.getPosition());
+        if ((robotTraslation.getX() != this.getXPositionOfText(target.getX(), t))
+                || (robotTraslation.getY() != this.getYPositionOfText(target.getY(), t))) {
             keyValues.add(new KeyValue(t.layoutXProperty(), this.getXPositionOfText(target.getX(), t)));
             keyValues.add(new KeyValue(t.layoutYProperty(), this.getYPositionOfText(target.getY(), t)));
         }
@@ -92,8 +102,9 @@ public class RobotSimulationController {
     }
 
     private Tuple<Double, Double> getCoordinatesOfRectangle(IShape shape) {
-        double x = shape.getCoordinates().getX() - (shape.getDimensions().getItem1() / 2);
-        double y = shape.getCoordinates().getY() - (shape.getDimensions().getItem2() / 2);
+        Point screenCoordinates = this.coordinatesTranslator.translateToScreenCoordinates(shape.getCoordinates());
+        double x = screenCoordinates.getX() - (shape.getDimensions().getItem1() / 2);
+        double y = screenCoordinates.getY() - (shape.getDimensions().getItem2() / 2);
         return Tuple.of(x, y);
     }
 
@@ -151,8 +162,9 @@ public class RobotSimulationController {
 
     private void drawCircularShape(IShape shape) {
         Circle circle = new Circle(shape.getDimensions().getItem1());
-        circle.setCenterX(shape.getCoordinates().getX());
-        circle.setCenterY(shape.getCoordinates().getY());
+        Point screenPoint = this.coordinatesTranslator.translateToScreenCoordinates(shape.getCoordinates());
+        circle.setCenterX(screenPoint.getX());
+        circle.setCenterY(screenPoint.getY());
         circle.setFill(Color.TRANSPARENT);
         circle.setStroke(Color.BLACK);
         circle.setStrokeWidth(2);
@@ -192,7 +204,9 @@ public class RobotSimulationController {
     }
 
     private Circle createCircleFromRobot(Robot r) {
-        Circle circle = new Circle(r.getPosition().getX(), r.getPosition().getY(), 50);
+        Point screenPoint = this.coordinatesTranslator.translateToScreenCoordinates(r.getPosition());
+        Circle circle = new Circle(screenPoint.getX(),
+                screenPoint.getY(), 50);
         circle.setFill(Color.RED);
         circle.setStroke(Color.BLACK);
         circle.setStrokeWidth(2);

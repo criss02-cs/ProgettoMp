@@ -107,7 +107,7 @@ public class ParserHandler implements FollowMeParserHandler {
 
     @Override
     public void followCommand(String label, double[] args) {
-        this.program.addInstruction(new FollowInstruction(label, args[0], args[2], this.robots));
+        this.program.addInstruction(new FollowInstruction(label, args[0], args[1], this.robots));
         this.instructionCounter++;
     }
 

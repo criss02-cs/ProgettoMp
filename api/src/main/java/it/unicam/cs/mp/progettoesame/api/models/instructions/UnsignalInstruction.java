@@ -12,6 +12,7 @@ public class UnsignalInstruction implements RobotInstruction {
     @Override
     public void execute(Robot robot) {
         robot.unsignalLabel(this.labelToUnsignal);
+        robot.continueMove();
         System.out.println("USIGNAL execution label " + this.labelToUnsignal + " by Robot: " + robot);
     }
 

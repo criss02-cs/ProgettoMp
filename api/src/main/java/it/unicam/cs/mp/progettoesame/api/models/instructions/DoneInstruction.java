@@ -11,6 +11,7 @@ public class DoneInstruction implements RobotInstruction {
     @Override
     public void execute(Robot robot) {
         // TODO muovi il robot se si sta muovendo
+        robot.continueMove();
         System.out.println("DONE command executed by Robot: " + robot);
     }
 

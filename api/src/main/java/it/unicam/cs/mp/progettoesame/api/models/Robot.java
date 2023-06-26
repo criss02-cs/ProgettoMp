@@ -23,15 +23,17 @@ public class Robot {
         return position;
     }
 
+    public void setPosition(Point point) { this.position = point; }
+
     public boolean isProgramTerminated() {
         return isProgramTerminated;
     }
 
     public void move(double speed, Direction dir) {
-        this.direction = dir;
+        this.direction = new Direction(dir.getX(), dir.getY());
         this.speed = speed;
         this.position.setX((speed * dir.getX()) + this.position.getX());
-        this.position.setY((speed * -dir.getY()) + this.position.getY());
+        this.position.setY((speed * dir.getY()) + this.position.getY());
     }
 
     public void continueMove() {

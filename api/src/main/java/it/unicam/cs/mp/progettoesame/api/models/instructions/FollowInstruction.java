@@ -28,10 +28,10 @@ public class FollowInstruction implements RobotInstruction {
             Point averagePoint = this.calculateAveragePoint(robotWithLabel);
             Direction dir = DirectionCalculator.calculate(robot.getPosition(), averagePoint);
             robot.move(this.speed, dir);
+            System.out.println("FOLLOW execution by Robot: " + robot);
         } else {
             moveToRandom(robot);
         }
-        System.out.println("FOLLOW execution by Robot: " + robot);
     }
 
     private List<Robot> getFilteredRobot(Robot robot) {

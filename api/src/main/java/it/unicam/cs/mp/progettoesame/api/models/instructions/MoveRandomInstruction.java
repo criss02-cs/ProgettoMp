@@ -4,6 +4,7 @@ import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.DirectionCalculator;
+import it.unicam.cs.mp.progettoesame.api.utils.DistanceCalculator;
 import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 
 import java.util.Random;
@@ -23,10 +24,12 @@ public class MoveRandomInstruction implements RobotInstruction {
     public void execute(Robot robot) {
         Point randomPoint = this.getRandomCoordinates();
         Direction dir = DirectionCalculator.calculate(robot.getPosition(), randomPoint);
-        while (checkTollerance(randomPoint, robot.getPosition()))
+        double distance = DistanceCalculator.calculate(robot.getPosition(), randomPoint);
+        while (checkTollerance(randomPoint, robot.getPosition())
+                && DistanceCalculator.calculate(robot.getPosition(), randomPoint) <= distance)
             robot.move(speed, dir);
-        robot.move(0, dir);
-        System.out.println("MOVE RANDOM execution in position " + randomPoint + " at speed " + this.speed + " by Robot: " + robot);
+        robot.setPosition(randomPoint);
+        System.out.println("MOVE RANDOM execution in position " + randomPoint + " at speed " + this.speed + " with direction " + dir + " by Robot: " + robot);
     }
 
     private boolean checkTollerance(Point point1, Point point2) {

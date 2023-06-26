@@ -14,12 +14,12 @@ public interface DistanceCalculator {
      * @return la distanza che intercorre tra i 2 punti
      */
     static double calculate(Point source, Point destination) {
-        double difX = findCoordinatesDifference(source.getX(), destination.getX(), false);
-        double difY = findCoordinatesDifference(source.getY(), destination.getY(), true);
+        double difX = findCoordinatesDifference(source.getX(), destination.getX());
+        double difY = findCoordinatesDifference(source.getY(), destination.getY());
         return Math.sqrt(Math.pow(difX, 2) + Math.pow(difY, 2));
     }
 
-    static double findCoordinatesDifference(double source, double destination, boolean isInverted) {
-        return isInverted ? source - destination : Math.abs(source - destination);
+    static double findCoordinatesDifference(double source, double destination) {
+        return Math.abs(destination - source);
     }
 }

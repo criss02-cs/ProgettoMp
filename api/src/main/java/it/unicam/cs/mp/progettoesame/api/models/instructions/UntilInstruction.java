@@ -30,6 +30,7 @@ public class UntilInstruction extends IterativeInstruction {
                 this.checkRectangularShape(robot, shape);
             }
         }
+        robot.continueMove();
         System.out.println("UNTIL execution label " + this.labelToFind + " by Robot: " + robot);
     }
 

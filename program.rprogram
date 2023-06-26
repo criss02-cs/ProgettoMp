@@ -1,5 +1,4 @@
 UNTIL cristiano
-MOVE RANDOM 100 200 200 300 25
+FOLLOW arrivato 100 9
 DONE
 SIGNAL arrivato
-UNSIGNAL arrivato

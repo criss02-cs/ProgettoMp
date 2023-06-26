@@ -17,8 +17,8 @@ import java.nio.file.Files;
 import java.util.List;
 
 public class Controller {
-    private List<Robot> robots;
-    private List<IShape> shapes;
+    private final List<Robot> robots;
+    private final List<IShape> shapes;
     private final FollowMeParser parser;
     public Controller(List<Robot> robots, List<IShape> shapes) {
         this.robots = robots;
@@ -26,9 +26,6 @@ public class Controller {
         final FollowMeParserHandler handler = new ParserHandler(this.robots, this.shapes);
         this.parser = new FollowMeParser(handler);
     }
-
-    public void loadRobots(List<Robot> robots) { this.robots = robots; }
-    public void loadShapes(List<IShape> shapes) { this.shapes = shapes; }
 
     /**
      * Metodo che si occupa di leggere il programma dei robot e di passarlo al
