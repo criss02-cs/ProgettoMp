@@ -98,6 +98,15 @@ public class Controller {
     }
 
     /**
+     * Metodo che verifica che tutti i robot abbiano finito i propri programmi
+     * @return true se tutti i robot hanno finito, false altrimenti
+     */
+    public boolean isAllRobotFinished() {
+        return this.robots.stream().filter(Robot::isProgramTerminated).count() ==
+                this.robots.size();
+    }
+
+    /**
      * Metodo che restituisce la lista di robot
      * @return la lista di robot
      */

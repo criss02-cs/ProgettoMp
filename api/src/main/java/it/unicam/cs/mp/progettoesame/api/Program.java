@@ -31,6 +31,9 @@ public class Program {
      * @param instruction istruzione da aggiungere
      */
     public void addInstruction(RobotInstruction instruction) {
+        if(instruction == null) {
+            throw new IllegalArgumentException("L'istruzione non può essere nulla");
+        }
         robotInstructions.add(instruction);
     }
 
@@ -41,6 +44,7 @@ public class Program {
      * @return true se ci sono altre istruzioni da eseguire, false se sono arrivato alla fine
      */
     public boolean executeInstruction(Robot robot) throws IllegalArgumentException {
+        if(robot == null) throw new IllegalArgumentException("Il robot non può essere nullo");
         if(this.programCounter == robotInstructions.size()) { return false; }
         RobotInstruction instruction = this.robotInstructions.get(this.programCounter);
         instruction.execute(robot);
@@ -48,7 +52,7 @@ public class Program {
         if(nextInstruction == -1)
             this.programCounter++;
         else
-            this.programCounter =nextInstruction;
+            this.programCounter = nextInstruction;
         return true;
     }
 
