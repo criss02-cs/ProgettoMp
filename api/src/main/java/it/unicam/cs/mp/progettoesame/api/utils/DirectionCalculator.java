@@ -18,6 +18,7 @@ public interface DirectionCalculator {
         double difX = DistanceCalculator.findCoordinatesDifference(source.getX(), destination.getX()) * checkSignOf(source.getX(), destination.getX());
         double difY = DistanceCalculator.findCoordinatesDifference(source.getY(), destination.getY()) * checkSignOf(source.getY(), destination.getY());
         double distance = DistanceCalculator.calculate(source, destination);
+        if(distance == 0) { distance = 1; }
         return new Direction(difX / distance, difY / distance);
     }
 

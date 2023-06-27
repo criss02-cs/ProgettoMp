@@ -1,4 +1,3 @@
-UNTIL cristiano
-FOLLOW arrivato 100 9
+DO FOREVER
+MOVE -1 0.5 20
 DONE
-SIGNAL arrivato
