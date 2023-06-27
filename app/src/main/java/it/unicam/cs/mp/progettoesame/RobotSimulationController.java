@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.ScrollEvent;
@@ -35,10 +36,7 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * JavaFX Controller of RobotSimulationApp
@@ -201,6 +199,18 @@ public class RobotSimulationController {
         a.setTitle("Errore");
         a.setContentText(text);
         a.show();
+    }
+
+    /**
+     * Metodo che mostra una input dialog, utilizzata per inserire il numero di passi da eseguire
+     * @param headerText il testo da mostrare nella dialog
+     * @return il numero di passi da eseguire
+     */
+    private int showInputAlert(String headerText) {
+        TextInputDialog td = new TextInputDialog();
+        td.setHeaderText(headerText);
+        Optional<String> text = td.showAndWait();
+        return text.map(Integer::parseInt).orElse(-1);
     }
     //endregion
 
@@ -390,15 +400,13 @@ public class RobotSimulationController {
      * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
      */
     public void onMouseRobotClicked(MouseEvent mouseEvent) {
-        File selectedFile = this.openFileDialogForRobots(mouseEvent);
-        this.controller.getRobots().clear();
         try {
-            List<String> lines = Files.readAllLines(selectedFile.toPath());
-            for (String line : lines) {
-                String[] elements = line.trim().toUpperCase().split(" ");
-                this.controller.getRobots().add(new Robot(new Point(Double.parseDouble(elements[1]), Double.parseDouble(elements[2]))));
+            this.controller.getRobots().clear();
+            File selectedFile = this.openFileDialogForRobots(mouseEvent);
+            if(selectedFile != null) {
+                this.controller.readRobotList(selectedFile);
+                this.drawRobots();
             }
-            this.drawRobots();
         } catch (IOException e) {
             this.showErrorAlert(e.getMessage());
         }
@@ -440,20 +448,10 @@ public class RobotSimulationController {
      * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
      */
     public void onExecuteMultipleInstruction(MouseEvent mouseEvent) {
-        Thread thread = new Thread(() -> {
-            try {
-                for (int i = 0; i < 10; i++) {
-                    this.controller.nextInstruction();
-                    this.updateCircles();
-                    Thread.sleep(1000); // Pausa di un secondo (1000 millisecondi)
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (IllegalArgumentException e) {
-                this.showErrorAlert(e.getMessage());
-            }
-        });
-
+        int numberOfInstruction = this.showInputAlert("Inserisci il numero di passi");
+        if(numberOfInstruction == -1)
+            numberOfInstruction = 1;
+        Thread thread = new Thread(this.executeMultipleInstruction(numberOfInstruction));
         thread.start();
     }
 
@@ -469,8 +467,6 @@ public class RobotSimulationController {
         scale.setPivotY(scrollEvent.getY());
         scale.setX(this.group.getScaleX() * scaleFactor);
         scale.setY(this.group.getScaleY() * scaleFactor);
-
-        // Applicazione della trasformazione di scala al gruppo radice
         this.group.getTransforms().add(scale);
     }
 
@@ -513,6 +509,27 @@ public class RobotSimulationController {
      */
     private void scrollDown() {
         this.translate.setY(translate.getY() - 10);
+    }
+    //endregion
+
+    //region THREADS
+
+    /**
+     * Metodo che restituisce il thread da eseguire per eseguire
+     * più istruzioni alla volta
+     * @param n il numero di istruzioni da eseguire
+     * @return l'istanza runnable da eseguire
+     */
+    private Runnable executeMultipleInstruction(int n) {
+        return () -> {
+            try {
+                for (int i = 0; i < n; i++) {
+                    this.controller.nextInstruction();
+                    this.updateCircles();
+                    Thread.sleep(1000); // Pausa di un secondo (1000 millisecondi)
+                }
+            } catch (InterruptedException | IllegalArgumentException e) { this.showErrorAlert(e.getMessage()); }
+        };
     }
     //endregion
 }
