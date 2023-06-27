@@ -20,6 +20,12 @@ public class ShapeParser {
         factoryMap.put("RECTANGLE", new RectangularShapeFactory());
     }
 
+    /**
+     * Metodo che prende in ingresso uno {@code ShapeData} e mi crea un
+     * {@code IShape}
+     * @param shapeData lo shapeData da convertire
+     * @return un oggetto di tipo {@code IShape}
+     */
     public IShape parseFromShapeData(ShapeData shapeData) {
         String shapeType = shapeData.shape();
         if (!factoryMap.containsKey(shapeType)) {

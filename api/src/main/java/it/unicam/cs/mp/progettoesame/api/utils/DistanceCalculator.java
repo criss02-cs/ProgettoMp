@@ -19,6 +19,12 @@ public interface DistanceCalculator {
         return Math.sqrt(Math.pow(difX, 2) + Math.pow(difY, 2));
     }
 
+    /**
+     * Metodo che calcola la differenza fra 2 coordinate
+     * @param source il punto di partenza
+     * @param destination iil punto di arrivo
+     * @return la differenza fra {@code destination} e {@code source}
+     */
     static double findCoordinatesDifference(double source, double destination) {
         return Math.abs(destination - source);
     }

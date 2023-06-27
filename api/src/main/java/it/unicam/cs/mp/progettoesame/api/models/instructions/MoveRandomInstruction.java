@@ -9,6 +9,9 @@ import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 
 import java.util.Random;
 
+/**
+ * Classe che rappresenta il comando MOVE RANDOM
+ */
 public class MoveRandomInstruction implements RobotInstruction {
     private final Point position1;
     private final Point position2;
@@ -32,14 +35,27 @@ public class MoveRandomInstruction implements RobotInstruction {
         System.out.println("MOVE RANDOM execution in position " + randomPoint + " at speed " + this.speed + " with direction " + dir + " by Robot: " + robot);
     }
 
+    /**
+     * Metodo che controlla eventuale errore della posizione, in quanto
+     * non sarà mai preciso
+     * @param point1 il punto di partenza
+     * @param point2 il punto di arrivo
+     * @return true se sono in errore non tollerabile,
+     *  false altrimenti
+     */
     private boolean checkTollerance(Point point1, Point point2) {
         return (Math.abs(point1.getX() - point2.getX()) > 1
                 && Math.abs(point1.getY() - point2.getY()) > 1);
     }
 
+    /**
+     * Metodo che calcola una coordinata randomica a partire dalle 2 posizioni già presenti
+     * @return il punto generato randomicamente
+     */
     private Point getRandomCoordinates() {
-        double x = new Random().nextDouble(position2.getX() - position1.getX() + 1) + position1.getX();
-        double y = new Random().nextDouble(position2.getY() - position1.getY() + 1) + position1.getY();
+        Random random = new Random();
+        double x = position1.getX() + (position2.getX() - position1.getX()) * random.nextDouble();
+        double y = position1.getY() + (position2.getY() - position1.getY()) * random.nextDouble();
         return new Point(x, y);
     }
 

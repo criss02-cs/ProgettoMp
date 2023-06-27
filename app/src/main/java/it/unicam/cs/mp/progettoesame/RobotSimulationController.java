@@ -16,12 +16,17 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.transform.Scale;
+import javafx.scene.transform.Translate;
 import javafx.stage.FileChooser;
 
 import javafx.scene.input.MouseEvent;
@@ -35,6 +40,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * JavaFX Controller of RobotSimulationApp
+ */
 public class RobotSimulationController {
     @FXML
     private Group group;
@@ -46,6 +54,7 @@ public class RobotSimulationController {
     private final Map<Robot, Circle> robotCircleMap;
     private final Map<Circle, Text> circleTextMap;
     private final Map<Shape, Text> shapesTextMap;
+    private Translate translate;
     private CoordinatesTranslator coordinatesTranslator;
 
     public RobotSimulationController() {
@@ -54,12 +63,23 @@ public class RobotSimulationController {
         shapesTextMap = new HashMap<>();
     }
 
+    /**
+     * Metodo che inizializza tutti i componenti grafici
+     */
     public void initialize() {
         this.controller = new Controller(new LinkedList<>(), new LinkedList<>());
         clipChildren(pane);
         Platform.runLater(() -> this.coordinatesTranslator = new CoordinatesTranslator(this.pane.getHeight(), this.pane.getWidth()));
+        translate = new Translate();
+        this.group.getTransforms().add(translate);
     }
 
+    /**
+     * Metodo che aggiunge una specie di bordo per fare in modo
+     * di mostrare una specie di taglio quando le figure vanno fuori
+     * dall'area visibile
+     * @param region
+     */
     private void clipChildren(Region region) {
         final Rectangle clipPane = new Rectangle();
         region.setClip(clipPane);
@@ -69,6 +89,9 @@ public class RobotSimulationController {
         });
     }
 
+    /**
+     * Metodo che aggiorna graficamente i robot in base alla lista di robot
+     */
     private void updateCircles() {
         robotCircleMap.forEach((robot, circle) -> {
             Point target = this.coordinatesTranslator.translateToScreenCoordinates(robot.getPosition());
@@ -80,6 +103,13 @@ public class RobotSimulationController {
         });
     }
 
+    /**
+     * Metodo che verifica se il robot ha cambiato la sua label,
+     * se è cambiata aggiorno graficamente il testo e la sua posizione
+     * @param text il testo da verificare
+     * @param robot il robot che devo controllare
+     * @param target il punto in cui dovrei eventualmente spostare il testo
+     */
     private void checkChangeText(Text text, Robot robot, Point target) {
         if (!robot.getSignaledLabel().equalsIgnoreCase(text.getText())) {
             text.setText(robot.getSignaledLabel());
@@ -88,6 +118,16 @@ public class RobotSimulationController {
         }
     }
 
+    /**
+     * Metodo che ritorna una lista di <code>KeyValue</code> per vedere quali animazioni
+     * devo andare ad eseguire. Il componente <code>Text</code> non sempre andrà animato in quanto
+     * non sempre un robot si muove
+     * @param c il cerchio da spostare
+     * @param t il testo da spostare
+     * @param r il robot da cui devo verificare le coordinate
+     * @param target il punto di arrivo
+     * @return la lista di animazioni da svolgere
+     */
     private List<KeyValue> getAnimations(Circle c, Text t, Robot r, Point target) {
         List<KeyValue> keyValues = new LinkedList<>();
         keyValues.add(new KeyValue(c.centerXProperty(), target.getX()));
@@ -101,6 +141,12 @@ public class RobotSimulationController {
         return keyValues;
     }
 
+    /**
+     * Metodo che restituisce le coordinate di un <code>Rectangle</code> in base all'area che mi interessa,
+     * in quanto mi devo calcolare il punto in alto a sinistra
+     * @param shape l'area che mi interessa mostrare
+     * @return una tupla contenente le coordinate del punto in alto a sinistra del rettangolo
+     */
     private Tuple<Double, Double> getCoordinatesOfRectangle(IShape shape) {
         Point screenCoordinates = this.coordinatesTranslator.translateToScreenCoordinates(shape.getCoordinates());
         double x = screenCoordinates.getX() - (shape.getDimensions().getItem1() / 2);
@@ -108,6 +154,11 @@ public class RobotSimulationController {
         return Tuple.of(x, y);
     }
 
+    /**
+     * Metodo che resetta il programma e pulisce tutte le strutture
+     * dati presenti, permettendo di ricominciare da capo, senza dover
+     * chiudere l'applicazione
+     */
     private void reset() {
         this.robotCircleMap.clear();
         this.circleTextMap.clear();
@@ -117,16 +168,34 @@ public class RobotSimulationController {
     }
 
     //region TEXT POSITION
+
+    /**
+     * Metodo che restituisce la coordinata X del componente di testo
+     * @param x la coordinata X del contenitore del testo
+     * @param text il componente di testo
+     * @return la coordinata X del componente di testo
+     */
     private double getXPositionOfText(double x, Text text) {
         return x - text.getLayoutBounds().getWidth() / 2;
     }
-
+    /**
+     * Metodo che restituisce la coordinata Y del componente di testo
+     * @param y la coordinata Y del contenitore del testo
+     * @param text il componente di testo
+     * @return la coordinata Y del componente di testo
+     */
     private double getYPositionOfText(double y, Text text) {
         return y + text.getLayoutBounds().getHeight() / 4;
     }
     //endregion
 
     //region ALERTS
+
+    /**
+     * Metodo che mostra un alert in caso di errore,
+     * in genere utilizzato quando viene sollevata un'eccezzione
+     * @param text il testo da mostrare nell'alert
+     */
     private void showErrorAlert(String text) {
         Alert a = new Alert(AlertType.ERROR);
         a.setTitle("Errore");
@@ -136,10 +205,18 @@ public class RobotSimulationController {
     //endregion
 
     //region DRAW ELEMENTS
+
+    /**
+     * Metodo che per ogni area la disegna nell'area interessata
+     */
     private void drawShapes() {
         this.controller.getShapes().forEach(this::drawShapes);
     }
 
+    /**
+     * Disegna un'area, andando a verificare se è un cerchio o un rettangolo
+     * @param shape l'area da disegnare
+     */
     private void drawShapes(IShape shape) {
         if (shape.getDimensions().getItem2() == -1) {
             drawCircularShape(shape);
@@ -148,6 +225,10 @@ public class RobotSimulationController {
         }
     }
 
+    /**
+     * Metodo che disegna un'area rettangolare
+     * @param shape area da cui costruire il rettangolo
+     */
     private void drawRectangularShape(IShape shape) {
         Tuple<Double, Double> coordinates = this.getCoordinatesOfRectangle(shape);
         Rectangle rectangle = new Rectangle(coordinates.getItem1(), coordinates.getItem2(),
@@ -160,6 +241,10 @@ public class RobotSimulationController {
         this.group.getChildren().addAll(rectangle, text);
     }
 
+    /**
+     * Metodo che disegna un'area circolare
+     * @param shape area da cui costruire il cerchio
+     */
     private void drawCircularShape(IShape shape) {
         Circle circle = new Circle(shape.getDimensions().getItem1());
         Point screenPoint = this.coordinatesTranslator.translateToScreenCoordinates(shape.getCoordinates());
@@ -173,6 +258,9 @@ public class RobotSimulationController {
         this.group.getChildren().addAll(circle, text);
     }
 
+    /**
+     * Metodo che va a disegnare tutti i robot presenti
+     */
     private void drawRobots() {
         this.controller.getRobots().forEach(robot -> {
             Circle circle = this.createCircleFromRobot(robot);
@@ -185,6 +273,13 @@ public class RobotSimulationController {
     //endregion
 
     //region CREATE ELEMENTS
+
+    /**
+     * Metodo che crea un <code>Text</code> in base ad un <code>Circle</code>
+     * @param circle il cerchio da cui costruire il componente di testo
+     * @param label il testo da inserire all'interno
+     * @return il <code>Text</code> creato
+     */
     private Text createTextFromCircle(Circle circle, String label) {
         Text text = new Text(label);
         text.setFont(Font.font("Arial", 16));
@@ -193,7 +288,12 @@ public class RobotSimulationController {
         text.setLayoutY(circle.getCenterY() + text.getLayoutBounds().getHeight() / 4);
         return text;
     }
-
+    /**
+     * Metodo che crea un <code>Text</code> in base ad un <code>Rectangle</code>
+     * @param rectangle il rettangolo da cui costruire il componente di testo
+     * @param label il testo da inserire all'interno
+     * @return il <code>Text</code> creato
+     */
     private Text createTextFromRectangle(Rectangle rectangle, String label) {
         Text text = new Text(label);
         text.setFont(Font.font("Arial", 16));
@@ -203,6 +303,12 @@ public class RobotSimulationController {
         return text;
     }
 
+    /**
+     * Metodo che crea un <code>Circle</code> in base al <code>Robot</code>
+     * corrispondente
+     * @param r il robot da "disegnare"
+     * @return il cerchio che corrisponde al robot
+     */
     private Circle createCircleFromRobot(Robot r) {
         Point screenPoint = this.coordinatesTranslator.translateToScreenCoordinates(r.getPosition());
         Circle circle = new Circle(screenPoint.getX(),
@@ -217,6 +323,15 @@ public class RobotSimulationController {
     //endregion
 
     //region FileDialogs
+
+    /**
+     * Metodo che imposta un FileChooser per selezionare un file dal proprio pc
+     * @param mouseEvent click del bottone da cui è scaturita l'azione
+     * @param title titolo della finestra che si aprirà
+     * @param extension estensione del file da cercare
+     * @param description descrizione del tipo di estensione
+     * @return il file che viene selezionato
+     */
     private File openFileDialog(MouseEvent mouseEvent, String title, String extension, String description) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(title);
@@ -224,16 +339,29 @@ public class RobotSimulationController {
         return fileChooser.showOpenDialog(((Node) mouseEvent.getSource()).getScene().getWindow());
     }
 
+    /**
+     * Apre un FileChooser per selezionare i robot
+     * @param mouseEvent click del bottone da cui è scaturita l'azione
+     * @return il file che viene selezionato
+     */
     private File openFileDialogForRobots(MouseEvent mouseEvent) {
         return this.openFileDialog(mouseEvent, "Seleziona il file da cui importare i robot",
                 "*.rrobots", "Robots");
     }
-
+    /**
+     * Apre un FileChooser per selezionare le aree
+     * @param mouseEvent click del bottone da cui è scaturita l'azione
+     * @return il file che viene selezionato
+     */
     private File openFileDialogForShapes(MouseEvent mouseEvent) {
         return this.openFileDialog(mouseEvent, "Seleziona il file da cui importare le figure",
                 "*.rshape", "Robots Shapes");
     }
-
+    /**
+     * Apre un FileChooser per selezionare il programma
+     * @param mouseEvent click del bottone da cui è scaturita l'azione
+     * @return il file che viene selezionato
+     */
     private File openFileDialogForProgram(MouseEvent mouseEvent) {
         return this.openFileDialog(mouseEvent, "Seleziona il file da cui importare il programma",
                 "*.rprogram", "Robots Program");
@@ -242,6 +370,10 @@ public class RobotSimulationController {
     //endregion
 
     //region EVENTS
+    /**
+     * Evento che gestisce la lettura delle aree da un file dentro il pc
+     * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
+     */
     public void onMouseShapesClicked(MouseEvent mouseEvent) {
         try {
             File selectedFile = this.openFileDialogForShapes(mouseEvent);
@@ -253,7 +385,10 @@ public class RobotSimulationController {
             this.showErrorAlert(e.getMessage());
         }
     }
-
+    /**
+     * Evento che gestisce la lettura dei robot da un file dentro il pc
+     * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
+     */
     public void onMouseRobotClicked(MouseEvent mouseEvent) {
         File selectedFile = this.openFileDialogForRobots(mouseEvent);
         this.controller.getRobots().clear();
@@ -269,11 +404,23 @@ public class RobotSimulationController {
         }
     }
 
+    /**
+     * Evento che gestisce l'esecuzione di una singola istruzione alla volta
+     * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
+     */
     public void onExecuteClicked(MouseEvent mouseEvent) {
-        this.controller.nextInstruction();
-        this.updateCircles();
+        try {
+            this.controller.nextInstruction();
+            this.updateCircles();
+        } catch (IllegalArgumentException ex) {
+            this.showErrorAlert(ex.getMessage());
+        }
     }
 
+    /**
+     * Evento che gestisce la lettura del programma da un file dentro il pc
+     * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
+     */
     public void onReadProgramClicked(MouseEvent mouseEvent) {
         try {
             File selectedFile = this.openFileDialogForProgram(mouseEvent);
@@ -286,7 +433,13 @@ public class RobotSimulationController {
         }
     }
 
-    public void onExecuteMultipleInstruction(MouseEvent mouseEvent) throws InterruptedException {
+    /**
+     * Evento che gestice l'esecuzione di più istruzioni alla volta,
+     * queste vengono effettutate in un altro thread per evitare di bloccare
+     * l'interfaccia grafica
+     * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
+     */
+    public void onExecuteMultipleInstruction(MouseEvent mouseEvent) {
         Thread thread = new Thread(() -> {
             try {
                 for (int i = 0; i < 10; i++) {
@@ -296,10 +449,70 @@ public class RobotSimulationController {
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                this.showErrorAlert(e.getMessage());
             }
         });
 
         thread.start();
+    }
+
+    /**
+     * Evento che gestice lo scroll della rotellina per aumentare o diminuire lo zoom
+     * @param scrollEvent evento che scaturisce l'azione
+     */
+    public void scrollGroupEvent(ScrollEvent scrollEvent) {
+        scrollEvent.consume();
+        double scaleFactor = (scrollEvent.getDeltaY() > 0) ? 1.1 : 1 / 1.1;
+        Scale scale = new Scale();
+        scale.setPivotX(scrollEvent.getX());
+        scale.setPivotY(scrollEvent.getY());
+        scale.setX(this.group.getScaleX() * scaleFactor);
+        scale.setY(this.group.getScaleY() * scaleFactor);
+
+        // Applicazione della trasformazione di scala al gruppo radice
+        this.group.getTransforms().add(scale);
+    }
+
+    /**
+     * Evento che gestisce la pressione dei tasti per muovere la visuale
+     * @param keyEvent evento che scaturisce l'azione
+     */
+    public void onKeyPressed(KeyEvent keyEvent) {
+        switch (keyEvent.getCode()) {
+            case LEFT, A -> scrollLeft();
+            case RIGHT, D -> scrollRight();
+            case UP, W -> scrollUp();
+            case DOWN, S -> scrollDown();
+        }
+    }
+    //endregion
+
+    //region SCROLL HANDLER
+
+    /**
+     * Metodo utilizzato per muovere la visuale verso sinistra
+     */
+    private void scrollLeft() {
+        this.translate.setX(translate.getX() + 10);
+    }
+    /**
+     * Metodo utilizzato per muovere la visuale verso destra
+     */
+    private void scrollRight() {
+        this.translate.setX(translate.getX() - 10);
+    }
+    /**
+     * Metodo utilizzato per muovere la visuale verso l'alto
+     */
+    private void scrollUp() {
+        this.translate.setY(translate.getY() + 10);
+    }
+    /**
+     * Metodo utilizzato per muovere la visuale verso il basso
+     */
+    private void scrollDown() {
+        this.translate.setY(translate.getY() - 10);
     }
     //endregion
 }

@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
+/**
+ * Classe che gestisce il flusso di esecuzione di tutti i robot
+ */
 public class Controller {
     private final List<Robot> robots;
     private final List<IShape> shapes;
@@ -70,13 +73,23 @@ public class Controller {
         }
     }
 
+    /**
+     * Metood che genera un numero n di robot in maniera randomica
+     * @param robotsNumber il numero di robot da creare
+     * @param minPoint il punto minimo in cui un robot può apparire
+     * @param maxPoint il punto massimo in cui un robot può apparire
+     */
     public void generateRandomRobots(int robotsNumber, Point minPoint, Point maxPoint) {
         for(int i = 0; i < robotsNumber; i++) {
 
         }
     }
 
-    public void nextInstruction() {
+    /**
+     * Metodo che esegue la prossima istruzione su tutti i robot
+     * @throws IllegalArgumentException se c'è qualche errore nell'esecuzione
+     */
+    public void nextInstruction() throws IllegalArgumentException {
         this.robots.forEach(x -> {
             if(!x.isProgramTerminated()) {
                 x.executeNextInstruction();
@@ -84,10 +97,18 @@ public class Controller {
         });
     }
 
+    /**
+     * Metodo che restituisce la lista di robot
+     * @return la lista di robot
+     */
     public List<Robot> getRobots() {
         return robots;
     }
 
+    /**
+     * Metodo che restituisce la lista delle aree
+     * @return
+     */
     public List<IShape> getShapes() {
         return shapes;
     }

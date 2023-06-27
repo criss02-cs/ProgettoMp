@@ -2,8 +2,10 @@ package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
 import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
-import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 
+/**
+ * Classe che rappresenta il comando STOP
+ */
 public class StopInstruction implements RobotInstruction{
     @Override
     public void execute(Robot robot) {

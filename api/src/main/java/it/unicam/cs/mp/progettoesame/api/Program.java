@@ -40,7 +40,7 @@ public class Program {
      * @param robot il robot su cui effettuare il comando
      * @return true se ci sono altre istruzioni da eseguire, false se sono arrivato alla fine
      */
-    public boolean executeInstruction(Robot robot) {
+    public boolean executeInstruction(Robot robot) throws IllegalArgumentException {
         if(this.programCounter == robotInstructions.size()) { return false; }
         RobotInstruction instruction = this.robotInstructions.get(this.programCounter);
         instruction.execute(robot);
@@ -52,6 +52,11 @@ public class Program {
         return true;
     }
 
+    /**
+     * Metodo che crea una copia del programma
+     * @param p il programma da passare
+     * @return la nuova instanza del programma
+     */
     public static Program copyOf(Program p) {
         Program copy = new Program();
         copy.robotInstructions = List.copyOf(p.robotInstructions.stream().map(RobotInstruction::cloneObject).toList());

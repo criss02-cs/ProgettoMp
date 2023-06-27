@@ -5,24 +5,18 @@ package it.unicam.cs.mp.progettoesame.api.models;
  * le coordinate
  */
 public abstract class Shape implements IShape {
+    /**
+     * Coordinate dell'area
+     */
     private final Point coordinates;
+    /**
+     * Label da mostrare
+     */
     private final String label;
 
     public Shape(Point coordinates, String label) {
         this.coordinates = coordinates;
         this.label = label;
-    }
-
-    public Shape(Point coordinates) {
-        this(coordinates, "");
-    }
-
-    public Shape(String label) {
-        this(new Point(), label);
-    }
-
-    public Shape() {
-        this(new Point(), "");
     }
 
     @Override

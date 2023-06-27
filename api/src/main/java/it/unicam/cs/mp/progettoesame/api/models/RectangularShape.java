@@ -7,7 +7,13 @@ import it.unicam.cs.mp.progettoesame.utilities.ShapeData;
  * Classe che definisce una figura rettangolare
  */
 public class RectangularShape extends Shape {
+    /**
+     * Larghezza del rettangolo
+     */
     private final double width;
+    /**
+     * Altezza del rettangolo
+     */
     private final double height;
 
     public RectangularShape(double width, double height, Point position, String label) {
@@ -25,14 +31,6 @@ public class RectangularShape extends Shape {
     }
     public RectangularShape(Tuple<Double, Double> dimensions, Point position, String label) {
         this(dimensions.getItem1(), dimensions.getItem2(), position, label);
-    }
-
-    public RectangularShape(Tuple<Double, Double> dimensions) {
-        this(dimensions, new Point());
-    }
-
-    public RectangularShape() {
-        this(0,0, new Point());
     }
 
     @Override

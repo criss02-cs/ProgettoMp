@@ -5,6 +5,10 @@ import it.unicam.cs.mp.progettoesame.api.models.IShape;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.utilities.ShapeData;
 
+/**
+ * Classe che rappresenta il Factory method per la creazione di una figura
+ * circolare
+ */
 public class CircularShapeFactory implements IShapeFactory{
     @Override
     public IShape createShape(ShapeData shapeData) {

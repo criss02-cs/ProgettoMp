@@ -11,7 +11,9 @@ import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
 
 import java.util.*;
 
-
+/**
+ * Classe che effettua il parsing dei comandi e crea il programma da eseguire
+ */
 public class ParserHandler implements FollowMeParserHandler {
     /**
      * Interfaccia funzionale per controllare che un numero sia in un range specifico

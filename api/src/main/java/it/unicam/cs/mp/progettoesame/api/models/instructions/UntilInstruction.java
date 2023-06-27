@@ -8,6 +8,9 @@ import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
 
 import java.util.List;
 
+/**
+ * Classe che rappresenta il comando UNTIL
+ */
 public class UntilInstruction extends IterativeInstruction {
     private final String labelToFind;
     private final List<IShape> shapes;
@@ -34,6 +37,11 @@ public class UntilInstruction extends IterativeInstruction {
         System.out.println("UNTIL execution label " + this.labelToFind + " by Robot: " + robot);
     }
 
+    /**
+     * Metodo che controlla una figura rettangolare
+     * @param robot il robot da controllare
+     * @param shape la figura da controllare
+     */
     private void checkRectangularShape(Robot robot, IShape shape) {
         double width = shape.getDimensions().getItem1();
         double height = shape.getDimensions().getItem2();
@@ -42,7 +50,11 @@ public class UntilInstruction extends IterativeInstruction {
         this.hasToExit = NumericRangeChecker.DEFAULT_CHECKER.isBetween(robot.getPosition().getX(), topLeft.getX(), bottomRight.getX()) &&
                 NumericRangeChecker.DEFAULT_CHECKER.isBetween(robot.getPosition().getY(), topLeft.getY(), bottomRight.getY());
     }
-
+    /**
+     * Metodo che controlla una figura circolare
+     * @param robot il robot da controllare
+     * @param shape la figura da controllare
+     */
     private void checkCircularShape(Robot robot, IShape shape) {
         double radius = shape.getDimensions().getItem1();
         double distance = DistanceCalculator.calculate(robot.getPosition(), shape.getCoordinates());

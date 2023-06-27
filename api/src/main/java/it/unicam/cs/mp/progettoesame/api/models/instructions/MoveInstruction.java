@@ -4,6 +4,9 @@ import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 
+/**
+ * Classe che rappresenta il comando MOVE
+ */
 public class MoveInstruction implements RobotInstruction {
     private final Direction direction;
     private final double speed;

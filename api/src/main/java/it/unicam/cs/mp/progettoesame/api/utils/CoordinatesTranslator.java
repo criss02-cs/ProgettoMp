@@ -4,7 +4,8 @@ import it.unicam.cs.mp.progettoesame.api.models.Point;
 
 /**
  * Classe che si occupa di traslare un punto di un piano cartesiano
- * in un punto all'interno di uno schermo di un PC (con le y invertite)
+ * in un punto all'interno di uno schermo di un PC (con le y invertite).
+ * Messa a disposizione principalmente per utilizzarla con un'interfaccia grafica
  */
 public class CoordinatesTranslator {
     /**

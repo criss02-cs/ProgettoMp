@@ -4,7 +4,13 @@ package it.unicam.cs.mp.progettoesame.api.models;
  * Classe che va a rappresentare una coordinata nello spazio
  */
 public class Point {
+    /**
+     * Ascissa
+     */
     private double x;
+    /**
+     * Ordinata
+     */
     private double y;
     public Point(double x, double y) {
         this.x = x;

@@ -20,6 +20,13 @@ public interface DirectionCalculator {
         double distance = DistanceCalculator.calculate(source, destination);
         return new Direction(difX / distance, difY / distance);
     }
+
+    /**
+     * Metodo che calcola il segno di ogni valore
+     * @param source il punto di partenza
+     * @param destination il punto di arrivo
+     * @return 1 se {@code source} è minore di {@code destination}, altrimenti -1
+     */
     private static double checkSignOf(double source, double destination) {
         if(source < destination) {
             return 1;

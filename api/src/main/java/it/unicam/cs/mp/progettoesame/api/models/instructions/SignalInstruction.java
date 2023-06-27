@@ -2,6 +2,9 @@ package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 
+/**
+ * Classe che rappresenta il comando SIGNAL
+ */
 public class SignalInstruction implements RobotInstruction {
     private final String labelToSignal;
 

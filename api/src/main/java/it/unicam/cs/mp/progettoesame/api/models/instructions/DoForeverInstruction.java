@@ -2,6 +2,9 @@ package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 
+/**
+ * Classe che rappresenta il comando DOFOREVER
+ */
 public class DoForeverInstruction extends IterativeInstruction {
     public DoForeverInstruction(int firstRowIteration) {
         super(firstRowIteration);

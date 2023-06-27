@@ -2,6 +2,9 @@ package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 
+/**
+ * Classe che rappresenta il comando DONE
+ */
 public class DoneInstruction implements RobotInstruction {
     private final int backNumberRow;
 
@@ -10,7 +13,6 @@ public class DoneInstruction implements RobotInstruction {
     }
     @Override
     public void execute(Robot robot) {
-        // TODO muovi il robot se si sta muovendo
         robot.continueMove();
         System.out.println("DONE command executed by Robot: " + robot);
     }

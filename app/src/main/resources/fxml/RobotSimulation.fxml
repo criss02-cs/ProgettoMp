@@ -7,7 +7,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mp.progettoesame.RobotSimulationController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="518.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/19"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mp.progettoesame.RobotSimulationController"
+onKeyReleased="#onKeyPressed">
    <cursor>
       <Cursor fx:constant="DEFAULT" />
    </cursor>
@@ -16,9 +20,9 @@
       <Button layoutX="678.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onMouseShapesClicked" prefHeight="43.0" prefWidth="111.0" text="Read shapes" />
       <Button layoutX="560.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onReadProgramClicked" prefHeight="43.0" prefWidth="111.0" text="Read program" />
       <Button layoutX="678.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#onMouseRobotClicked" prefHeight="43.0" prefWidth="111.0" text="Read robots" />
-      <Pane fx:id="pane" layoutX="10.0" layoutY="10.0" prefHeight="493.0" prefWidth="535.0" style="-fx-border-color: black; -fx-border-width: 2px;">
+      <Pane fx:id="pane" layoutX="10.0" layoutY="10.0" onScroll="#scrollGroupEvent" prefHeight="493.0" prefWidth="535.0" style="-fx-border-color: black; -fx-border-width: 2px;">
          <children>
-            <Group fx:id="group" />
+            <Group fx:id="group"/>
             <Line endX="435.0" endY="0.5" layoutX="100.0" layoutY="246.0" startX="-100.0" strokeWidth="2.0" />
             <Line endX="49.5" endY="486.0" layoutX="218.0" layoutY="7.0" startX="49.0" startY="-7.0" strokeWidth="2.0" />
          </children>

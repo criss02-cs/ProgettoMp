@@ -2,6 +2,9 @@ package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 
+/**
+ * Classe che rappresenta il comando CONTINUE
+ */
 public class ContinueInstruction implements RobotInstruction {
     private final int secondsToExecute;
     private int secondsExecuted;
