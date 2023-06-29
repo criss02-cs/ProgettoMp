@@ -1,11 +1,13 @@
 package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
+import it.unicam.cs.mp.progettoesame.api.console.Console;
 import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.DirectionCalculator;
 import it.unicam.cs.mp.progettoesame.api.utils.DistanceCalculator;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -25,13 +27,14 @@ public class FollowInstruction implements RobotInstruction {
     }
 
     @Override
-    public void execute(Robot robot) throws IllegalArgumentException {
+    public void execute(Robot robot) throws IllegalArgumentException, IOException {
         List<Robot> robotWithLabel = this.getFilteredRobot(robot);
         if(robotWithLabel.size() > 0) {
             Point averagePoint = this.calculateAveragePoint(robotWithLabel);
             Direction dir = DirectionCalculator.calculate(robot.getPosition(), averagePoint);
             robot.move(this.speed, dir);
             System.out.println("FOLLOW execution by Robot: " + robot);
+            Console.writeLine("FOLLOW execution by Robot: " + robot);
         } else {
             moveToRandom(robot);
         }
@@ -55,7 +58,7 @@ public class FollowInstruction implements RobotInstruction {
      * @param robot il robot da muovere
      * @throws IllegalArgumentException se c'è qualche problema nei parametri passati
      */
-    private void moveToRandom(Robot robot) throws IllegalArgumentException {
+    private void moveToRandom(Robot robot) throws IllegalArgumentException, IOException {
         Point point1 = new Point(-this.distance, -this.distance);
         Point point2 = new Point(this.distance, this.distance);
         new MoveRandomInstruction(point1, point2, this.speed).execute(robot);

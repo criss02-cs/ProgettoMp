@@ -2,6 +2,8 @@ package it.unicam.cs.mp.progettoesame.api.models;
 
 import it.unicam.cs.mp.progettoesame.api.Program;
 
+import java.io.IOException;
+
 public class Robot {
     private Direction direction;
     private Point position;
@@ -84,7 +86,7 @@ public class Robot {
     /**
      * Metodo che esegue la prossima istruzione da eseguire
      */
-    public void executeNextInstruction() throws IllegalArgumentException{
+    public void executeNextInstruction() throws IllegalArgumentException, IOException {
         this.isProgramTerminated = !this.program.executeInstruction(this);
     }
 }

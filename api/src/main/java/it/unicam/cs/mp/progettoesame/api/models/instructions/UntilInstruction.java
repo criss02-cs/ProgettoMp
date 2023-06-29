@@ -1,11 +1,13 @@
 package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
+import it.unicam.cs.mp.progettoesame.api.console.Console;
 import it.unicam.cs.mp.progettoesame.api.models.IShape;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.DistanceCalculator;
 import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -24,7 +26,7 @@ public class UntilInstruction extends IterativeInstruction {
     }
 
     @Override
-    public void execute(Robot robot) {
+    public void execute(Robot robot) throws IOException {
         IShape shape = this.shapes.stream().filter(x -> x.getLabel().equalsIgnoreCase(this.labelToFind)).findFirst().orElse(null);
         if(shape != null) {
             if(shape.getDimensions().getItem2() == -1) {
@@ -35,6 +37,7 @@ public class UntilInstruction extends IterativeInstruction {
         }
         robot.continueMove();
         System.out.println("UNTIL execution label " + this.labelToFind + " by Robot: " + robot);
+        Console.writeLine("UNTIL execution label " + this.labelToFind + " by Robot: " + robot);
     }
 
     /**

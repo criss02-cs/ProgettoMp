@@ -1,12 +1,15 @@
 package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
+import it.unicam.cs.mp.progettoesame.api.console.Console;
 import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.DirectionCalculator;
 import it.unicam.cs.mp.progettoesame.api.utils.DistanceCalculator;
+import it.unicam.cs.mp.progettoesame.api.utils.RandomCoordinatesCalculator;
 import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 
+import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -24,39 +27,12 @@ public class MoveRandomInstruction implements RobotInstruction {
     }
 
     @Override
-    public void execute(Robot robot) {
-        Point randomPoint = this.getRandomCoordinates();
+    public void execute(Robot robot) throws IOException {
+        Point randomPoint = RandomCoordinatesCalculator.calculate(position1, position2);
         Direction dir = DirectionCalculator.calculate(robot.getPosition(), randomPoint);
-        double distance = DistanceCalculator.calculate(robot.getPosition(), randomPoint);
-        while (checkTollerance(randomPoint, robot.getPosition())
-                && DistanceCalculator.calculate(robot.getPosition(), randomPoint) <= distance)
-            robot.move(speed, dir);
-        robot.setPosition(randomPoint);
+        robot.move(speed, dir);
         System.out.println("MOVE RANDOM execution in position " + randomPoint + " at speed " + this.speed + " with direction " + dir + " by Robot: " + robot);
-    }
-
-    /**
-     * Metodo che controlla eventuale errore della posizione, in quanto
-     * non sarà mai preciso
-     * @param point1 il punto di partenza
-     * @param point2 il punto di arrivo
-     * @return true se sono in errore non tollerabile,
-     *  false altrimenti
-     */
-    private boolean checkTollerance(Point point1, Point point2) {
-        return (Math.abs(point1.getX() - point2.getX()) > 1
-                && Math.abs(point1.getY() - point2.getY()) > 1);
-    }
-
-    /**
-     * Metodo che calcola una coordinata randomica a partire dalle 2 posizioni già presenti
-     * @return il punto generato randomicamente
-     */
-    private Point getRandomCoordinates() {
-        Random random = new Random();
-        double x = position1.getX() + (position2.getX() - position1.getX()) * random.nextDouble();
-        double y = position1.getY() + (position2.getY() - position1.getY()) * random.nextDouble();
-        return new Point(x, y);
+        Console.writeLine("MOVE RANDOM execution in position " + randomPoint + " at speed " + this.speed + " with direction " + dir + " by Robot: " + robot);
     }
 
     @Override

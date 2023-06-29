@@ -9,6 +9,8 @@ import it.unicam.cs.mp.progettoesame.api.models.instructions.DoneInstruction;
 import it.unicam.cs.mp.progettoesame.api.models.instructions.MoveInstruction;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProgramTest {
@@ -21,7 +23,7 @@ class ProgramTest {
     }
 
     @Test
-    void executeInstruction() {
+    void executeInstruction() throws IOException {
         Program p = new Program();
         p.addInstruction(new DoForeverInstruction(1));
         p.addInstruction(new ContinueInstruction(5,1));

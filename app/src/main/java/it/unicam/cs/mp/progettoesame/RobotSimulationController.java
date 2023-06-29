@@ -11,12 +11,16 @@ import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserException;
 import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.ScrollEvent;
@@ -31,6 +35,7 @@ import javafx.scene.transform.Translate;
 import javafx.stage.FileChooser;
 
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -65,7 +70,7 @@ public class RobotSimulationController {
      * Metodo che inizializza tutti i componenti grafici
      */
     public void initialize() {
-        this.controller = new Controller(new LinkedList<>(), new LinkedList<>());
+        this.controller = new Controller();
         clipChildren(pane);
         Platform.runLater(() -> this.coordinatesTranslator = new CoordinatesTranslator(this.pane.getHeight(), this.pane.getWidth()));
         translate = new Translate();
@@ -161,7 +166,7 @@ public class RobotSimulationController {
         this.robotCircleMap.clear();
         this.circleTextMap.clear();
         this.shapesTextMap.clear();
-        this.controller = new Controller(new LinkedList<>(), new LinkedList<>());
+        this.controller = new Controller();
         this.group.getChildren().clear();
     }
 
@@ -420,7 +425,7 @@ public class RobotSimulationController {
         try {
             this.controller.nextInstruction();
             this.updateCircles();
-        } catch (IllegalArgumentException ex) {
+        } catch (IllegalArgumentException | IOException ex) {
             this.showErrorAlert(ex.getMessage());
         }
     }
@@ -482,6 +487,28 @@ public class RobotSimulationController {
             case DOWN, S -> scrollDown();
         }
     }
+    public void onShowTerminalClicked(MouseEvent mouseEvent) {
+        /*try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Terminal.fxml")));
+            Stage terminalStage = new Stage();
+            terminalStage.setTitle("Terminal");
+            Scene scene = new Scene(root);
+            scene.setFill(Color.valueOf("333333"));
+            terminalStage.setScene(scene);
+            terminalStage.setResizable(false);
+            terminalStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/icon.png"))));
+            terminalStage.show();
+        } catch (IOException e) {
+            this.showErrorAlert(e.getMessage());
+        }*/
+        ProcessBuilder processBuilder = new ProcessBuilder("C:\\ProgettiNet\\ConsoleApp1\\ConsoleApp1\\bin\\Release\\net6.0\\ConsoleApp1.exe");
+        try {
+            Process process = processBuilder.start();
+            int exitCode = process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
     //endregion
 
     //region SCROLL HANDLER
@@ -528,8 +555,9 @@ public class RobotSimulationController {
                     this.updateCircles();
                     Thread.sleep(1000); // Pausa di un secondo (1000 millisecondi)
                 }
-            } catch (InterruptedException | IllegalArgumentException e) { this.showErrorAlert(e.getMessage()); }
+            } catch (InterruptedException | IllegalArgumentException | IOException e) { this.showErrorAlert(e.getMessage()); }
         };
     }
+
     //endregion
 }

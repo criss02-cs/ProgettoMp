@@ -102,7 +102,7 @@ public class RobotInstructionTest {
     @Test
     void moveRandomInstruction() {
         Robot r = new Robot();
-        RobotInstruction moveRandom = new MoveRandomInstruction(new Point(0, 0), new Point(10, 10), 25);
+        RobotInstruction moveRandom = new MoveRandomInstruction(new Point(0, 0), new Point(10, 10), 10);
         moveRandom.execute(r);
         assertTrue(NumericRangeChecker.DEFAULT_CHECKER.isBetween(r.getPosition().getX(), 0.0, 10.0));
         assertTrue(NumericRangeChecker.DEFAULT_CHECKER.isBetween(r.getPosition().getY(), 0.0, 10.0));

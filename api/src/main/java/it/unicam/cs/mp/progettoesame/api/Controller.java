@@ -1,19 +1,21 @@
 package it.unicam.cs.mp.progettoesame.api;
 
+import it.unicam.cs.mp.progettoesame.api.console.Console;
 import it.unicam.cs.mp.progettoesame.api.exceptions.RobotsNotLoadedException;
 import it.unicam.cs.mp.progettoesame.api.models.IShape;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
+import it.unicam.cs.mp.progettoesame.api.utils.RandomCoordinatesCalculator;
 import it.unicam.cs.mp.progettoesame.api.utils.ShapeParser;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParser;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserException;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserHandler;
 import it.unicam.cs.mp.progettoesame.utilities.ShapeData;
 
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -28,6 +30,15 @@ public class Controller {
         this.shapes = shapes;
         final FollowMeParserHandler handler = new ParserHandler(this.robots, this.shapes);
         this.parser = new FollowMeParser(handler);
+        try {
+            Console.flushFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Controller() {
+        this(new LinkedList<>(), new LinkedList<>());
     }
 
     /**
@@ -81,7 +92,8 @@ public class Controller {
      */
     public void generateRandomRobots(int robotsNumber, Point minPoint, Point maxPoint) {
         for(int i = 0; i < robotsNumber; i++) {
-
+            Point position = RandomCoordinatesCalculator.calculate(minPoint, maxPoint);
+            this.robots.add(new Robot(position));
         }
     }
 
@@ -89,12 +101,12 @@ public class Controller {
      * Metodo che esegue la prossima istruzione su tutti i robot
      * @throws IllegalArgumentException se c'è qualche errore nell'esecuzione
      */
-    public void nextInstruction() throws IllegalArgumentException {
-        this.robots.forEach(x -> {
-            if(!x.isProgramTerminated()) {
-                x.executeNextInstruction();
+    public void nextInstruction() throws IllegalArgumentException, IOException {
+        for(Robot r : this.robots) {
+            if(!r.isProgramTerminated()) {
+                r.executeNextInstruction();
             }
-        });
+        }
     }
 
     /**

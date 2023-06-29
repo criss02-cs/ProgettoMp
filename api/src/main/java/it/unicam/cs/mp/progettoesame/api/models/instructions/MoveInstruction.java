@@ -1,8 +1,11 @@
 package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
+import it.unicam.cs.mp.progettoesame.api.console.Console;
 import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
+
+import java.io.IOException;
 
 /**
  * Classe che rappresenta il comando MOVE
@@ -16,9 +19,10 @@ public class MoveInstruction implements RobotInstruction {
         this.speed = speed;
     }
     @Override
-    public void execute(Robot robot) {
+    public void execute(Robot robot) throws IOException {
         robot.move(this.speed, this.direction);
         System.out.println("MOVE execution in direction " + this.direction + " at speed " + this.speed + " by Robot: " + robot);
+        Console.writeLine("MOVE execution in direction " + this.direction + " at speed " + this.speed + " by Robot: " + robot);
     }
 
     @Override

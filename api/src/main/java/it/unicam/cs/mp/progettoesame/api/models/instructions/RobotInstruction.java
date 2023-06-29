@@ -2,6 +2,8 @@ package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 
+import java.io.IOException;
+
 /**
  * Interfaccia che rappresenta una istruzione che ogni robot può eseguire
  */
@@ -10,8 +12,9 @@ public interface RobotInstruction {
      * Metodo per eseguire il comando
      * @param robot il robot su cui andrà eseguito il comando
      * @throws IllegalArgumentException se c'è qualche errore nei parametri passati
+     * @throws IOException se ci sono problemi nella scrittura del log
      */
-    void execute(Robot robot) throws IllegalArgumentException;
+    void execute(Robot robot) throws IllegalArgumentException, IOException;
 
     /**
      * Flag intero per vedere se posso proseguire al prossimo

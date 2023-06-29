@@ -3,6 +3,7 @@ package it.unicam.cs.mp.progettoesame.api;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.models.instructions.RobotInstruction;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class Program {
      * @param robot il robot su cui effettuare il comando
      * @return true se ci sono altre istruzioni da eseguire, false se sono arrivato alla fine
      */
-    public boolean executeInstruction(Robot robot) throws IllegalArgumentException {
+    public boolean executeInstruction(Robot robot) throws IllegalArgumentException, IOException {
         if(robot == null) throw new IllegalArgumentException("Il robot non può essere nullo");
         if(this.programCounter == robotInstructions.size()) { return false; }
         RobotInstruction instruction = this.robotInstructions.get(this.programCounter);
