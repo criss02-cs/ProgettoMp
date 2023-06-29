@@ -501,7 +501,7 @@ public class RobotSimulationController {
         } catch (IOException e) {
             this.showErrorAlert(e.getMessage());
         }*/
-        ProcessBuilder processBuilder = new ProcessBuilder("C:\\ProgettiNet\\ConsoleApp1\\ConsoleApp1\\bin\\Release\\net6.0\\ConsoleApp1.exe");
+        ProcessBuilder processBuilder = new ProcessBuilder("C:\\ProgettiNet\\ConsoleApp1\\ConsoleApp1\\bin\\Release\\net6.0\\ConsoleApp1.dll");
         try {
             Process process = processBuilder.start();
             int exitCode = process.waitFor();
