@@ -19,7 +19,7 @@ public class ContinueInstruction implements RobotInstruction {
         this.rowNumber = rn;
     }
     @Override
-    public void execute(Robot robot) throws IOException {
+    public void execute(Robot robot) {
         robot.continueMove();
         this.secondsExecuted++;
         System.out.println("Continue execution seconds n°" + this.secondsExecuted + " of " + this.secondsToExecute + " by Robot: " + robot);

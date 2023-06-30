@@ -15,7 +15,7 @@ public class DoneInstruction implements RobotInstruction {
         this.backNumberRow = irn;
     }
     @Override
-    public void execute(Robot robot) throws IOException {
+    public void execute(Robot robot) {
         robot.continueMove();
         System.out.println("DONE command executed by Robot: " + robot);
         Console.writeLine("DONE command executed by Robot: " + robot);

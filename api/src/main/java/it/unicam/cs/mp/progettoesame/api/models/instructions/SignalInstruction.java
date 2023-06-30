@@ -16,7 +16,7 @@ public class SignalInstruction implements RobotInstruction {
     }
 
     @Override
-    public void execute(Robot robot) throws IOException {
+    public void execute(Robot robot) {
         robot.signalLabel(this.labelToSignal);
         robot.continueMove();
         System.out.println("SIGNAL execution label " + this.labelToSignal + " by Robot: " + robot);

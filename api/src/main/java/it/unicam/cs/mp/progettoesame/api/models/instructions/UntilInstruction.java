@@ -26,7 +26,7 @@ public class UntilInstruction extends IterativeInstruction {
     }
 
     @Override
-    public void execute(Robot robot) throws IOException {
+    public void execute(Robot robot) {
         IShape shape = this.shapes.stream().filter(x -> x.getLabel().equalsIgnoreCase(this.labelToFind)).findFirst().orElse(null);
         if(shape != null) {
             if(shape.getDimensions().getItem2() == -1) {

@@ -86,7 +86,7 @@ public class Robot {
     /**
      * Metodo che esegue la prossima istruzione da eseguire
      */
-    public void executeNextInstruction() throws IllegalArgumentException, IOException {
+    public void executeNextInstruction() throws IllegalArgumentException {
         this.isProgramTerminated = !this.program.executeInstruction(this);
     }
 }

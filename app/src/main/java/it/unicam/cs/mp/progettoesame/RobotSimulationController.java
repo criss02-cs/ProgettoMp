@@ -28,6 +28,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Scale;
@@ -38,10 +40,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.*;
+import java.util.List;
 
 /**
  * JavaFX Controller of RobotSimulationApp
@@ -59,6 +63,7 @@ public class RobotSimulationController {
     private final Map<Shape, Text> shapesTextMap;
     private Translate translate;
     private CoordinatesTranslator coordinatesTranslator;
+    private Process terminalProcess;
 
     public RobotSimulationController() {
         this.robotCircleMap = new HashMap<>();
@@ -75,6 +80,21 @@ public class RobotSimulationController {
         Platform.runLater(() -> this.coordinatesTranslator = new CoordinatesTranslator(this.pane.getHeight(), this.pane.getWidth()));
         translate = new Translate();
         this.group.getTransforms().add(translate);
+    }
+
+    /**
+     * Metodo che imposta le azioni da eseguire quando si chiude l'applicazione.
+     * Nello specifico esso andrà a chiudere il terminale, se questo è stato aperto, e
+     * in seguito andrà a chiudere l'applicazione
+     * @param stage lo stage da cui deriva tutta l'app
+     */
+    public void setExitConfiguration(Stage stage) {
+        stage.setOnCloseRequest(v -> {
+            if(this.terminalProcess != null) {
+                this.terminalProcess.destroy();
+            }
+            Platform.exit();
+        });
     }
 
     /**
@@ -214,6 +234,7 @@ public class RobotSimulationController {
     private int showInputAlert(String headerText) {
         TextInputDialog td = new TextInputDialog();
         td.setHeaderText(headerText);
+        td.initOwner(group.getScene().getWindow());
         Optional<String> text = td.showAndWait();
         return text.map(Integer::parseInt).orElse(-1);
     }
@@ -425,7 +446,7 @@ public class RobotSimulationController {
         try {
             this.controller.nextInstruction();
             this.updateCircles();
-        } catch (IllegalArgumentException | IOException ex) {
+        } catch (IllegalArgumentException ex) {
             this.showErrorAlert(ex.getMessage());
         }
     }
@@ -487,26 +508,25 @@ public class RobotSimulationController {
             case DOWN, S -> scrollDown();
         }
     }
+
+    /**
+     * Evento che andrà ad aprire un'applicazione chiamata Terminal, che mostrerà
+     * tutti i log dei vari robot, l'applicazione è stata scritta in C# in ausilio del framework
+     * .NET MAUI, <a href="https://github.com/criss02-cs/Terminal">clicca qui</a> per vedere il codice su GitHub
+     * @param mouseEvent
+     */
     public void onShowTerminalClicked(MouseEvent mouseEvent) {
-        /*try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Terminal.fxml")));
-            Stage terminalStage = new Stage();
-            terminalStage.setTitle("Terminal");
-            Scene scene = new Scene(root);
-            scene.setFill(Color.valueOf("333333"));
-            terminalStage.setScene(scene);
-            terminalStage.setResizable(false);
-            terminalStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/icon.png"))));
-            terminalStage.show();
+        try {
+            String osName = System.getProperty("os.name");
+            if(osName.contains("Windows")) {
+                ProcessBuilder processBuilder = new ProcessBuilder("..\\win10-x64\\Terminal.exe");
+                this.terminalProcess = processBuilder.start();
+            } else {
+                File appFile = new File("..\\maccatalyst-x64\\Terminal.app");
+                Desktop.getDesktop().open(appFile);
+            }
         } catch (IOException e) {
             this.showErrorAlert(e.getMessage());
-        }*/
-        ProcessBuilder processBuilder = new ProcessBuilder("C:\\ProgettiNet\\ConsoleApp1\\ConsoleApp1\\bin\\Release\\net6.0\\ConsoleApp1.dll");
-        try {
-            Process process = processBuilder.start();
-            int exitCode = process.waitFor();
-        } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
         }
     }
     //endregion
@@ -555,7 +575,7 @@ public class RobotSimulationController {
                     this.updateCircles();
                     Thread.sleep(1000); // Pausa di un secondo (1000 millisecondi)
                 }
-            } catch (InterruptedException | IllegalArgumentException | IOException e) { this.showErrorAlert(e.getMessage()); }
+            } catch (InterruptedException | IllegalArgumentException e) { this.showErrorAlert(e.getMessage()); }
         };
     }
 

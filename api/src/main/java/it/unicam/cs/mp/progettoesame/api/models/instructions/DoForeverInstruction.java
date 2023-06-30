@@ -14,7 +14,7 @@ public class DoForeverInstruction extends IterativeInstruction {
     }
 
     @Override
-    public void execute(Robot robot) throws IOException {
+    public void execute(Robot robot) {
         System.out.println("DO FOREVER execution by Robot: " + robot);
         Console.writeLine("DO FOREVER execution by Robot: " + robot);
         robot.continueMove();

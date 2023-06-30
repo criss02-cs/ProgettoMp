@@ -14,7 +14,7 @@ public interface RobotInstruction {
      * @throws IllegalArgumentException se c'è qualche errore nei parametri passati
      * @throws IOException se ci sono problemi nella scrittura del log
      */
-    void execute(Robot robot) throws IllegalArgumentException, IOException;
+    void execute(Robot robot) throws IllegalArgumentException;
 
     /**
      * Flag intero per vedere se posso proseguire al prossimo

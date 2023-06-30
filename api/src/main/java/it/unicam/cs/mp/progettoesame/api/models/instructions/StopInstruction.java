@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 public class StopInstruction implements RobotInstruction{
     @Override
-    public void execute(Robot robot) throws IOException {
+    public void execute(Robot robot) {
         robot.move(0, new Direction(0,0));
         System.out.println("STOP execution by Robot: " + robot);
         Console.writeLine("STOP execution by Robot: " + robot);

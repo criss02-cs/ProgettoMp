@@ -27,7 +27,7 @@ public class MoveRandomInstruction implements RobotInstruction {
     }
 
     @Override
-    public void execute(Robot robot) throws IOException {
+    public void execute(Robot robot) {
         Point randomPoint = RandomCoordinatesCalculator.calculate(position1, position2);
         Direction dir = DirectionCalculator.calculate(robot.getPosition(), randomPoint);
         robot.move(speed, dir);

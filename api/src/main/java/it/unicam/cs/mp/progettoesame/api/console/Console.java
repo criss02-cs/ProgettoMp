@@ -6,18 +6,22 @@ import java.nio.charset.StandardCharsets;
 public class Console {
     private static final String path = "../logger.txt";
     private static final File file = new File(path);
-    public static synchronized void writeLine(String line) throws IOException {
-        File file = new File(path);
-        if (!file.exists()) {
-            file.createNewFile();
+    public static synchronized void writeLine(String line) {
+        try {
+            File file = new File(path);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fileWriter = new FileWriter(file, StandardCharsets.UTF_8, true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(line);
+            bufferedWriter.newLine();
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            writeLine(line);
         }
-        FileWriter fileWriter = new FileWriter(file, StandardCharsets.UTF_8, true);
-        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.write(line);
-        bufferedWriter.newLine();
-        bufferedWriter.flush();
-        bufferedWriter.close();
-        fileWriter.close();
     }
 
     public static synchronized String readAll() throws IOException {
@@ -37,10 +41,12 @@ public class Console {
     }
 
     public static synchronized void flushFile() throws IOException {
-        File file = new File(path);
         if (!file.exists()) {
             return;
         }
-        file.delete();
+        FileWriter fw = new FileWriter(file);
+        fw.write("");
+        fw.flush();
+        fw.close();
     }
 }

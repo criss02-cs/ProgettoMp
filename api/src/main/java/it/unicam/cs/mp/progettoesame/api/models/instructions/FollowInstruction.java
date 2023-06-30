@@ -27,7 +27,7 @@ public class FollowInstruction implements RobotInstruction {
     }
 
     @Override
-    public void execute(Robot robot) throws IllegalArgumentException, IOException {
+    public void execute(Robot robot) throws IllegalArgumentException {
         List<Robot> robotWithLabel = this.getFilteredRobot(robot);
         if(robotWithLabel.size() > 0) {
             Point averagePoint = this.calculateAveragePoint(robotWithLabel);
@@ -58,7 +58,7 @@ public class FollowInstruction implements RobotInstruction {
      * @param robot il robot da muovere
      * @throws IllegalArgumentException se c'è qualche problema nei parametri passati
      */
-    private void moveToRandom(Robot robot) throws IllegalArgumentException, IOException {
+    private void moveToRandom(Robot robot) throws IllegalArgumentException {
         Point point1 = new Point(-this.distance, -this.distance);
         Point point2 = new Point(this.distance, this.distance);
         new MoveRandomInstruction(point1, point2, this.speed).execute(robot);

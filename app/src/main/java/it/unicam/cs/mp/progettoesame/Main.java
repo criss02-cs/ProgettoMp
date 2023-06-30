@@ -19,11 +19,13 @@ import java.util.Objects;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/RobotSimulation.fxml")));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/fxml/RobotSimulation.fxml")));
+        Parent root = loader.load();
         primaryStage.setTitle("Robot Simulation App");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
-        primaryStage.setOnCloseRequest(e -> Platform.exit());
+        RobotSimulationController controller = loader.getController();
+        controller.setExitConfiguration(primaryStage);
         primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/icon.png"))));
         primaryStage.show();
     }

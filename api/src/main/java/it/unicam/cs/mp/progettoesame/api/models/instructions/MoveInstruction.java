@@ -19,7 +19,7 @@ public class MoveInstruction implements RobotInstruction {
         this.speed = speed;
     }
     @Override
-    public void execute(Robot robot) throws IOException {
+    public void execute(Robot robot) {
         robot.move(this.speed, this.direction);
         System.out.println("MOVE execution in direction " + this.direction + " at speed " + this.speed + " by Robot: " + robot);
         Console.writeLine("MOVE execution in direction " + this.direction + " at speed " + this.speed + " by Robot: " + robot);

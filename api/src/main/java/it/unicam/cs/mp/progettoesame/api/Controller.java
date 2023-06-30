@@ -101,7 +101,7 @@ public class Controller {
      * Metodo che esegue la prossima istruzione su tutti i robot
      * @throws IllegalArgumentException se c'è qualche errore nell'esecuzione
      */
-    public void nextInstruction() throws IllegalArgumentException, IOException {
+    public void nextInstruction() throws IllegalArgumentException {
         for(Robot r : this.robots) {
             if(!r.isProgramTerminated()) {
                 r.executeNextInstruction();

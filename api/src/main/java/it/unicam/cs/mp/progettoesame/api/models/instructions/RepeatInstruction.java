@@ -20,7 +20,7 @@ public class RepeatInstruction extends IterativeInstruction {
     }
 
     @Override
-    public void execute(Robot robot) throws IOException {
+    public void execute(Robot robot) {
         this.doneInterations += 1;
         robot.continueMove();
         System.out.println("REPEAT execution n°" + this.doneInterations + " of " + this.iterations + " by Robot: " +robot);
