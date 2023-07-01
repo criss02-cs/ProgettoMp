@@ -1,0 +1,8 @@
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3fe47107
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@5be138f5
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3fe47107
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@5be138f5
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3fe47107
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@5be138f5
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3fe47107
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@5be138f5

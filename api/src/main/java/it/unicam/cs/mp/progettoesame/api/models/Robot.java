@@ -2,8 +2,6 @@ package it.unicam.cs.mp.progettoesame.api.models;
 
 import it.unicam.cs.mp.progettoesame.api.Program;
 
-import java.io.IOException;
-
 public class Robot {
     private Direction direction;
     private Point position;

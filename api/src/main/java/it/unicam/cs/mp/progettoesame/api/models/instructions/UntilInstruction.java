@@ -7,7 +7,6 @@ import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.DistanceCalculator;
 import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -36,7 +35,6 @@ public class UntilInstruction extends IterativeInstruction {
             }
         }
         robot.continueMove();
-        System.out.println("UNTIL execution label " + this.labelToFind + " by Robot: " + robot);
         Console.writeLine("UNTIL execution label " + this.labelToFind + " by Robot: " + robot);
     }
 

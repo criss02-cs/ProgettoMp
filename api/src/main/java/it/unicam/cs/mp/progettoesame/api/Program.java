@@ -3,7 +3,6 @@ package it.unicam.cs.mp.progettoesame.api;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.models.instructions.RobotInstruction;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 

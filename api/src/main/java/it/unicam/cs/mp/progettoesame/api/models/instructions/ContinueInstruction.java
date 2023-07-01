@@ -3,8 +3,6 @@ package it.unicam.cs.mp.progettoesame.api.models.instructions;
 import it.unicam.cs.mp.progettoesame.api.console.Console;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 
-import java.io.IOException;
-
 /**
  * Classe che rappresenta il comando CONTINUE
  */
@@ -22,7 +20,6 @@ public class ContinueInstruction implements RobotInstruction {
     public void execute(Robot robot) {
         robot.continueMove();
         this.secondsExecuted++;
-        System.out.println("Continue execution seconds n°" + this.secondsExecuted + " of " + this.secondsToExecute + " by Robot: " + robot);
         Console.writeLine("Continue execution seconds n°" + this.secondsExecuted + " of " + this.secondsToExecute + " by Robot: " + robot);
     }
 

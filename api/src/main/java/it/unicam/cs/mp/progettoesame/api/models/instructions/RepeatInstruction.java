@@ -2,9 +2,6 @@ package it.unicam.cs.mp.progettoesame.api.models.instructions;
 
 import it.unicam.cs.mp.progettoesame.api.console.Console;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
-import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
-
-import java.io.IOException;
 
 /**
  * Classe che rappresenta il comando REPEAT
@@ -23,7 +20,6 @@ public class RepeatInstruction extends IterativeInstruction {
     public void execute(Robot robot) {
         this.doneInterations += 1;
         robot.continueMove();
-        System.out.println("REPEAT execution n°" + this.doneInterations + " of " + this.iterations + " by Robot: " +robot);
         Console.writeLine("REPEAT execution n°" + this.doneInterations + " of " + this.iterations + " by Robot: " +robot);
     }
 

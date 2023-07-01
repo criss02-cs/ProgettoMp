@@ -8,26 +8,24 @@ import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.CoordinatesTranslator;
 import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
 import it.unicam.cs.mp.progettoesame.utilities.FollowMeParserException;
-import javafx.animation.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
@@ -35,17 +33,14 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
 import javafx.stage.FileChooser;
-
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
 /**
  * JavaFX Controller of RobotSimulationApp
@@ -513,7 +508,7 @@ public class RobotSimulationController {
      * Evento che andrà ad aprire un'applicazione chiamata Terminal, che mostrerà
      * tutti i log dei vari robot, l'applicazione è stata scritta in C# in ausilio del framework
      * .NET MAUI, <a href="https://github.com/criss02-cs/Terminal">clicca qui</a> per vedere il codice su GitHub
-     * @param mouseEvent
+     * @param mouseEvent l'evento che scaturisce l'azione
      */
     public void onShowTerminalClicked(MouseEvent mouseEvent) {
         try {

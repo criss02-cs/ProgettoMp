@@ -14,7 +14,7 @@ public abstract class Shape implements IShape {
      */
     private final String label;
 
-    public Shape(Point coordinates, String label) {
+    protected Shape(Point coordinates, String label) {
         this.coordinates = coordinates;
         this.label = label;
     }

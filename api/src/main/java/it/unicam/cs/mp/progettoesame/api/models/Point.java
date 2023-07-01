@@ -1,5 +1,7 @@
 package it.unicam.cs.mp.progettoesame.api.models;
 
+import java.util.Objects;
+
 /**
  * Classe che va a rappresentare una coordinata nello spazio
  */
@@ -42,6 +44,11 @@ public class Point {
         if (obj == null || getClass() != obj.getClass()) return false;
         Point point = (Point) obj;
         return x == point.x && y == point.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 
     @Override

@@ -50,7 +50,7 @@ public class Controller {
      * @throws FollowMeParserException se c'è qualche errore di sintassi nel programma
      */
     public List<String> readInstructionList(File programFile) throws IOException, FollowMeParserException, RobotsNotLoadedException {
-        if(this.robots.size() == 0) {
+        if(this.robots.isEmpty()) {
             throw new RobotsNotLoadedException("Prima di caricare il programma devi caricare la lista di robot");
         }
         List<String> lines = Files.readAllLines(programFile.toPath());

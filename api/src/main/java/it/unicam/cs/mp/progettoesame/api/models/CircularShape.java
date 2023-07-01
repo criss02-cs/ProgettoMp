@@ -1,7 +1,6 @@
 package it.unicam.cs.mp.progettoesame.api.models;
 
 import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
-import it.unicam.cs.mp.progettoesame.utilities.ShapeData;
 
 /**
  * Classe che definisce una figura circolare

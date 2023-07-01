@@ -18,7 +18,7 @@ public abstract class IterativeInstruction implements RobotInstruction {
      */
     protected int endOfIteration;
 
-    public IterativeInstruction(int firstRowIteration) {
+    protected IterativeInstruction(int firstRowIteration) {
         this.firstRowIteration = firstRowIteration;
     }
     /**

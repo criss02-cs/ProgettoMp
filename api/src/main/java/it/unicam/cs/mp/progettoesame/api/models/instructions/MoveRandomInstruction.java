@@ -5,12 +5,7 @@ import it.unicam.cs.mp.progettoesame.api.models.Direction;
 import it.unicam.cs.mp.progettoesame.api.models.Point;
 import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.DirectionCalculator;
-import it.unicam.cs.mp.progettoesame.api.utils.DistanceCalculator;
 import it.unicam.cs.mp.progettoesame.api.utils.RandomCoordinatesCalculator;
-import it.unicam.cs.mp.progettoesame.api.utils.Tuple;
-
-import java.io.IOException;
-import java.util.Random;
 
 /**
  * Classe che rappresenta il comando MOVE RANDOM
@@ -31,7 +26,6 @@ public class MoveRandomInstruction implements RobotInstruction {
         Point randomPoint = RandomCoordinatesCalculator.calculate(position1, position2);
         Direction dir = DirectionCalculator.calculate(robot.getPosition(), randomPoint);
         robot.move(speed, dir);
-        System.out.println("MOVE RANDOM execution in position " + randomPoint + " at speed " + this.speed + " with direction " + dir + " by Robot: " + robot);
         Console.writeLine("MOVE RANDOM execution in position " + randomPoint + " at speed " + this.speed + " with direction " + dir + " by Robot: " + robot);
     }
 

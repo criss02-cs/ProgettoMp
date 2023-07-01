@@ -4,20 +4,20 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class Console {
-    private static final String path = "../logger.txt";
-    private static final File file = new File(path);
+    private static final String PATH = "../logger.txt";
+    private static final File file = new File(PATH);
     public static synchronized void writeLine(String line) {
         try {
-            File file = new File(path);
+            File file = new File(PATH);
             if (!file.exists()) {
                 file.createNewFile();
             }
             FileWriter fileWriter = new FileWriter(file, StandardCharsets.UTF_8, true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(line);
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
-            bufferedWriter.close();
+            try (BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+                bufferedWriter.write(line);
+                bufferedWriter.newLine();
+                bufferedWriter.flush();
+            }
             fileWriter.close();
         } catch (IOException e) {
             writeLine(line);
@@ -31,12 +31,12 @@ public class Console {
         }
         FileInputStream fis = new FileInputStream(file);
         InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
-        BufferedReader br = new BufferedReader(isr);
-        String line;
-        while ((line = br.readLine()) != null) {
-            builder.append(line).append("\n");
+        try (BufferedReader br = new BufferedReader(isr)) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                builder.append(line).append("\n");
+            }
         }
-        br.close();
         return builder.toString();
     }
 
@@ -44,9 +44,9 @@ public class Console {
         if (!file.exists()) {
             return;
         }
-        FileWriter fw = new FileWriter(file);
-        fw.write("");
-        fw.flush();
-        fw.close();
+        try (FileWriter fw = new FileWriter(file)) {
+            fw.write("");
+            fw.flush();
+        }
     }
 }

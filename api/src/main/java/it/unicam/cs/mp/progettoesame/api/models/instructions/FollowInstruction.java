@@ -7,7 +7,6 @@ import it.unicam.cs.mp.progettoesame.api.models.Robot;
 import it.unicam.cs.mp.progettoesame.api.utils.DirectionCalculator;
 import it.unicam.cs.mp.progettoesame.api.utils.DistanceCalculator;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -29,11 +28,10 @@ public class FollowInstruction implements RobotInstruction {
     @Override
     public void execute(Robot robot) throws IllegalArgumentException {
         List<Robot> robotWithLabel = this.getFilteredRobot(robot);
-        if(robotWithLabel.size() > 0) {
+        if(!robotWithLabel.isEmpty()) {
             Point averagePoint = this.calculateAveragePoint(robotWithLabel);
             Direction dir = DirectionCalculator.calculate(robot.getPosition(), averagePoint);
             robot.move(this.speed, dir);
-            System.out.println("FOLLOW execution by Robot: " + robot);
             Console.writeLine("FOLLOW execution by Robot: " + robot);
         } else {
             moveToRandom(robot);
