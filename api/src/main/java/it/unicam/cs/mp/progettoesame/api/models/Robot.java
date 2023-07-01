@@ -68,7 +68,7 @@ public class Robot {
      */
     public void unsignalLabel(String label) throws IllegalArgumentException {
         if(!this.labelToSignal.equalsIgnoreCase(label)) {
-            throw new IllegalArgumentException("La label passata non è uguale a quella che il robot sta segnalando");
+            throw new IllegalArgumentException("La label passata non \u00e8 uguale a quella che il robot sta segnalando");
         }
         this.labelToSignal = "";
     }

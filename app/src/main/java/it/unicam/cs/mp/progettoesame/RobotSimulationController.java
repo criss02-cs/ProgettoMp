@@ -37,7 +37,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -61,7 +60,6 @@ public class RobotSimulationController {
     private final Map<Shape, Text> shapesTextMap;
     private Translate translate;
     private CoordinatesTranslator coordinatesTranslator;
-    private Process terminalProcess;
     private final TerminalAppExecutor terminalAppExecutor;
 
     public RobotSimulationController() {
@@ -196,7 +194,7 @@ public class RobotSimulationController {
      */
     private void checkProgramFinished(){
         if(this.controller.isAllRobotFinished()) {
-            this.showInformationAlert("Programma terminato", "Il programma è stato terminato da tutti i robot");
+            this.showInformationAlert("Programma terminato", "Il programma \u00e8 stato terminato da tutti i robot");
         }
     }
 
@@ -457,11 +455,11 @@ public class RobotSimulationController {
      */
     public void onMouseShapesClicked(MouseEvent mouseEvent) {
         try {
-            disableButton((Button)mouseEvent.getSource());
             File selectedFile = this.openFileDialogForShapes(mouseEvent);
             if (selectedFile != null) {
                 this.controller.readShapeList(selectedFile);
                 this.drawShapes();
+                disableButton((Button)mouseEvent.getSource());
             }
         } catch (IOException | FollowMeParserException e) {
             this.showErrorAlert(e.getMessage());
@@ -501,9 +499,11 @@ public class RobotSimulationController {
      * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
      */
     public void onLoadRobotsProgram(MouseEvent mouseEvent) {
-        disableButton((Button)mouseEvent.getSource());
         loadRobots(mouseEvent);
         loadProgram(mouseEvent);
+        if(!this.controller.getRobots().isEmpty()) {
+            disableButton((Button)mouseEvent.getSource());
+        }
     }
 
     /**
@@ -625,7 +625,7 @@ public class RobotSimulationController {
                     Thread.sleep(1000); // Pausa di un secondo (1000 millisecondi)
                 }
                 Platform.runLater(this::checkProgramFinished);
-            } catch (InterruptedException | IllegalArgumentException e) { this.showErrorAlert(e.getMessage()); }
+            } catch (InterruptedException | IllegalArgumentException e) { Platform.runLater(() -> this.showErrorAlert(e.getMessage())); }
         };
     }
 
