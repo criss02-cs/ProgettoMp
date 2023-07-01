@@ -15,15 +15,16 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -47,6 +48,8 @@ import java.util.*;
  */
 public class RobotSimulationController {
     @FXML
+    public VBox container;
+    @FXML
     private Group group;
     @FXML
     private Pane pane;
@@ -59,11 +62,13 @@ public class RobotSimulationController {
     private Translate translate;
     private CoordinatesTranslator coordinatesTranslator;
     private Process terminalProcess;
+    private final TerminalAppExecutor terminalAppExecutor;
 
     public RobotSimulationController() {
         this.robotCircleMap = new HashMap<>();
         circleTextMap = new HashMap<>();
         shapesTextMap = new HashMap<>();
+        terminalAppExecutor = new TerminalAppExecutor();
     }
 
     /**
@@ -85,9 +90,7 @@ public class RobotSimulationController {
      */
     public void setExitConfiguration(Stage stage) {
         stage.setOnCloseRequest(v -> {
-            if(this.terminalProcess != null) {
-                this.terminalProcess.destroy();
-            }
+            this.terminalAppExecutor.closeTerminal();
             Platform.exit();
         });
     }
@@ -183,6 +186,18 @@ public class RobotSimulationController {
         this.shapesTextMap.clear();
         this.controller = new Controller();
         this.group.getChildren().clear();
+        this.programTextArea.setText("");
+        this.container.getChildren().stream().filter(Node::isDisable).forEach(y -> y.setDisable(false));
+    }
+
+    /**
+     * Metodo che controlla se i robot hanno finito di eseguire il programma,
+     * se hanno finito mostra un alert con un messaggio
+     */
+    private void checkProgramFinished(){
+        if(this.controller.isAllRobotFinished()) {
+            this.showInformationAlert("Programma terminato", "Il programma è stato terminato da tutti i robot");
+        }
     }
 
     //region TEXT POSITION
@@ -217,21 +232,48 @@ public class RobotSimulationController {
     private void showErrorAlert(String text) {
         Alert a = new Alert(AlertType.ERROR);
         a.setTitle("Errore");
+        a.setHeaderText(null);
+        a.initOwner(group.getScene().getWindow());
         a.setContentText(text);
         a.show();
     }
 
     /**
-     * Metodo che mostra una input dialog, utilizzata per inserire il numero di passi da eseguire
+     * Metodo che mostra una input dialog, utilizzata per inserire un numero
      * @param headerText il testo da mostrare nella dialog
-     * @return il numero di passi da eseguire
+     * @return il valore intero inserito
      */
-    private int showInputAlert(String headerText) {
+    private int showInputIntegerDialog(String headerText) {
         TextInputDialog td = new TextInputDialog();
         td.setHeaderText(headerText);
         td.initOwner(group.getScene().getWindow());
         Optional<String> text = td.showAndWait();
         return text.map(Integer::parseInt).orElse(-1);
+    }
+
+    /**
+     * Metodo che mostra un alert di conferma.
+     * @param title il titolo dell'alert
+     * @param content il messaggio da mostrare
+     * @return la scelta fatta dall'utente
+     */
+    private Optional<ButtonType> showConfirmAlert(String title, String content) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.getButtonTypes().setAll(ButtonType.YES, ButtonType.NO);
+        alert.initOwner(group.getScene().getWindow());
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        return alert.showAndWait();
+    }
+
+    private void showInformationAlert(String title, String content) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.initOwner(group.getScene().getWindow());
+        alert.setContentText(content);
+        alert.show();
     }
     //endregion
 
@@ -401,34 +443,27 @@ public class RobotSimulationController {
     //endregion
 
     //region EVENTS
+
+    /**
+     * Evento che resetta la simulazione, potendo ricominciare da capo
+     * @param mouseEvent l'evento che scaturisce questa azione
+     */
+    public void onResetClicked(MouseEvent mouseEvent) {
+        this.reset();
+    }
     /**
      * Evento che gestisce la lettura delle aree da un file dentro il pc
      * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
      */
     public void onMouseShapesClicked(MouseEvent mouseEvent) {
         try {
+            disableButton((Button)mouseEvent.getSource());
             File selectedFile = this.openFileDialogForShapes(mouseEvent);
             if (selectedFile != null) {
                 this.controller.readShapeList(selectedFile);
                 this.drawShapes();
             }
         } catch (IOException | FollowMeParserException e) {
-            this.showErrorAlert(e.getMessage());
-        }
-    }
-    /**
-     * Evento che gestisce la lettura dei robot da un file dentro il pc
-     * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
-     */
-    public void onMouseRobotClicked(MouseEvent mouseEvent) {
-        try {
-            this.controller.getRobots().clear();
-            File selectedFile = this.openFileDialogForRobots(mouseEvent);
-            if(selectedFile != null) {
-                this.controller.readRobotList(selectedFile);
-                this.drawRobots();
-            }
-        } catch (IOException e) {
             this.showErrorAlert(e.getMessage());
         }
     }
@@ -439,10 +474,25 @@ public class RobotSimulationController {
      */
     public void onExecuteClicked(MouseEvent mouseEvent) {
         try {
+            hasToOpenTerminal();
             this.controller.nextInstruction();
             this.updateCircles();
-        } catch (IllegalArgumentException ex) {
+            this.checkProgramFinished();
+        } catch (IllegalArgumentException | IOException ex) {
             this.showErrorAlert(ex.getMessage());
+        }
+    }
+
+    /**
+     * Metodo che chiede all'utente se vuole aprire il terminale, se non è stato già aperto
+     * @throws IOException se c'è qualche problema nell'apertura dell'applicazine
+     */
+    private void hasToOpenTerminal() throws IOException {
+        if(!this.terminalAppExecutor.isOpened()) {
+            Optional<ButtonType> result = this.showConfirmAlert("Terminale", "Vuoi aprire l'applicazione terminale?");
+            if(result.isPresent() && result.get() == ButtonType.YES) {
+                this.terminalAppExecutor.openTerminal();
+            }
         }
     }
 
@@ -450,16 +500,18 @@ public class RobotSimulationController {
      * Evento che gestisce la lettura del programma da un file dentro il pc
      * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
      */
-    public void onReadProgramClicked(MouseEvent mouseEvent) {
-        try {
-            File selectedFile = this.openFileDialogForProgram(mouseEvent);
-            if (selectedFile != null) {
-                List<String> lines = this.controller.readInstructionList(selectedFile);
-                lines.forEach(x -> this.programTextArea.appendText(x + "\n"));
-            }
-        } catch (IOException | FollowMeParserException | RobotsNotLoadedException e) {
-            this.showErrorAlert(e.getMessage());
-        }
+    public void onLoadRobotsProgram(MouseEvent mouseEvent) {
+        disableButton((Button)mouseEvent.getSource());
+        loadRobots(mouseEvent);
+        loadProgram(mouseEvent);
+    }
+
+    /**
+     * Metodo che disabilita il bottone, così da non poterlo più cliccare
+     * @param target
+     */
+    private void disableButton(Button target) {
+        target.setDisable(true);
     }
 
     /**
@@ -469,7 +521,12 @@ public class RobotSimulationController {
      * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
      */
     public void onExecuteMultipleInstruction(MouseEvent mouseEvent) {
-        int numberOfInstruction = this.showInputAlert("Inserisci il numero di passi");
+        try {
+            hasToOpenTerminal();
+        } catch (IOException e) {
+            this.showErrorAlert(e.getMessage());
+        }
+        int numberOfInstruction = this.showInputIntegerDialog("Inserisci il numero di passi");
         if(numberOfInstruction == -1)
             numberOfInstruction = 1;
         Thread thread = new Thread(this.executeMultipleInstruction(numberOfInstruction));
@@ -512,13 +569,10 @@ public class RobotSimulationController {
      */
     public void onShowTerminalClicked(MouseEvent mouseEvent) {
         try {
-            String osName = System.getProperty("os.name");
-            if(osName.contains("Windows")) {
-                ProcessBuilder processBuilder = new ProcessBuilder("..\\win10-x64\\Terminal.exe");
-                this.terminalProcess = processBuilder.start();
+            if(!this.terminalAppExecutor.isOpened()) {
+                this.terminalAppExecutor.openTerminal();
             } else {
-                File appFile = new File("..\\maccatalyst-x64\\Terminal.app");
-                Desktop.getDesktop().open(appFile);
+                this.showInformationAlert("Attenzione", "L'applicazione terminale \u00e8 stata gi\u00e0 aperta");
             }
         } catch (IOException e) {
             this.showErrorAlert(e.getMessage());
@@ -559,7 +613,7 @@ public class RobotSimulationController {
     /**
      * Metodo che restituisce il thread da eseguire per eseguire
      * più istruzioni alla volta
-     * @param n il numero di istruzioni da eseguire
+     * @param n il numero d'istruzioni da eseguire
      * @return l'istanza runnable da eseguire
      */
     private Runnable executeMultipleInstruction(int n) {
@@ -567,12 +621,81 @@ public class RobotSimulationController {
             try {
                 for (int i = 0; i < n; i++) {
                     this.controller.nextInstruction();
-                    this.updateCircles();
+                    Platform.runLater(this::updateCircles);
                     Thread.sleep(1000); // Pausa di un secondo (1000 millisecondi)
                 }
+                Platform.runLater(this::checkProgramFinished);
             } catch (InterruptedException | IllegalArgumentException e) { this.showErrorAlert(e.getMessage()); }
         };
     }
 
+    //endregion
+
+    //region LOAD ELEMENTS
+
+    /**
+     * Metodo che si occupa di caricare i robot dello swarm.
+     * Prima chiederà all'utente se vuole generarli casualmente, oppure caricarli da un file
+     * @param mouseEvent l'evento che scaturisce questa azione
+     */
+    private void loadRobots(MouseEvent mouseEvent) {
+        Optional<ButtonType> result = this.showConfirmAlert("Caricamento robot", "Vuoi genererare randomicamente i robot?");
+        if(result.isEmpty()) {
+            return;
+        }
+        if (result.get() == ButtonType.YES) {
+            loadRandomRobots(mouseEvent);
+        } else if (result.get() == ButtonType.NO) {
+            loadRobotFromFile(mouseEvent);
+        }
+        this.drawRobots();
+    }
+
+    /**
+     * Metodo che genera i robot in maniera casuale, se il numero di robot è uguale a -1
+     * chiedera di caricarli da un file
+     * @param mouseEvent l'evento che scaturisce questa azione
+     */
+    private void loadRandomRobots(MouseEvent mouseEvent) {
+        int numberOfRobots = this.showInputIntegerDialog("Quanti robot vuoi generare?");
+        if(numberOfRobots > -1) {
+            this.controller.generateRandomRobots(numberOfRobots, new Point(-(pane.getWidth() / 2), -(pane.getHeight())),
+                    new Point(pane.getWidth() / 2, pane.getHeight() / 2));
+        } else {
+            loadRobotFromFile(mouseEvent);
+        }
+    }
+
+    /**
+     * Metodo che carica i robot da un file presente nel pc dell'utente
+     * @param mouseEvent l'evento che scaturisce questa azione
+     */
+    private void loadRobotFromFile(MouseEvent mouseEvent) {
+        try {
+            this.controller.getRobots().clear();
+            File selectedFile = this.openFileDialogForRobots(mouseEvent);
+            if(selectedFile != null) {
+                this.controller.readRobotList(selectedFile);
+            }
+        } catch (IOException e) {
+            this.showErrorAlert(e.getMessage());
+        }
+    }
+
+    /**
+     * Metodo che carica il programma da un file di presente nel pc dell'utente
+     * @param mouseEvent l'evento che scaturisce questa azione
+     */
+    private void loadProgram(MouseEvent mouseEvent){
+        try {
+            File selectedFile = this.openFileDialogForProgram(mouseEvent);
+            if (selectedFile != null) {
+                List<String> lines = this.controller.readInstructionList(selectedFile);
+                lines.forEach(x -> this.programTextArea.appendText(x + "\n"));
+            }
+        } catch (IOException | FollowMeParserException | RobotsNotLoadedException e) {
+            this.showErrorAlert(e.getMessage());
+        }
+    }
     //endregion
 }

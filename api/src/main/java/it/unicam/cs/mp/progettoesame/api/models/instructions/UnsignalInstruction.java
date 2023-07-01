@@ -18,7 +18,7 @@ public class UnsignalInstruction implements RobotInstruction {
     public void execute(Robot robot) throws IllegalArgumentException {
         robot.unsignalLabel(this.labelToUnsignal);
         robot.continueMove();
-        Console.writeLine("USIGNAL execution label " + this.labelToUnsignal + " by Robot: " + robot);
+        Console.writeLine("UNSIGNAL execution label " + this.labelToUnsignal + " by Robot: " + robot);
     }
 
     @Override
