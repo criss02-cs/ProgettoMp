@@ -63,11 +63,11 @@ public class Robot {
     }
     /**
      * Metodo che permette al robot di smettere di segnalare una label
-     * @param label
+     * @param label la label che il robot deve smettere di segnalare
      * @throws IllegalArgumentException se la label passata è diversa da quella che il robot sta segnalando
      */
     public void unsignalLabel(String label) throws IllegalArgumentException {
-        if(!this.labelToSignal.equalsIgnoreCase(label)) {
+        if(!this.labelToSignal.isEmpty() && !this.labelToSignal.equalsIgnoreCase(label)) {
             throw new IllegalArgumentException("La label passata non \u00e8 uguale a quella che il robot sta segnalando");
         }
         this.labelToSignal = "";
