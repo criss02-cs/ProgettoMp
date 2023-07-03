@@ -16,13 +16,13 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/fxml/RobotSimulation.fxml")));
         Parent root = loader.load();
         primaryStage.setScene(new Scene(root));
-        this.editStageConfiguration(primaryStage);
+        this.configureStage(primaryStage);
         RobotSimulationController controller = loader.getController();
         controller.setExitConfiguration(primaryStage);
         primaryStage.show();
     }
 
-    private void editStageConfiguration(Stage stage) {
+    private void configureStage(Stage stage) {
         stage.setTitle("SwarmRobot");
         stage.setResizable(false);
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/icon.png"))));
