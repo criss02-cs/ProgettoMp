@@ -22,7 +22,7 @@ public class TerminalAppExecutor {
         } else {
             /*File appFile = new File("..\\maccatalyst-x64\\Terminal.app");
             Desktop.getDesktop().open(appFile);*/
-            processBuilder = new ProcessBuilder("open ..\\maccatalyst-x64\\Terminal.app");
+            processBuilder = new ProcessBuilder("open ../maccatakyst-x64/Terminal.app");
         }
         this.terminalProcess = processBuilder.start();
     }
