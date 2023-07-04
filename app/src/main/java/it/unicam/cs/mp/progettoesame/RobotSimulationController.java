@@ -499,9 +499,11 @@ public class RobotSimulationController {
      * @param mouseEvent click del mouse sul bottone che scaturisce l'azione
      */
     public void onLoadRobotsProgram(MouseEvent mouseEvent) {
-        loadRobots(mouseEvent);
+        if(this.controller.getRobots().isEmpty()) {
+            loadRobots(mouseEvent);
+        }
         loadProgram(mouseEvent);
-        if(!this.controller.getRobots().isEmpty()) {
+        if(!this.controller.getRobots().isEmpty() && !this.programTextArea.getText().isEmpty()) {
             disableButton((Button)mouseEvent.getSource());
         }
     }
