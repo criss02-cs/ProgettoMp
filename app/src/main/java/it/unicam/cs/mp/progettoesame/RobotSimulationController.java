@@ -476,7 +476,9 @@ public class RobotSimulationController {
             this.controller.nextInstruction();
             this.updateCircles();
             this.checkProgramFinished();
-        } catch (IllegalArgumentException | IOException ex) {
+        }
+        catch (NullPointerException e) { Platform.runLater(() -> this.showErrorAlert("Non è stato caricato nessun programma")); }
+        catch (IllegalArgumentException | IOException ex) {
             this.showErrorAlert(ex.getMessage());
         }
     }
@@ -627,7 +629,9 @@ public class RobotSimulationController {
                     Thread.sleep(1000); // Pausa di un secondo (1000 millisecondi)
                 }
                 Platform.runLater(this::checkProgramFinished);
-            } catch (InterruptedException | IllegalArgumentException e) { Platform.runLater(() -> this.showErrorAlert(e.getMessage())); }
+            }
+            catch (NullPointerException e) { Platform.runLater(() -> this.showErrorAlert("Non è stato caricato nessun programma")); }
+            catch (InterruptedException | IllegalArgumentException e) { Platform.runLater(() -> this.showErrorAlert(e.getMessage())); }
         };
     }
 
