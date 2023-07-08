@@ -3,38 +3,65 @@ package it.unicam.cs.mp.progettoesame.api.models;
 import it.unicam.cs.mp.progettoesame.api.utils.NumericRangeChecker;
 
 /**
- * Classe che rappresenta la Direzione, estende la classe <code>Point</code>
- * ma verifica che ci siano solo valori compresi tra -1 e 1
+ * Classe che rappresenta la Direzione, utilizza un attributo di tipo <code>Point</code>
+ * però si assicura che i valori siano compresi tra -1 e 1
  */
-public class Direction extends Point {
+public class Direction {
+    private final Point point;
     public Direction(double x, double y) {
-        super(validateParameters(x), validateParameters(y));
+        this.validateParameters(x,y);
+        this.point = new Point(x, y);
     }
 
     public Direction() {
-        super();
+        this.point = new Point();
     }
 
     /**
      * Metodo che controlla che i parametri siano compresi tra -1 e 1, dichiarato come statico
      * così da poterlo richiamare all'interno del costruttore
-     * @param param il parametro da validare
-     * @return il parametro passato se non ci sono problemi
+     * @param x la coordinata x della direzione
+     * @param y la coordinata y della direzione
      */
-    private static double validateParameters(double param) {
-        if(!NumericRangeChecker.DEFAULT_CHECKER.isBetween(param, -1.0,1.0)) {
+    private void validateParameters(double x, double y) {
+        if(!NumericRangeChecker.DEFAULT_CHECKER.isBetween(x, -1.0,1.0)
+            || !NumericRangeChecker.DEFAULT_CHECKER.isBetween(y, -1.0,1.0)) {
             throw new IllegalArgumentException("Il valore deve essere compreso tra -1 e 1");
         }
-        return param;
     }
 
-    @Override
+    /**
+     * Metodo che imposta la x della direzione,
+     * anche qui avviene il controllo sul valore passato
+     * @param x la coordinata da impostare
+     */
     public void setX(double x) {
-        super.setX(validateParameters(x));
+        this.validateParameters(x, this.point.getY());
+        this.point.setX(x);
     }
 
-    @Override
+    /**
+     * Metodo che imposta la y della direzione,
+     * anche qui avviene il controllo sul valore passato
+     * @param y la coordinata da impostare
+     */
     public void setY(double y) {
-        super.setY(validateParameters(y));
+        this.validateParameters(this.point.getX(), y);
+        this.point.setY(y);
+    }
+
+    /**
+     * Metodo che ritorna la coordinata x della direzione
+     * @return la coordinata x della direzione
+     */
+    public double getX(){
+        return this.point.getX();
+    }
+    /**
+     * Metodo che ritorna la coordinata y della direzione
+     * @return la coordinata y della direzione
+     */
+    public double getY(){
+        return this.point.getY();
     }
 }
