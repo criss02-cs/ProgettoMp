@@ -18,10 +18,8 @@ public class TerminalAppExecutor {
         String osName = System.getProperty("os.name");
         ProcessBuilder processBuilder;
         if(osName.contains("Windows")) {
-            processBuilder = new ProcessBuilder("..\\win10-x64\\Terminal.exe");
+            processBuilder = new ProcessBuilder("..\\Terminal\\Terminal.exe");
         } else {
-            /*File appFile = new File("..\\maccatalyst-x64\\Terminal.app");
-            Desktop.getDesktop().open(appFile);*/
             processBuilder = new ProcessBuilder("open ../maccatalyst-x64/Terminal.app");
         }
         this.terminalProcess = processBuilder.start();
