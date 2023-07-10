@@ -1,0 +1,1000 @@
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: 2.1391532193803977; y: 4.332552164000707} at speed 10.0 with direction { x: 0.9985639517381631; y: 0.05357270096852852} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -2.867031195333645; y: 7.027775731227226} at speed 10.0 with direction { x: 0.7161282455693451; y: 0.6979687212889786} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -4.126284036110638; y: 1.6474287709890731} at speed 10.0 with direction { x: -0.5745910183430261; y: 0.818440689139735} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -2.077915602738986; y: -1.963621566723086} at speed 10.0 with direction { x: -0.506007687125766; y: 0.8625289679597045} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 2.483147942938073; y: 9.336381224792564} at speed 10.0 with direction { x: 0.595382950490735; y: 0.8034420590589884} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 1.9298223363313092; y: 2.9057840831515636} at speed 10.0 with direction { x: 0.29286938006960317; y: 0.9561524597142687} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -1.5453196005246763; y: -1.7424577816842497} at speed 10.0 with direction { x: 0.734364091343121; y: 0.6787557597146355} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNSIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 1.6932699550949737; y: -5.298119200525415} at speed 10.0 with direction { x: -0.23726039780287492; y: 0.9714460888975884} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: -2.9866643343245904; y: 3.1118584822667916} at speed 10.0 with direction { x: 0.5902773633111851; y: -0.8072004920479144} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DO FOREVER execution by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE execution in direction { x: -1.0; y: 0.5} at speed 20.0 by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: 3.7005035294377064; y: -6.749710995428593} at speed 10.0 with direction { x: 0.99999902067265; y: -0.001399519110587437} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -2.553777123039527; y: 8.505161512497477} at speed 10.0 with direction { x: 0.7137628862733965; y: 0.7003874229158249} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: 0.28861736935865334; y: -6.508342353585757} at speed 10.0 with direction { x: -0.5788702631601869; y: 0.815419657862659} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: 2.8567407814866073; y: -1.8765197224040246} at speed 10.0 with direction { x: -0.4931462728889305; y: 0.8699464084274136} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -0.5683409732767526; y: 4.4399472521904375} at speed 10.0 with direction { x: 0.5963083856489628; y: 0.8027554479445953} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -4.85858078350048; y: -5.039165427265965} at speed 10.0 with direction { x: 0.2801146378345517; y: 0.9599665565376838} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 4.043072159471942; y: 3.5498427019737067} at speed 10.0 with direction { x: 0.7341080212629538; y: 0.6790327040116628} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -1.4473490456669582; y: 2.7934675774940576} at speed 10.0 with direction { x: -0.24195336303602485; y: 0.9702878800209542} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 1.9392688347328102; y: -2.9818468493305854} at speed 10.0 with direction { x: 0.591358881688755; y: -0.8064085025889949} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -3.5348442625374403; y: 3.7734471777844387} at speed 10.0 with direction { x: 0.9998220622833819; y: 0.01886382176032176} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -2.339873806090549; y: -9.866698479453639} at speed 10.0 with direction { x: 0.9997725376839492; y: -0.021327749365471813} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -0.14145495412271458; y: 6.321922256723942} at speed 10.0 with direction { x: 0.7245954969469924; y: 0.6891744088430308} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: 4.950653191153508; y: -7.280478165425755} at speed 10.0 with direction { x: -0.5618112904367755; y: 0.8272654192807561} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -2.6709460277823798; y: -3.938594125833699} at speed 10.0 with direction { x: -0.5132324932485995; y: 0.8582496186272536} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -4.455218356058346; y: 7.330186820958859} at speed 10.0 with direction { x: 0.5855232650765609; y: 0.8106556026168468} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -3.767537411710377; y: -2.16235611653142} at speed 10.0 with direction { x: 0.2809550594175179; y: 0.9597209253672128} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -1.9589467359163768; y: 2.053456685452913} at speed 10.0 with direction { x: 0.7240215900745104; y: 0.6897773097935141} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 2.5493724192351586; y: -7.372298136505499} at speed 10.0 with direction { x: -0.23443338098860136; y: 0.9721321874509933} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 1.3820357023772303; y: -9.07537463398953} at speed 10.0 with direction { x: 0.5780761070644587; y: -0.8159828518058456} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -4.094024361488037; y: 5.978150810567325} at speed 10.0 with direction { x: 0.871280931099066; y: 0.49078461579713833} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -2.160662780680057; y: -1.5374941832344309} at speed 10.0 with direction { x: 0.9987573655501566; y: 0.04983698184391701} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: 2.6529857162616235; y: 6.18234779209023} at speed 10.0 with direction { x: 0.7327487040155222; y: 0.6804993289956813} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -2.2758587110788273; y: -1.1325190958335654} at speed 10.0 with direction { x: -0.5776837378866109; y: 0.8162606807762784} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -1.5377375647439848; y: 0.9818019356028849} at speed 10.0 with direction { x: -0.49915690340074803; y: 0.8665116189569394} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 4.304341585029459; y: 1.480681345003898} at speed 10.0 with direction { x: 0.611640283219825; y: 0.791135995858343} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 3.516728916138079; y: 9.645149010263337} at speed 10.0 with direction { x: 0.295068771192598; y: 0.9554760176304219} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -2.1301402902178097; y: -9.993133571911137} at speed 10.0 with direction { x: 0.7614698104455941; y: 0.6482003762571809} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -0.4226404201845071; y: -1.848061637288577} at speed 10.0 with direction { x: -0.24480281359127357; y: 0.9695728866144082} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: -2.197671620698399; y: 1.2423187932049196} at speed 10.0 with direction { x: 0.5906092013968829; y: -0.8069577257981586} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: 4.505370293585918; y: -2.846546199858258} at speed 10.0 with direction { x: -0.6466900631659318; y: -0.7627528840997214} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: 1.0854898924990017; y: -6.158946793361455} at speed 10.0 with direction { x: 0.9999531062412026; y: -0.009684282036906924} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -1.5741327482733425; y: -0.6782819849663326} at speed 10.0 with direction { x: 0.7445806520077537; y: 0.6675325105608778} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -1.4313816414610585; y: -3.9377918978290634} at speed 10.0 with direction { x: -0.5862964391950543; y: 0.8100965901589761} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: 1.6713159180644932; y: -0.5094835592293308} at speed 10.0 with direction { x: -0.48882960704588985; y: 0.8723792840705015} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -2.162789740906649; y: 9.673506804482592} at speed 10.0 with direction { x: 0.5831995874033898; y: 0.8123288996782744} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 0.06366073252302762; y: -9.953967345263312} at speed 10.0 with direction { x: 0.3075650739400752; y: 0.9515270491647814} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -1.9712047420048577; y: 6.499131212460336} at speed 10.0 with direction { x: 0.6932391993467212; y: 0.7207075776548468} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 2.639527783740858; y: 6.063672449366444} at speed 10.0 with direction { x: -0.20367936349906798; y: 0.9790376483489358} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 0.29554324060909387; y: 9.73658131787241} at speed 10.0 with direction { x: 0.6273295844108782; y: -0.7787538715941481} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -2.7525202654828718; y: 4.479350607682473} at speed 10.0 with direction { x: -0.29272137941404314; y: 0.9561977797683594} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: 4.851651326976434; y: -1.5746718235406743} at speed 10.0 with direction { x: 0.9954975739498406; y: 0.09478702579985152} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -0.2951963786907017; y: -2.512305347971214} at speed 10.0 with direction { x: 0.7623157199580677; y: 0.6472053330318075} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: 4.4350901018686875; y: 0.744802748974692} at speed 10.0 with direction { x: -0.45503862787797494; y: 0.8904716992352593} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: 1.6448747136118325; y: 6.976459433041871} at speed 10.0 with direction { x: -0.46567808726392956; y: 0.8849541903636639} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -4.1131741883972275; y: -6.054055674666618} at speed 10.0 with direction { x: 0.6094797408533339; y: 0.7928016432181212} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -0.8585777085118709; y: 7.210506070779383} at speed 10.0 with direction { x: 0.27199554999913256; y: 0.9622985091855174} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 0.9027058768383212; y: 3.2015803467027215} at speed 10.0 with direction { x: 0.7292792900051914; y: 0.6842161333741874} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -3.2788481548368544; y: 7.7290554082428775} at speed 10.0 with direction { x: -0.27054145014992437; y: 0.962708327454778} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 4.681809435324555; y: -3.2802236870977772} at speed 10.0 with direction { x: 0.5972403498456534; y: -0.8020623195963275} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: 2.8704630621397618; y: -4.167104648429355} at speed 10.0 with direction { x: 0.3638491887498253; y: -0.9314578722873591} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -3.9711197576514294; y: -6.320650389738102} at speed 10.0 with direction { x: -0.7266387108519802; y: -0.6870197842066649} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: 1.7243885247100552; y: 3.161603339048648} at speed 10.0 with direction { x: 0.7197284499800056; y: 0.6942556865373006} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -1.3806206469436475; y: 2.9303229944924203} at speed 10.0 with direction { x: -0.698979785406239; y: 0.715141426288149} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -4.04000644686916; y: 2.7578643870917823} at speed 10.0 with direction { x: -0.5281611932647611; y: 0.8491441302447681} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 4.665627351888508; y: 8.956803695936848} at speed 10.0 with direction { x: 0.6011449669860969; y: 0.7991399931596993} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -3.0433536430641954; y: -2.874102156375935} at speed 10.0 with direction { x: 0.27733323755916905; y: 0.9607737898927872} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -4.911438172285953; y: 8.035012071982752} at speed 10.0 with direction { x: 0.6040380005042804; y: 0.7969555156636982} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -2.0059559557368907; y: -9.361483090411284} at speed 10.0 with direction { x: -0.4112347182743914; y: 0.9115294874472147} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: -0.8751485123569065; y: 9.199219297451208} at speed 10.0 with direction { x: 0.6303002463404842; y: -0.7763514664526143} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -0.8186956430832275; y: -8.161058700740142} at speed 10.0 with direction { x: -0.9164488018979947; y: -0.40015196300871775} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: 1.351036298855961; y: -1.1050124232238652} at speed 10.0 with direction { x: 0.7244055891830045; y: 0.6893740221102215} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: 4.460031744110047; y: 2.0973801988971674} at speed 10.0 with direction { x: 0.8898706598774889; y: 0.45621289842484997} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: 3.711854836646582; y: 9.291638533776908} at speed 10.0 with direction { x: 0.8856009657919641; y: -0.46444690696390717} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -3.721947984450569; y: 9.194918610378819} at speed 10.0 with direction { x: -0.4774749593884008; y: 0.8786453568744589} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 4.3089735060744925; y: 4.520880979021924} at speed 10.0 with direction { x: 0.6125957744840059; y: 0.7903963670743566} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 4.548826873793518; y: 9.660354408007306} at speed 10.0 with direction { x: 0.31801306316849887; y: 0.9480863313296889} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 4.611782856258922; y: -6.958967431549723} at speed 10.0 with direction { x: 0.7390348012206146; y: -0.6736672491555507} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 3.426873753681774; y: -7.9407076923470115} at speed 10.0 with direction { x: 0.6589887110146382; y: -0.7521528293872634} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: -2.5355252043697094; y: 8.377170855813823} at speed 10.0 with direction { x: 0.5842752566039804; y: -0.811555558492672} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -1.2582116910811427; y: -7.635046420261276} at speed 10.0 with direction { x: 0.9087468968488455; y: 0.4173476697761638} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -0.6838371694357512; y: 3.69223948049211} at speed 10.0 with direction { x: -0.21328774622563096; y: 0.9769894253828906} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: 1.7838207832157718; y: -9.452335737529374} at speed 10.0 with direction { x: -0.7615415220216447; y: -0.6481161240371641} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: 0.9859595564123591; y: 1.6162777151884455} at speed 10.0 with direction { x: -0.9964267548639636; y: -0.08446136508055514} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: 0.24487572916242506; y: 7.164800370440128} at speed 10.0 with direction { x: -0.3575144029373337; y: 0.9339076248175523} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -4.226018980290418; y: 0.05141601072427093} at speed 10.0 with direction { x: 0.5850685731666794; y: 0.8109838251732927} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -1.6968402215990999; y: -3.9156378697799354} at speed 10.0 with direction { x: 0.2739755278710767; y: 0.9617366636079572} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 1.3486306692995544; y: 3.1947329718654682} at speed 10.0 with direction { x: -0.6209800405568278; y: 0.7838263769675274} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 3.802538029872795; y: 8.206846886188684} at speed 10.0 with direction { x: -0.3883792857536535; y: 0.9214996095481983} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: -4.8624073202685665; y: -2.458239310617916} at speed 10.0 with direction { x: -0.8963220441291277; y: -0.4434036459121439} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -0.21921325496590427; y: 4.821610325729999} at speed 10.0 with direction { x: -0.3270086616498822; y: 0.9450213411378352} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: 1.7034436311643555; y: -5.375097368255091} at speed 10.0 with direction { x: 0.2221932629433085; y: -0.975002643023395} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -3.6723372422545904; y: 6.509804637942658} at speed 10.0 with direction { x: -0.29727993568738775; y: 0.9547903643406247} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -2.7562999651621833; y: -8.972710525008264} at speed 10.0 with direction { x: 0.9283302216269101; y: -0.37175664030939903} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: 3.3458646192740584; y: -4.875441113864685} at speed 10.0 with direction { x: 0.31768126623152027; y: -0.9481975601558665} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 2.3920502282901293; y: -4.36087501555205} at speed 10.0 with direction { x: 0.6653384884970655; y: 0.7465418244977572} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 1.7537226575094267; y: -2.38916541958921} at speed 10.0 with direction { x: 0.5039470713637246; y: -0.863734536338524} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -3.1138427391235375; y: -2.190120243752151} at speed 10.0 with direction { x: -0.00869807920584055; y: -0.9999621709935476} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -1.7150685974203554; y: -9.01896046361286} at speed 10.0 with direction { x: -0.1537176651901206; y: -0.9881148108436074} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 1.072516055880468; y: 8.177300189781631} at speed 10.0 with direction { x: 0.8119035760074981; y: 0.5837915580635239} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -2.891362982466159; y: -1.9030746627} at speed 10.0 with direction { x: 0.19593895131222033; y: -0.9806160958084806} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -2.0600994521738727; y: 2.761624101889357} at speed 10.0 with direction { x: -0.5426838530905559; y: 0.8399370426375944} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -2.371593570707687; y: -1.4119609905720765} at speed 10.0 with direction { x: 0.26270564576505934; y: -0.9648760250328346} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -2.6805049678336834; y: 2.3545077878638114} at speed 10.0 with direction { x: -0.6675723442851569; y: 0.7445449382983004} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -0.05581837923657851; y: -8.494723918344363} at speed 10.0 with direction { x: -0.896000827199015; y: 0.44405238166085875} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -2.9200657827938823; y: -2.785135733341253} at speed 10.0 with direction { x: 0.5526212486544304; y: 0.8334325140859445} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 0.9060841319851223; y: -3.2633065134287733} at speed 10.0 with direction { x: -0.5320696585197427; y: 0.8467005837264342} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 1.8825440220622793; y: 8.561299474012351} at speed 10.0 with direction { x: 0.13059714078009965; y: 0.9914355182360893} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 2.1332780956230044; y: 6.689217776443797} at speed 10.0 with direction { x: 0.19424649824277973; y: 0.9809527500957513} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 1.0903103279181625; y: 2.7079849776900566} at speed 10.0 with direction { x: 0.4097738707538378; y: -0.9121871380629181} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: 4.0937986977405085; y: 6.593010965005335} at speed 10.0 with direction { x: 0.40414584884794724; y: 0.9146945571385959} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -1.860218385388352; y: -9.692447419085827} at speed 10.0 with direction { x: 0.4156227265612747; y: -0.9095371070856713} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -0.11101313469506824; y: 6.538838831236626} at speed 10.0 with direction { x: -0.007622951092423559; y: 0.9999709448862214} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -4.225736204618363; y: 0.6095808128860014} at speed 10.0 with direction { x: 0.5574068573074957; y: -0.830239480768399} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -1.9524808962827205; y: 9.672516618373388} at speed 10.0 with direction { x: 0.993919970562426; y: 0.11010491413731834} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -0.7803038170724177; y: 7.315430608593239} at speed 10.0 with direction { x: -0.07176438040542768; y: 0.9974216128122676} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 3.343013018532923; y: 2.651665130301928} at speed 10.0 with direction { x: 0.9034672109539007; y: 0.4286572042217181} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 2.30730200937069; y: 2.3267762520743362} at speed 10.0 with direction { x: 0.07436163297253302; y: -0.9972313410345959} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 3.0989795746421156; y: 1.9226553540686702} at speed 10.0 with direction { x: -0.023074703953590344; y: -0.9997337435724846} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: -2.2808365485242206; y: -0.934406028712873} at speed 10.0 with direction { x: -0.529196965005388; y: 0.8484990113306473} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -3.8929258359177705; y: 2.9587555339758005} at speed 10.0 with direction { x: -0.5628264358271171; y: -0.8265751043517728} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: 3.8286262415998182; y: -3.209646889593989} at speed 10.0 with direction { x: 0.9855621104984936; y: 0.16931428276951455} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: 1.5908391106386088; y: -8.26155854791595} at speed 10.0 with direction { x: 0.04929454615853268; y: -0.9987842848778832} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -1.3747745315872777; y: 2.54422983636847} at speed 10.0 with direction { x: -0.4304523456180222; y: 0.9026133048830728} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: 0.891661047371124; y: 6.16988013383504} at speed 10.0 with direction { x: -0.8725802884711182; y: -0.4884707157769644} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 1.270086900705115; y: 5.5425911458620725} at speed 10.0 with direction { x: 0.12516932352461232; y: -0.9921353942120958} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 2.450535313991783; y: 1.970622339436618} at speed 10.0 with direction { x: -0.9006655500043672; y: -0.4345130228604555} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -1.9850864787049458; y: 5.211186768363127} at speed 10.0 with direction { x: -0.18244965861261286; y: 0.9832151962170546} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -4.111024100328162; y: 6.747030479164609} at speed 10.0 with direction { x: -0.18940918565052356; y: 0.9818982433995924} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 0.36415983014737563; y: 1.6505274209936598} at speed 10.0 with direction { x: 0.9123187459620459; y: -0.409480775820111} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: 3.385078847342151; y: -4.4997977242618425} at speed 10.0 with direction { x: 0.995662281620384; y: -0.09304096387339997} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: 2.6018106601813775; y: -3.8432777032294787} at speed 10.0 with direction { x: -0.9833576474394994; y: -0.18168031600108295} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -3.8652210189230605; y: 7.573755796617649} at speed 10.0 with direction { x: -0.29898293315876345; y: 0.9542584585319548} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -4.8379702458804665; y: -5.608652421637261} at speed 10.0 with direction { x: 0.1542871284163449; y: -0.9880260533027652} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -4.38312928490191; y: -0.6319993705227134} at speed 10.0 with direction { x: 0.9355250077026422; y: 0.3532604704222812} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -2.277100393959037; y: 1.8115027406749444} at speed 10.0 with direction { x: -0.9929976758652044; y: 0.11813388898323106} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -1.268476101914282; y: -4.832602184489868} at speed 10.0 with direction { x: 0.0033933697895713938; y: -0.9999942425041612} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -1.0395337816268029; y: 7.67126399514285} at speed 10.0 with direction { x: 0.9955670817282619; y: -0.09405416407088055} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 4.230728711627998; y: 0.0676917609701082} at speed 10.0 with direction { x: 0.6139931029005973; y: -0.7893113894975142} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: -2.5970627626450575; y: -9.532080070279648} at speed 10.0 with direction { x: -0.9971382584268937; y: 0.07559956072214627} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -0.8856250837128421; y: 2.109655222203193} at speed 10.0 with direction { x: -0.9617929303303047; y: 0.2737779376915641} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: 0.5777580126223825; y: -9.772671101498176} at speed 10.0 with direction { x: 0.7065133347139624; y: -0.7076997300206893} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -3.6888280759411565; y: 5.5221764237357895} at speed 10.0 with direction { x: 0.2808231493013657; y: -0.9597595317664017} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: 2.2289067985119626; y: -3.3300607225810808} at speed 10.0 with direction { x: 0.23060995071139695; y: 0.9730462736339351} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: 3.955505420901919; y: -8.897050105243551} at speed 10.0 with direction { x: -0.48314277886731377; y: -0.875541578240788} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -2.293549385540551; y: 6.0227903918790044} at speed 10.0 with direction { x: 0.9999996735286643; y: -8.080486153957428E-4} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -4.619609211664834; y: -2.2297492742241314} at speed 10.0 with direction { x: -0.0918897632304253; y: 0.995769185812383} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 2.7931006526545845; y: 8.571768666065015} at speed 10.0 with direction { x: -0.9915280061092814; y: 0.12989308334531433} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -3.153500764038702; y: -3.3024918095537963} at speed 10.0 with direction { x: -0.8132678962408647; y: 0.581889447355731} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 0.06720033241628265; y: 5.643554204603456} at speed 10.0 with direction { x: 0.5226298219906409; y: 0.8525597158944535} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -4.219082272705224; y: -1.1177971322152835} at speed 10.0 with direction { x: 0.4744070652861576; y: -0.8803055926248426} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -0.7189173445067221; y: -9.032162505241676} at speed 10.0 with direction { x: -0.7144867356882358; y: 0.6996489866537141} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -4.242828081167572; y: 5.61051084949352} at speed 10.0 with direction { x: -0.30966851862799466; y: 0.9508445764533461} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -1.1857824906714889; y: 4.165620965058327} at speed 10.0 with direction { x: -0.5454336656615452; y: -0.8381539932273842} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -4.254738125245725; y: 2.4621910198657293} at speed 10.0 with direction { x: 0.09836215228182034; y: 0.9951506855740432} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -2.2828378209352795; y: -1.8452688013194578} at speed 10.0 with direction { x: -0.4852834110969363; y: -0.8743569127731088} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -0.43176677330182134; y: -3.3302049298992955} at speed 10.0 with direction { x: 0.797003119760575; y: -0.6039751874803386} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -2.665780054599095; y: 1.104870512192047} at speed 10.0 with direction { x: -0.04430145282044579; y: -0.9990182086819026} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -1.862649588567633; y: 5.168202768381773} at speed 10.0 with direction { x: 0.9929879595451383; y: 0.11821553281351402} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 0.24384405090120786; y: 6.568008690741596} at speed 10.0 with direction { x: -0.5355236941711424; y: -0.8445202028260146} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -0.022533110965482273; y: 1.0802190454907663} at speed 10.0 with direction { x: -0.34966381150453046; y: 0.9368752419207823} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -2.189900794281707; y: -9.201901895786563} at speed 10.0 with direction { x: 0.5070036784459095; y: -0.8619438903097562} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -2.7959339606824054; y: -9.479185458567155} at speed 10.0 with direction { x: 0.22632939906152907; y: -0.974050821631216} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: 1.6451653235922636; y: 6.659030588534211} at speed 10.0 with direction { x: 0.5746884771622003; y: 0.818372258948818} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -4.402348175488926; y: 1.698686653694006} at speed 10.0 with direction { x: -0.10661266089013917; y: -0.9943006288532278} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -0.13567185422543737; y: -3.2294554838234024} at speed 10.0 with direction { x: 0.5556658606919505; y: 0.8314057079798489} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -0.5386939842920144; y: -9.00663187038758} at speed 10.0 with direction { x: -0.8765283795229735; y: 0.4813501842638373} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -0.4617319070632018; y: -0.08956683745209482} at speed 10.0 with direction { x: 0.11721415982020592; y: 0.9931066613096718} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 3.1296355361559836; y: 5.411169965651252} at speed 10.0 with direction { x: -0.9911384012118306; y: -0.1328332399787656} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: -0.307778274723689; y: -8.982747711550367} at speed 10.0 with direction { x: 0.9996172162453887; y: -0.02766624271237049} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -1.4677454002264412; y: 1.3259654258507467} at speed 10.0 with direction { x: 0.0880603127411873; y: -0.9961151446092587} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -3.5162957618269655; y: -8.119383707389499} at speed 10.0 with direction { x: -0.5207107132509037; y: 0.8537331861335455} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -2.021638374244441; y: -1.5299762031278306} at speed 10.0 with direction { x: 0.03637160041467892; y: 0.9993383344409815} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -4.1994094341852275; y: -2.0404581633462335} at speed 10.0 with direction { x: -0.5665329878234983; y: -0.8240390607900696} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: 2.566777020237189; y: -9.983654719753194} at speed 10.0 with direction { x: 0.46775581286893; y: 0.8838577371541908} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 0.10337099352335066; y: 6.221983058586433} at speed 10.0 with direction { x: -0.9282654452347611; y: 0.3719183555339949} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 2.318920339887842; y: -4.685210259536589} at speed 10.0 with direction { x: 0.9997719681756939; y: 0.021354429285266954} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -4.414157731744293; y: 5.074557710146614} at speed 10.0 with direction { x: -0.7878453422038226; y: -0.6158731336628848} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -2.1877254796022347; y: -0.053861218078697704} at speed 10.0 with direction { x: 0.9568526260346886; y: -0.2905736602834478} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 1.866169442088835; y: -1.1457777606792199} at speed 10.0 with direction { x: -0.956978318983186; y: 0.29015943375343783} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: 2.6603200724286546; y: -0.5753542549629742} at speed 10.0 with direction { x: 0.030889762971341286; y: 0.9995227974106315} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -0.060951019784410754; y: 6.276924363671094} at speed 10.0 with direction { x: 0.378494633770196; y: 0.9256034854121744} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -0.9918445417410382; y: 9.82083815802741} at speed 10.0 with direction { x: -0.0037137857667478903; y: -0.9999931038738611} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -4.309450934308208; y: 2.607026320751917} at speed 10.0 with direction { x: 0.46085299304455446; y: 0.8874764891544316} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -1.68087264249254; y: 9.257925277919535} at speed 10.0 with direction { x: -0.9662791926099573; y: 0.25749664450056237} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 2.036975083502753; y: 1.2201918548358357} at speed 10.0 with direction { x: 0.885760347620431; y: -0.4641428730286973} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -0.4749300002073191; y: -5.233201598064287} at speed 10.0 with direction { x: -0.9993380622060505; y: -0.03637907951358677} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -4.968873989119393; y: -3.3714541746215296} at speed 10.0 with direction { x: 0.9040610661562449; y: 0.4274033091360355} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 0.15760875079494951; y: -0.025647967293247476} at speed 10.0 with direction { x: -0.9487183919924003; y: 0.31612246471162797} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 1.0590378747450324; y: 7.0725436061778595} at speed 10.0 with direction { x: 0.8567918949275596; y: 0.5156623398954416} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: 2.9165138975301206; y: -7.792937180911689} at speed 10.0 with direction { x: 0.00330971113737976; y: -0.9999945228910941} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -3.0616329730909193; y: 8.89504155046538} at speed 10.0 with direction { x: -0.5085958214465404; y: -0.8610053951091821} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: 3.990061098664792; y: 0.18823504709596328} at speed 10.0 with direction { x: 0.40281826121337455; y: 0.9152799836296178} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: 3.4597838616936203; y: 4.113427252918602} at speed 10.0 with direction { x: -0.03219256879789044; y: -0.9994816849318416} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -1.4787579683651337; y: -5.291498613627919} at speed 10.0 with direction { x: 0.7734126914924407; y: -0.6339028384842733} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 1.9248821835071883; y: -6.651296470729193} at speed 10.0 with direction { x: -0.17253901965665838; y: -0.9850026835983339} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 1.624852583748532; y: 5.0668148049249995} at speed 10.0 with direction { x: 0.6727298583408272; y: 0.739888192699904} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 0.33466176191266506; y: 0.07492079603015256} at speed 10.0 with direction { x: -0.9624373936603049; y: -0.2715037076806861} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 0.5768757273066019; y: -3.7625876239079368} at speed 10.0 with direction { x: 0.8560768079740045; y: -0.5168486227601261} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 4.466778450339312; y: -2.235615464303347} at speed 10.0 with direction { x: -0.6670376306885974; y: -0.7450240259517421} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -2.9426857599824885; y: -7.586244444830847} at speed 10.0 with direction { x: -0.221298074104284; y: 0.9752062153194754} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -2.968548761106428; y: 6.887235827895344} at speed 10.0 with direction { x: 0.5833142196901544; y: 0.8122465888554203} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: 4.441756514452427; y: 3.201813470455126} at speed 10.0 with direction { x: -0.43249591451426617; y: -0.9016358932121484} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -4.12264107715599; y: -6.577896544259968} at speed 10.0 with direction { x: -0.412003241736988; y: 0.9111823795477023} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -4.686623376543968; y: 0.3195837801862016} at speed 10.0 with direction { x: -0.6416813755330169; y: 0.7669713242971054} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -0.45542502896399384; y: -3.6611379096512273} at speed 10.0 with direction { x: 0.09209856965427295; y: 0.9957498950377233} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 3.5675953523716366; y: -1.368480265269799} at speed 10.0 with direction { x: -0.5164306006478665; y: -0.8563290458197034} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 0.8400624727029617; y: 0.12970981011333826} at speed 10.0 with direction { x: 0.9630829305556364; y: 0.26920488270528664} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -2.9348263053016597; y: 6.285985507855529} at speed 10.0 with direction { x: -0.7330360388814382; y: 0.6801898012327225} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: -4.288456248257022; y: 1.7658010938018958} at speed 10.0 with direction { x: -0.4104534546794484; y: 0.911881550170693} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: 3.852460711454028; y: 4.445191168979552} at speed 10.0 with direction { x: 0.9968029448989498; y: -0.07989924305511902} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -2.8571295407797646; y: -1.7584098904220173} at speed 10.0 with direction { x: -0.4577944270824345; y: -0.8890580760176837} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -3.7925510881476487; y: -0.6322530101054333} at speed 10.0 with direction { x: -0.14980426562886143; y: 0.9887156729815693} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: 1.1557718946638396; y: -3.003128092964232} at speed 10.0 with direction { x: 0.6417145164082464; y: -0.7669435959905594} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -1.2666487287064276; y: -2.313575877215035} at speed 10.0 with direction { x: 0.6638773674386755; y: -0.747841454455885} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 3.111843389051704; y: -4.855426843564912} at speed 10.0 with direction { x: 0.4690604006244147; y: -0.8831660888904553} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 4.66432632389581; y: -6.303142690860014} at speed 10.0 with direction { x: 0.8562842860177807; y: 0.5165048126775003} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: -2.789665511811549; y: 2.5294401024252195} at speed 10.0 with direction { x: -0.9898918700083289; y: 0.14182413649098535} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -4.475221585694872; y: 0.6454129467534049} at speed 10.0 with direction { x: 0.3110590831599248; y: -0.9503905759127176} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 2.901544151117906; y: -2.376036583242467} at speed 10.0 with direction { x: 0.5266150291643642; y: -0.8501038825097882} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: -3.25093785410162; y: -3.2583643512207843} at speed 10.0 with direction { x: -0.9900961064972971; y: -0.14039123868280745} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: 0.31159222743749915; y: 3.882523930745916} at speed 10.0 with direction { x: 0.47586924758800525; y: 0.8795160369203199} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: 3.791487502722349; y: 3.9578239056935} at speed 10.0 with direction { x: 0.4363885615739846; y: -0.8997583138417721} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: 2.7035927077090163; y: 0.2762016816170956} at speed 10.0 with direction { x: -0.49451406248100155; y: 0.8691696278681947} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: 3.1895955231852424; y: 9.131494564882862} at speed 10.0 with direction { x: -0.05408752910579112; y: 0.9985361982398184} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 4.016336950940104; y: -6.328565679424468} at speed 10.0 with direction { x: -0.4660438201908721; y: 0.8847616388959787} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -2.286383096807013; y: -1.1002478462762397} at speed 10.0 with direction { x: -0.9487175282628378; y: -0.31612505684752623} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 4.157886915379936; y: 8.674181333721542} at speed 10.0 with direction { x: 0.9991047963596894; y: 0.042303733772131376} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -3.0567830381717815; y: -1.5258022323231408} at speed 10.0 with direction { x: -0.2871238358497089; y: 0.9578934715754928} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: -1.1954054404112844; y: -9.309767668013833} at speed 10.0 with direction { x: -0.792180344090462; y: -0.6102870655984094} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: 2.541248204114029; y: 7.348775684578655} at speed 10.0 with direction { x: 0.5961972407359306; y: 0.8028379974433588} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -4.327939046126232; y: -1.8622893031376382} at speed 10.0 with direction { x: -0.5086209306992953; y: -0.8609905625816014} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -0.18163250379627804; y: -1.1168717026234294} at speed 10.0 with direction { x: -0.8389715808389671; y: 0.5441752351444933} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: 1.6315298681907855; y: -5.716799947912747} at speed 10.0 with direction { x: 0.361512861119086; y: -0.9323671225678716} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: 1.3625331751804968; y: -7.0942011747345575} at speed 10.0 with direction { x: -0.01587509162808867; y: -0.9998739827927315} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: 4.087492054030992; y: 6.860397905017663} at speed 10.0 with direction { x: 0.5695367045306358; y: 0.8219659008696062} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: -4.784742647657451; y: -6.958910174542499} at speed 10.0 with direction { x: 0.1338387824915316; y: -0.9910031182096172} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 2.1596356637481886; y: 2.9437271682068733} at speed 10.0 with direction { x: -0.5165052061415628; y: -0.8562840486828315} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: -1.7271084933822598; y: 2.619158123770154} at speed 10.0 with direction { x: 0.5164224526973741; y: -0.856333959591717} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: 2.005290797993787; y: 5.47106935149583} at speed 10.0 with direction { x: 0.6426975802245474; y: 0.7661199777929768} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+MOVE RANDOM execution in position { x: 0.3445555519080141; y: -6.908885163245419} at speed 10.0 with direction { x: -0.4513471899091436; y: -0.8923484264350554} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+SIGNAL execution label UNTIL by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+DONE command executed by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f
+MOVE RANDOM execution in position { x: -2.680622172760595; y: 6.1169217039182495} at speed 10.0 with direction { x: 0.31023689978484015; y: 0.9506592796643238} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@40e32ca8
+MOVE RANDOM execution in position { x: -3.4333749221330443; y: -7.666924667520242} at speed 10.0 with direction { x: 0.6853473567422902; y: -0.7282163144329823} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@6896e564
+MOVE RANDOM execution in position { x: -4.859736634975745; y: 7.1830422094211706} at speed 10.0 with direction { x: -0.4075038044559609; y: 0.9132035092759544} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@1a000e81
+MOVE RANDOM execution in position { x: -3.358254929963966; y: 4.450978094588365} at speed 10.0 with direction { x: -0.34208957469352; y: 0.9396673469297561} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3f74e478
+MOVE RANDOM execution in position { x: -1.5795631865172304; y: -7.055791760315028} at speed 10.0 with direction { x: -0.5119859442642177; y: -0.8589938258659822} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@72dc3cf8
+MOVE RANDOM execution in position { x: 2.2579438864509416; y: 6.291928154080749} at speed 10.0 with direction { x: 0.048583323868523036; y: 0.9988191330976225} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@41e28d6d
+MOVE RANDOM execution in position { x: 1.7955987044650215; y: -7.844459712978097} at speed 10.0 with direction { x: 0.6890832731696367; y: 0.7246821666343253} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@3bf25b44
+UNTIL execution label CRISTIANO by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@7f2be3e1
+MOVE RANDOM execution in position { x: 0.8929709504450489; y: -1.0000531953897607} at speed 10.0 with direction { x: -0.5038594481153376; y: 0.8637856542828826} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@17486058
+MOVE RANDOM execution in position { x: -2.3628159799243598; y: -7.218027484925681} at speed 10.0 with direction { x: -0.1015044311800449; y: -0.9948350870625823} by Robot: it.unicam.cs.mp.progettoesame.api.models.Robot@8d92e3f

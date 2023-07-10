@@ -88,7 +88,11 @@ public class RobotSimulationController {
      */
     public void setExitConfiguration(Stage stage) {
         stage.setOnCloseRequest(v -> {
-            this.terminalAppExecutor.closeTerminal();
+            try {
+                this.terminalAppExecutor.closeTerminal();
+            } catch (IOException e) {
+                this.showErrorAlert(e.getMessage());
+            }
             Platform.exit();
         });
     }
@@ -488,7 +492,7 @@ public class RobotSimulationController {
      * @throws IOException se c'è qualche problema nell'apertura dell'applicazine
      */
     private void hasToOpenTerminal() throws IOException {
-        if(!this.terminalAppExecutor.isOpened()) {
+        if(!this.terminalAppExecutor.isOpened() && System.getProperty("os.name").contains("Windows")) {
             Optional<ButtonType> result = this.showConfirmAlert("Terminale", "Vuoi aprire l'applicazione terminale?");
             if(result.isPresent() && result.get() == ButtonType.YES) {
                 this.terminalAppExecutor.openTerminal();
@@ -512,7 +516,7 @@ public class RobotSimulationController {
 
     /**
      * Metodo che disabilita il bottone, così da non poterlo più cliccare
-     * @param target
+     * @param target il bottone da disabilitare
      */
     private void disableButton(Button target) {
         target.setDisable(true);

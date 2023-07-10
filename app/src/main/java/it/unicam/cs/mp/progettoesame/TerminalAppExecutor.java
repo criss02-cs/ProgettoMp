@@ -15,22 +15,35 @@ public class TerminalAppExecutor {
      * @throws IOException se c'è qualche errore nell'avvio del programma
      */
     public void openTerminal() throws IOException {
-        String osName = System.getProperty("os.name");
+        String osName = this.getOsName();
         ProcessBuilder processBuilder;
         if(osName.contains("Windows")) {
             processBuilder = new ProcessBuilder("..\\Terminal\\Terminal.exe");
         } else {
-            processBuilder = new ProcessBuilder("open ../maccatalyst-x64/Terminal.app");
+            processBuilder = new ProcessBuilder("sh", "-c", "open ../mac/Terminal.app");
         }
         this.terminalProcess = processBuilder.start();
     }
 
     /**
-     * Metodo che chiude il terminale, se è stato avviato
+     * Metodo che ritorna il nome del sistema operativo in cui si sta eseguendo il programma
+     * @return il nome del sistema operativo
      */
-    public void closeTerminal() {
+    private String getOsName() {
+        return System.getProperty("os.name");
+    }
+
+    /**
+     * Metodo che chiude il terminale, se è stato avviato
+     * Nei sistemi operativi Mac OS esegue il comando per terminare il processo
+     * @throws IOException se c'è qualche problema nell'esecuzione del comando
+     */
+    public void closeTerminal() throws IOException {
         if(terminalProcess != null && terminalProcess.isAlive()) {
             terminalProcess.destroy();
+        }
+        if(this.getOsName().contains("Mac")) {
+            new ProcessBuilder("sh", "-c", "pkill Terminal").start();
         }
     }
 

@@ -4,7 +4,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class Console {
-    private static final String PATH = "../logger.txt";
+    private static final String PATH = System.getProperty("user.home") + "/Downloads/logger.txt";
     private static final File file = new File(PATH);
     public static synchronized void writeLine(String line) {
         try {
